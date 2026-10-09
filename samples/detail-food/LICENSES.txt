@@ -1,0 +1,94 @@
+이미지·글꼴 출처 및 라이선스 기록
+====================================
+
+상세페이지: 엄마손 반찬 국내산 무 깍두기 1kg (포트폴리오 샘플 · 가상 상품)
+작성일: 2026-10-09
+작성: 하루랜딩
+
+사진은 모두 Pexels 에서 받은 무료 이미지입니다. 각 사진 페이지의 구조화 데이터(ImageObject.license)가
+https://www.pexels.com/license/ 를 가리키는 것을 확인했습니다.
+Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없음(아래에 기록으로 남김),
+사진을 변경 없이 그대로 판매하거나 사람이 나온 사진을 부정적으로 쓰는 것은 금지.
+사진 속 음식·그릇·장소는 이 가상 상품과 관계가 없습니다(분위기 사진). 페이지 첫 사진과 맨 아래에
+"사진은 분위기를 보여 드리는 이미지로, 실제 상품과 다를 수 있습니다"를 적었습니다.
+각 사진은 Pexels 에서 1800px 폭으로 받아 긴 변 1600px JPEG(품질 80)로 줄였습니다.
+
+
+1. 이미지
+---------
+파일: assets/hero.jpg
+  쓰인 곳: 첫 화면 큰 사진 — 흰 그릇에 담긴 깍두기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/close-up-shot-of-side-dish-in-a-white-plate-8954382/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기(object-fit)
+
+파일: assets/radish.jpg
+  쓰인 곳: "재료" — 무 (사진은 무 품종이 실제 상품과 다를 수 있음)
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/fresh-harvest-of-organic-daikon-radishes-35625125/
+  작가: L. Lum (https://www.pexels.com/@l-lum-2158594693/)
+  라이선스: Pexels License
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기
+
+파일: assets/gochugaru.jpg
+  쓰인 곳: "맛" — 고춧가루와 마른 고추
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/rich-red-chili-powder-in-white-bowl-33440710/
+  작가: Bonaventure Fernandez (https://www.pexels.com/@bonaventure-fernandez-744363/)
+  라이선스: Pexels License
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기
+
+파일: assets/bowl-wood.jpg
+  쓰인 곳: "보관" — 나무 식탁 위 깍두기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/sliced-radish-kimchi-on-white-ceramic-saucer-8866494/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기
+
+파일: assets/bowl-table.jpg
+  쓰인 곳: "만드는 과정" 양념 버무리기 단계
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/bowl-of-soup-with-potatoes-8886576/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License (Pexels 제목은 "Bowl of Soup with Potatoes"이나 실제 사진은 깍두기)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기
+
+파일: assets/gukbap.jpg
+  쓰인 곳: "맛있게 먹는 법" — 뚝배기 해장국 옆 깍두기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/soup-with-onion-leaks-in-a-black-bowl-8953853/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License
+  받은 날짜: 2026-10-09
+  수정: 크기 조정, 화면에서 자르기
+
+참고
+- Pexels License:   https://www.pexels.com/license/
+- Unsplash License: https://unsplash.com/license
+- 고객 제공 사진으로 바꾸면 위 줄을 "출처: 고객 제공"으로 고치고, 분위기 사진 안내 문구는 지워도 됩니다.
+
+
+2. 글꼴
+-------
+Pretendard (jsDelivr CDN 에서 불러옴, 렌더링한 PNG 에 글자 모양으로 들어감)
+  https://github.com/orioncactus/pretendard
+  SIL Open Font License, Version 1.1 — 상업 이용 가능, 글꼴 파일 단독 판매 금지
+
+  Copyright (c) 2021, Kil Hyung-jin (https://github.com/orioncactus/pretendard),
+  with Reserved Font Name 'Pretendard'.
+
+  This Font Software is licensed under the SIL Open Font License, Version 1.1.
+  The license is available with a FAQ at: https://openfontlicense.org
+
+
+3. 아이콘·그래픽
+----------------
+로고 마크, 아이콘, 요일표, 숙성 막대 등은 하루랜딩이 HTML/CSS/SVG 로 직접 그렸습니다 (별도 라이선스 없음).
