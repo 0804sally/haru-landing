@@ -5,17 +5,17 @@
 Unsplash License: https://unsplash.com/license
  - 상업적·비상업적 이용 가능, 출처 표기 의무 없음(아래에 기록으로 남김)
  - 사진을 변경 없이 그대로 판매하는 것, 유사 경쟁 서비스 구축은 금지
-각 사진은 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
+각 사진은 긴 변 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
 사진 속 장소·인물은 이 가상 업체와 관계가 없습니다.
 
 assets/before.jpg, assets/before-800.jpg
-  쓰인 곳: 전후 비교 — 시공 전 예시(다른 공간)
+  쓰인 곳: 첫 화면 아치 속 시공 전후 비교 — 시공 전 예시(다른 공간)
   원본 페이지: https://unsplash.com/photos/peeling-wallpaper-in-an-empty-room-with-a-window-n5fgtBuF4w4
   작가: Lutz Stallknecht (https://unsplash.com/@nikodemus777)
   라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
 
 assets/after.jpg, assets/after-800.jpg
-  쓰인 곳: 전후 비교 — 시공 후 예시(다른 공간) · 시공 사례
+  쓰인 곳: 첫 화면 아치 속 시공 전후 비교 — 시공 후 예시(다른 공간) · 시공 사례 큰 사진
   원본 페이지: https://unsplash.com/photos/living-room-with-grey-velvet-sofas-mw_mj-noYHM
   작가: Zac Gudakov (https://unsplash.com/@zacgudakov)
   라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
@@ -32,11 +32,41 @@ assets/bath.jpg, assets/bath-800.jpg
   작가: Lotus Design N Print (https://unsplash.com/@lotusdnp)
   라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
 
-assets/livingroom.jpg, assets/livingroom-800.jpg
-  쓰인 곳: 시공 사례 — 29평 거실 확장
-  원본 페이지: https://unsplash.com/photos/white-and-brown-living-room-set-QGxBeUDkeWk
-  작가: Huy Nguyen (https://unsplash.com/@huynguyen_pch)
-  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+assets/i-plan.jpg, assets/i-plan-800.jpg
+  쓰인 곳: 약속 카드 — 항목별 견적서(도면과 제도 도구)
+  원본 페이지: https://unsplash.com/photos/architectural-blueprints-with-drafting-tools-Yn8D5B8C-eY
+  작가: Lucas Kepner (https://unsplash.com/@lucaskphoto)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/i-sign.jpg, assets/i-sign-800.jpg
+  쓰인 곳: 약속 카드 — 추가금 없는 계약(서명)
+  원본 페이지: https://unsplash.com/photos/person-writing-on-white-paper-GJao3ZTX9gU
+  작가: Cytonn Photography (https://unsplash.com/@cytonn_photography)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/i-tile.jpg, assets/i-tile-800.jpg
+  쓰인 곳: 약속 카드 — 공정표 준수(타일 재단)
+  원본 페이지: https://unsplash.com/photos/person-cutting-tile-with-angle-grinder-6dnuVViEiR8
+  작가: Renovations Certified (https://unsplash.com/@renovationscertified)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/i-keys.jpg, assets/i-keys-800.jpg
+  쓰인 곳: 약속 카드 — A/S 보증서와 입주(열쇠)
+  원본 페이지: https://unsplash.com/photos/a-hand-holding-a-key-to-a-door-3HfGnyPfWqQ
+  작가: Jakub Żerdzicki (https://unsplash.com/@jakubzerdzicki)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/i-site.jpg, assets/i-site-800.jpg
+  쓰인 곳: 상담 신청 섹션 바탕 — 철거 후 빈 집을 살피는 사람
+  원본 페이지: https://unsplash.com/photos/a-man-standing-next-to-a-ladder-in-front-of-a-window-5ygwnHx5RVY
+  작가: Derek Lee (https://unsplash.com/@derekleej)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/i-opened.jpg, assets/i-opened-800.jpg
+  쓰인 곳: 공감 사진 — 천장과 벽을 뜯어 속이 드러난 공사 중인 방 (전체 폭)
+  원본 페이지: https://unsplash.com/photos/interior-room-undergoing-renovation-with-exposed-walls-and-doorway-R2olgus7AO4
+  작가: Olek Buzunov (https://unsplash.com/@olek_bznv_photo)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
 
 폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
-아이콘·견적서·체크리스트 등 그 밖의 화면 요소는 HTML/CSS/SVG 로 직접 제작했습니다.
+견적서·가격표·공정 단계 카드는 HTML/CSS 로 직접 만든 화면이며, 그 안의 금액·기간은 가상의 예시입니다.

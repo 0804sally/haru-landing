@@ -8,35 +8,65 @@ Unsplash License: https://unsplash.com/license
 각 사진은 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
 사진 속 장소·인물은 이 가상 업체와 관계가 없습니다.
 
-assets/hero.jpg, assets/hero-800.jpg
-  쓰인 곳: 히어로 — 스튜디오 전경
-  원본 페이지: https://unsplash.com/photos/a-gym-with-a-row-of-machines-and-mirrors-a1IhqqW8JQE
-  작가: Ahmet Kurt (https://unsplash.com/@ahmetkurt)
-  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+assets/p-arch.jpg, assets/p-arch-800.jpg
+  쓰인 곳: 첫 화면 아치 사진(휴대폰), 신청 섹션 바탕
+  원본 페이지: https://unsplash.com/photos/woman-does-a-pilates-exercise-on-a-reformer-cZ0WYsBFHhs
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
 
-assets/detail.jpg, assets/detail-800.jpg
-  쓰인 곳: 특징 섹션 — 소도구 벽면
-  원본 페이지: https://unsplash.com/photos/gym-equipment-neatly-organized-on-a-wooden-wall-m56-PAdMhM0
-  작가: Caroline Badran (https://unsplash.com/@___atmos)
-  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+assets/p-lunge.jpg, assets/p-lunge-800.jpg
+  쓰인 곳: 강사 소개 바탕 사진
+  원본 페이지: https://unsplash.com/photos/woman-performs-pilates-on-a-reformer-machine-lKe5jm-Sypw
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
 
-assets/props.jpg, assets/props-800.jpg
-  쓰인 곳: 특징 섹션 원형 이미지 — 짐볼
-  원본 페이지: https://unsplash.com/photos/green-fitness-ball-on-parquet-floor-MaFmLXG_FwY
-  작가: Asier Gil (https://unsplash.com/@peruchena)
-  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+assets/p-plank.jpg, assets/p-plank-800.jpg
+  쓰인 곳: 첫 화면 아치 사진(PC) — 리포머 위 플랭크
+  원본 페이지: https://unsplash.com/photos/woman-doing-pilates-on-a-reformer-machine-Zp4APUiwEsM
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
 
-assets/instructor.jpg, assets/instructor-800.jpg
-  쓰인 곳: 강사 소개 — 리포머 시범
-  원본 페이지: https://unsplash.com/photos/a-woman-is-doing-exercises-on-a-pilates-xtR4JjZeogY
-  작가: Ahmet Kurt (https://unsplash.com/@ahmetkurt)
-  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+assets/p-kneel-800.jpg
+  쓰인 곳: 체험 단계 원형 사진 — 체험
+  원본 페이지: https://unsplash.com/photos/woman-doing-pilates-workout-on-a-reformer-machine-hiHBILFNah4
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/p-legs-800.jpg
+  쓰인 곳: 체험 단계 원형 사진 — 제안
+  원본 페이지: https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine-aY5uOJ2o96g
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/p-press.jpg, assets/p-press-800.jpg
+  쓰인 곳: "결이 다른 이유" 카드 — 정원 4명
+  원본 페이지: https://unsplash.com/photos/woman-does-pilates-on-a-machine-in-a-studio-5JQxj-zc5ng
+  작가: ROXANA POPOVICI (https://unsplash.com/@roxanarxx)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/p-ring.jpg, assets/p-ring-800.jpg
+  쓰인 곳: "결이 다른 이유" 카드 — 홈케어 메모
+  원본 페이지: https://unsplash.com/photos/a-woman-sitting-on-the-floor-holding-a-steering-wheel-Opuuyk1cn-o
+  작가: Amine Ben Mohamed (https://unsplash.com/@aminebenmohamed)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/p-mat-800.jpg
+  쓰인 곳: 체험 단계 원형 사진 — 신청
+  원본 페이지: https://unsplash.com/photos/a-woman-in-a-green-sports-bra-top-and-leggings-holding-a-yoga-mat-1Bb2eBSNErE
+  작가: Look Studio (https://unsplash.com/@lookphoto)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
+
+assets/p-back.jpg, assets/p-back-800.jpg
+  쓰인 곳: 공감 사진 — 숙인 등과 어깨
+  원본 페이지: https://unsplash.com/photos/woman-bending-forward-in-sports-bra-N21356amsyw
+  작가: Jade Stephens (https://unsplash.com/@jadestephens)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인, 2026-10-09)
 
 assets/guide.jpg, assets/guide-800.jpg
-  쓰인 곳: 신청 섹션 — 동작을 잡아 주는 손
+  쓰인 곳: "결이 다른 이유" 카드 — 첫 수업 체형 체크(동작을 잡아 주는 손)
   원본 페이지: https://unsplash.com/photos/a-close-up-of-a-persons-hands-shaking-O29FNlHuKk8
   작가: Raspopova Marina (https://unsplash.com/@raspopovamarisha)
   라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
 
 폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
-아이콘·도형·앱 화면 목업 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.
+로고·체크 아이콘·화살표 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.

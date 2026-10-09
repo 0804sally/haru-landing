@@ -8,456 +8,479 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='10' fill='%2324482F'/%3E%3Cpath d='M8 16.5h18a9 9 0 0 1-18 0Z' fill='%23F7E3D8'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-/* 860px 고정 폭 상세페이지. 휴대폰에서는 약 0.44배로 줄어 보이므로 본문은 28px 이상으로 둔다. */
+/* 블록 스타일은 kit/blocks/detail/blocks.css 에서 옵니다.
+   고친 뒤에는 `node kit/blocks/detail/inline.mjs samples/detail-food/index.html` 로 아래 구간을 새로 채우세요. */
+/* @blocks:start */
+/* ──────────────────────────────────────────────────────────────
+   상세페이지 블록 라이브러리 (860px 고정 폭) — kit/blocks/detail/
+   사진이 주인공, 글은 블록마다 제목 1줄(2줄까지) + 짧은 1줄.
+   휴대폰에서는 약 0.44배로 줄어 보인다 → 본문 26px 이상, 제목 60px 이상.
+   ────────────────────────────────────────────────────────────── */
+
 :root{
+  /* ① 브랜드 색 — 이 블록만 바꾸면 모든 블록이 다시 칠해진다 */
+  --brand:#24482F;        /* 대표색: 진한 색 블록, 구매 버튼, 숫자 */
+  --brand-deep:#15301E;   /* 더 진한 블록(재료·인증) */
+  --accent:#C4502A;       /* 제목 속 키워드 한 단어 */
+  --accent-light:#F4A47E; /* 어두운 바탕 위 키워드 */
+  --accent-soft:#F7E2D6;  /* 밝은 강조 블록 바탕 */
+  --tint:#EDF1EA;         /* 밝은 바탕 블록 */
+
+  /* ② 바뀔 일이 거의 없는 값 */
   --paper:#FFFFFF;
-  --mist:#F1F4EF;
-  --green:#24482F;
-  --green-2:#183421;
-  --green-tint:#E3EBE0;
-  --persimmon:#AE4520;
-  --persimmon-2:#C9572B;
-  --persimmon-soft:#F7E3D8;
-  --ink:#1E211D;
-  --muted:#596057;
-  --line:rgba(30,33,29,.14);
-  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
-  --pad:72px;
+  --ink:#191B18;
+  --muted:#5D645A;
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --pad:64px;             /* 좌우 여백 */
+  --gap:150px;            /* 블록 위아래 여백 */
+  --r:28px;               /* 사진 모서리 */
 }
+
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;background:#d9ddd6}
-body{font-family:var(--sans);color:var(--ink);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;letter-spacing:-.025em}
-h1,h2,h3,p,ul,ol,dl,dd,dt,figure,table{margin:0}
+html,body{margin:0;background:#D9DCD6}
+body{font-family:var(--font);color:var(--ink);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;letter-spacing:-.025em}
+h1,h2,h3,p,ul,ol,dl,dd,dt,figure,blockquote,table{margin:0}
 ul,ol{padding:0;list-style:none}
-img{display:block;width:100%;height:auto}
+img{display:block;max-width:100%}
 
 .page{width:860px;margin:0 auto;background:var(--paper);overflow:hidden}
-.sec{position:relative}
+
+/* ── 색 블록(톤). 블록 <section>에 하나씩. 이어지는 두 블록은 다른 톤으로. ── */
+.blk{position:relative;background:var(--bg);color:var(--fg);
+  --bg:var(--paper);--fg:var(--ink);--sub:var(--muted);--kw:var(--accent);--line:rgba(25,27,24,.14);
+  --box:var(--brand);--box-fg:#fff;--dim:#B3B8B0}
+.t-paper{--bg:var(--paper)}
+.t-tint{--bg:var(--tint)}
+.t-soft{--bg:var(--accent-soft)}
+.t-brand{--bg:var(--brand);--fg:#fff;--sub:rgba(255,255,255,.74);--kw:var(--accent-light);--line:rgba(255,255,255,.2);--box:#fff;--box-fg:var(--brand);--dim:rgba(255,255,255,.42)}
+.t-deep{--bg:var(--brand-deep);--fg:#fff;--sub:rgba(255,255,255,.72);--kw:var(--accent-light);--line:rgba(255,255,255,.18);--box:#fff;--box-fg:var(--brand-deep);--dim:rgba(255,255,255,.4)}
+.t-ink{--bg:var(--ink);--fg:#fff;--sub:rgba(255,255,255,.72);--kw:var(--accent-light);--line:rgba(255,255,255,.18);--box:var(--accent);--box-fg:#fff;--dim:rgba(255,255,255,.38)}
+.t-accent{--bg:var(--accent);--fg:#fff;--sub:rgba(255,255,255,.82);--kw:var(--accent-soft);--line:rgba(255,255,255,.28);--box:#fff;--box-fg:var(--accent);--dim:rgba(255,255,255,.5)}
+
+/* ── 글자 ──
+   제목은 블록당 2~4줄, 줄마다 8~9글자 안팎. 강조는 한 줄에 하나:
+   <b>키워드</b> = 색, <mark>키워드</mark> = 색 상자, <span class="dim">말</span> = 옅은 회색 */
 .in{padding:0 var(--pad)}
+.center{text-align:center}
+.lbl{font-size:28px;font-weight:700;color:var(--kw);letter-spacing:-.02em}
+.eyebrow{font-size:26px;font-weight:700;letter-spacing:.42em;color:var(--sub)}
+.center .eyebrow,.eyebrow.center{padding-left:.42em}
+.hl{font-size:92px;line-height:1.2;font-weight:800;letter-spacing:-.055em;margin-top:22px}
+.lbl+.hl,.eyebrow+.hl{margin-top:26px}
+.hl:first-child{margin-top:0}
+.hl b{color:var(--kw);font-weight:inherit}
+.hl mark,.mk{background:var(--box);color:var(--box-fg);padding:0 .2em 0 .14em;margin:0 .06em 0 .02em;border-radius:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl .dim,.dim{color:var(--dim)}
+.hl.xl{font-size:112px;line-height:1.12;letter-spacing:-.06em}
+.hl.md{font-size:76px}
+.hl.sm{font-size:62px}
+.sub{font-size:32px;line-height:1.55;color:var(--sub);margin-top:34px;font-weight:600}
+.sub strong{color:var(--fg);font-weight:700}
+/* 아래 블록으로 내려가는 화살표 꼭지 (어두운 블록에 추천) */
+.has-arrow{z-index:4}
+.has-arrow::after{content:"";position:absolute;left:50%;bottom:-62px;width:168px;height:64px;transform:translateX(-50%);background:var(--bg);clip-path:polygon(0 0,100% 0,50% 100%);z-index:5}
+/* 스톡 사진 위 작은 안내 */
+.photo-note{position:absolute;right:24px;bottom:20px;font-size:18px;color:rgba(255,255,255,.9);text-shadow:0 1px 6px rgba(0,0,0,.45);letter-spacing:-.01em;z-index:2}
+.cover{width:100%;height:100%;object-fit:cover}
 
-/* 공통 글자 */
-.tag{display:inline-flex;align-items:center;gap:12px;font-size:26px;font-weight:700;color:var(--persimmon);letter-spacing:-.02em}
-.tag::before{content:"";width:36px;height:3px;background:currentColor;border-radius:2px}
-.h2{font-size:64px;line-height:1.24;font-weight:800;letter-spacing:-.045em;margin-top:28px}
-.h2 b{color:var(--persimmon);font-weight:800}
-.lead{font-size:30px;line-height:1.7;color:var(--muted);margin-top:32px;font-weight:450}
-.lead strong{color:var(--ink);font-weight:700}
-.cap{font-size:20px;color:var(--muted);letter-spacing:-.01em}
+/* ──────────────── 01 첫 화면(훅) — 대표색 블록 + 아치 사진 ──────────────── */
+.b-hook{overflow:hidden}
+.b-hook__bar{display:flex;align-items:center;justify-content:space-between;padding:44px var(--pad) 0}
+.b-hook__brand{display:flex;align-items:center;gap:14px;font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--fg)}
+.b-hook__tag{font-size:20px;font-weight:600;color:var(--sub);border:1.5px solid var(--line);border-radius:8px;padding:8px 14px}
+.b-hook__copy{padding:110px var(--pad) 0}
+.b-hook__arch{position:relative;margin:96px 48px 0;height:var(--h,880px);border-radius:999px 999px 0 0;overflow:hidden}
+.b-hook__facts{display:grid;grid-template-columns:repeat(var(--n,3),1fr);background:var(--brand-deep);color:#fff}
+.b-hook__facts div{padding:46px 0 48px;text-align:center}
+.b-hook__facts div+div{border-left:1px solid rgba(255,255,255,.16)}
+.b-hook__facts dt{font-size:24px;font-weight:600;color:rgba(255,255,255,.66)}
+.b-hook__facts dd{font-size:44px;font-weight:800;margin-top:8px;letter-spacing:-.04em}
 
-/* 1. 첫 화면 */
-.brandbar{display:flex;align-items:center;justify-content:space-between;padding:44px var(--pad) 0}
-.brand{display:flex;align-items:center;gap:14px;font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--green)}
-.brandbar .sample{font-size:20px;font-weight:600;color:var(--muted);border:1.5px solid var(--line);border-radius:8px;padding:8px 14px}
-.hook{padding:110px var(--pad) 84px;text-align:center}
-.hook .kicker{font-size:30px;font-weight:700;color:var(--green);letter-spacing:-.03em}
-.hook h1{font-size:96px;line-height:1.14;font-weight:850;letter-spacing:-.055em;margin-top:30px}
-.hook h1 .crunch{color:var(--persimmon)}
-.hook .sub{font-size:31px;line-height:1.65;color:var(--muted);margin-top:40px}
-.hero-photo{position:relative;height:760px}
-.hero-photo img{height:100%;object-fit:cover;object-position:50% 55%}
-.hero-photo .cap{position:absolute;right:28px;bottom:22px;color:rgba(255,255,255,.88);font-size:18px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);background:var(--green);color:#fff}
-.facts div{padding:52px 0 54px;text-align:center}
-.facts div+div{border-left:1px solid rgba(255,255,255,.18)}
-.facts dt{font-size:22px;font-weight:600;color:#BFD1C2;letter-spacing:-.01em}
-.facts dd{font-size:40px;font-weight:800;margin-top:10px;letter-spacing:-.04em}
-.prodname{padding:72px var(--pad) 96px;text-align:center;background:var(--green-2);color:#fff}
-.prodname .brandline{font-size:24px;font-weight:600;color:#BFD1C2}
-.prodname .name{font-size:52px;font-weight:800;letter-spacing:-.045em;margin-top:16px;line-height:1.3}
-.prodname .note{font-size:24px;color:#BFD1C2;margin-top:20px;line-height:1.6}
+/* ──────────────── 02 질문(문제 제기) — 글자만, 아주 크게 ──────────────── */
+.b-ask{padding:170px var(--pad) 170px}
+.b-ask .hl{font-size:var(--fs,96px);line-height:1.22}
+.b-ask .sub{margin-top:48px}
 
-/* 2. 세 가지 */
-.three{padding:150px var(--pad) 140px;background:var(--mist);text-align:center}
-.three .h2{margin-top:24px}
-.three ul{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:80px;text-align:center}
-.three li{background:#fff;border-radius:28px;padding:52px 18px 48px}
-.three .ico{width:104px;height:104px;margin:0 auto;border-radius:50%;background:var(--persimmon-soft);display:grid;place-items:center}
-.three .ico svg{width:64px;height:64px}
-.three .k{font-size:24px;font-weight:700;color:var(--persimmon);margin-top:30px}
-.three .v{font-size:31px;font-weight:800;line-height:1.38;margin-top:12px;letter-spacing:-.045em}
+/* ──────────────── 03 공감(사진 위 짧은 문장) ──────────────── */
+.b-empathy{min-height:1320px;display:flex;flex-direction:column;justify-content:space-between;padding:var(--gap) var(--pad) 120px;overflow:hidden}
+.b-empathy__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b-empathy::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(17,18,16,.9) 0%,rgba(17,18,16,.62) 30%,rgba(17,18,16,.12) 52%,rgba(17,18,16,.35) 66%,rgba(17,18,16,.92) 100%)}
+.b-empathy>*:not(.b-empathy__bg){position:relative;z-index:2}
+.b-empathy__list{display:grid;gap:18px;justify-items:center}
+.b-empathy__list li{font-size:40px;font-weight:700;letter-spacing:-.04em;line-height:1.3;padding:26px 40px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px)}
+.b-empathy__list li.is-answer{background:#fff;color:var(--ink);border-color:#fff}
+.b-empathy__list li.is-answer b{color:var(--accent)}
 
-/* 3. 포인트 */
-.point{padding:160px 0 0}
-.point .in{padding-bottom:84px}
-.point .num{font-size:24px;font-weight:700;color:var(--muted);margin-left:10px}
-.point-photo{position:relative;height:880px}
-.point-photo img{height:100%;object-fit:cover}
-.point-list{display:grid;gap:0;margin-top:56px;border-top:2px solid var(--ink)}
-.point-list li{display:grid;grid-template-columns:200px 1fr;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);font-size:29px;line-height:1.55}
-.point-list b{font-weight:800;color:var(--green);font-size:26px}
+/* ──────────────── 04 포인트 A: 제목 + 꽉 찬 사진 ──────────────── */
+.b-point{padding-top:var(--gap)}
+.b-point>.in{padding-bottom:96px}
+.b-point__photo{position:relative;height:var(--h,860px)}
+.b-point__photo.is-inset{margin:0 var(--pad);border-radius:var(--r);overflow:hidden}
+.b-point__facts{display:grid;grid-template-columns:repeat(var(--n,3),1fr);padding:72px var(--pad) var(--gap);text-align:center}
+.b-point__facts li+li{border-left:1px solid var(--line)}
+.b-point__facts .v{font-size:60px;font-weight:850;letter-spacing:-.05em;line-height:1.1;color:var(--fg)}
+.b-point__facts .k{font-size:25px;font-weight:600;color:var(--sub);margin-top:12px}
+.b-point.no-facts{padding-bottom:0}
+.b-point.no-facts .b-point__photo.is-inset{margin-bottom:var(--gap)}
 
-.point.dark{background:#141613;color:#fff;padding-bottom:0}
-.point.dark .lead{color:#C9CDC6}
-.point.dark .lead strong{color:#fff}
-.point.dark .tag{color:#F08A5D}
-.point.dark .h2 b{color:#F08A5D}
-.point.dark .point-photo{height:620px}
-.seasoning{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 var(--pad) 150px;margin-top:-90px;position:relative}
-.seasoning li{background:#22251F;border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:34px 10px 30px;text-align:center}
-.seasoning .dot{width:18px;height:18px;border-radius:50%;margin:0 auto}
-.seasoning .n{font-size:30px;font-weight:800;margin-top:20px;letter-spacing:-.04em}
-.seasoning .d{font-size:21px;color:#B7BCB3;margin-top:10px;line-height:1.5}
+/* ──────────────── 05 포인트 B: 사진 위에 제목 ──────────────── */
+.b-over{height:var(--h,1180px);overflow:hidden;--fg:#fff;--sub:rgba(255,255,255,.82);--kw:var(--accent-light);color:#fff}
+.b-over__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b-over::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+.b-over.is-top::before{background:linear-gradient(180deg,rgba(14,15,13,.86) 0%,rgba(14,15,13,.5) 28%,rgba(14,15,13,0) 52%)}
+.b-over.is-bottom::before{background:linear-gradient(0deg,rgba(14,15,13,.9) 0%,rgba(14,15,13,.55) 30%,rgba(14,15,13,0) 56%)}
+.b-over__copy{position:absolute;left:0;right:0;z-index:2;padding:0 var(--pad)}
+.b-over.is-top .b-over__copy{top:var(--gap)}
+.b-over.is-bottom .b-over__copy{bottom:110px}
+.b-over__tags{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.center .b-over__tags,.b-over__copy.center .b-over__tags{justify-content:center}
+.b-over__tags li{font-size:28px;font-weight:700;padding:18px 28px;border-radius:14px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(8px)}
 
-.point.store{padding-bottom:150px}
-.store-wrap{position:relative;margin-top:0}
-.store-wrap .point-photo{height:700px}
-.temp{position:relative;margin:-150px var(--pad) 0;background:#fff;border-radius:30px;box-shadow:0 30px 70px -30px rgba(30,33,29,.35);padding:56px 60px 56px}
-.temp-head{display:flex;align-items:center;gap:36px;padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:40px}
-.temp .big{font-size:120px;font-weight:850;color:var(--green);letter-spacing:-.06em;line-height:1;white-space:nowrap}
-.temp .big small{font-size:56px;font-weight:800;letter-spacing:0;margin-left:6px;vertical-align:top;position:relative;top:8px}
-.temp .big-k{font-size:30px;font-weight:700;line-height:1.45;color:var(--ink);letter-spacing:-.04em}
-.temp ul{display:grid;gap:20px;font-size:29px;line-height:1.5}
-.temp li{display:flex;gap:14px}
-.temp li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--persimmon);margin-top:17px}
+/* ──────────────── 06 포인트 C: 색 블록 + 둥근 사진 + 원형 디테일 ──────────────── */
+.b-inset{padding:var(--gap) 0}
+.b-inset>.in{padding-bottom:88px}
+.b-inset__media{position:relative;margin:0 var(--pad);height:var(--h,760px)}
+.b-inset__main{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.b-inset__dot{position:absolute;left:-28px;bottom:-96px;width:320px;height:320px;border-radius:50%;object-fit:cover;border:14px solid var(--bg)}
+.b-inset__badge{position:absolute;right:36px;bottom:-60px;background:var(--paper);color:var(--ink);border-radius:24px;padding:34px 40px 30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);text-align:center}
+.b-inset__badge .v{font-size:84px;font-weight:850;letter-spacing:-.06em;line-height:1;color:var(--brand)}
+.b-inset__badge .v small{font-size:44px;font-weight:800;margin-left:4px;letter-spacing:0}
+.b-inset__badge .k{font-size:24px;font-weight:700;color:var(--muted);margin-top:12px}
+.b-inset.has-dot{padding-bottom:calc(var(--gap) + 96px)}
 
-/* 4. 만드는 과정 */
-.process{background:var(--green);color:#fff;padding:160px var(--pad) 150px}
-.process .tag{color:#F5B08D}
-.process .h2 b{color:#F5B08D}
-.process .lead{color:#C8D6CA}
-.timeline{margin-top:90px;position:relative}
-.timeline::before{content:"";position:absolute;left:155px;top:20px;bottom:60px;width:2px;background:rgba(255,255,255,.22)}
-.step{display:grid;grid-template-columns:116px 1fr;column-gap:80px;position:relative;padding-bottom:76px}
-.step:last-child{padding-bottom:0}
-.step .time{font-size:34px;font-weight:800;color:#F5B08D;text-align:right;line-height:1.2;letter-spacing:-.03em}
-.step .time span{display:block;font-size:21px;font-weight:600;color:#A9BEAD;margin-bottom:2px;letter-spacing:0}
-.step::after{content:"";position:absolute;left:147px;top:12px;width:18px;height:18px;border-radius:50%;background:#F5B08D;box-shadow:0 0 0 8px var(--green)}
-.step h3{font-size:40px;font-weight:800;letter-spacing:-.045em;line-height:1.3}
-.step p{font-size:28px;line-height:1.65;color:#C8D6CA;margin-top:14px}
-.step figure{margin-top:30px;border-radius:24px;overflow:hidden;height:300px}
-.step figure img{height:100%;object-fit:cover}
+/* ──────────────── 07 재료·스펙 클로즈업(원형 사진) ──────────────── */
+.b-circles{padding:var(--gap) var(--pad)}
+.b-circles__grid{display:grid;grid-template-columns:repeat(var(--n,2),1fr);gap:72px 40px;margin-top:96px;text-align:center}
+.b-circles__grid img{width:var(--d,300px);height:var(--d,300px);border-radius:50%;object-fit:cover;margin:0 auto;box-shadow:0 0 0 10px var(--bg),0 0 0 12px var(--line)}
+.b-circles__grid .n{font-size:46px;font-weight:800;letter-spacing:-.045em;margin-top:34px}
+.b-circles__grid .d{font-size:26px;font-weight:600;color:var(--sub);margin-top:8px}
+.b-circles__foot{margin-top:84px;font-size:30px;font-weight:700;text-align:center;color:var(--sub)}
+.b-circles__foot b{color:var(--kw)}
 
-/* 5. 상품 정보 */
-.info{padding:160px var(--pad) 150px}
-.box{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:72px}
-.box li{border:2px solid var(--line);border-radius:26px;padding:44px 16px 40px;text-align:center}
-.box svg{width:92px;height:92px;margin:0 auto;display:block}
-.box .n{font-size:30px;font-weight:800;margin-top:22px;letter-spacing:-.04em}
-.box .d{font-size:22px;color:var(--muted);margin-top:8px}
-.plus{display:none}
-.spec{width:100%;border-collapse:collapse;margin-top:72px;border-top:3px solid var(--ink);font-size:26px;line-height:1.55}
-.spec th,.spec td{text-align:left;vertical-align:top;padding:28px 0;border-bottom:1px solid var(--line)}
-.spec th{width:220px;font-weight:700;color:var(--green);padding-right:24px}
-.spec td{color:#333830}
-.spec td small{display:block;font-size:21px;color:var(--muted);margin-top:6px}
-.spec .hl{color:var(--persimmon);font-weight:700}
+/* ──────────────── 08 만드는 과정·사용법(사진 단계) ──────────────── */
+.b-steps{padding:var(--gap) var(--pad)}
+.b-steps__grid{display:grid;grid-template-columns:1fr 1fr;gap:64px 28px;margin-top:96px}
+.b-steps__grid figure{position:relative;aspect-ratio:1;border-radius:24px;overflow:hidden;background:var(--tint)}
+.b-steps__grid .when{display:block;font-size:28px;font-weight:800;color:var(--kw);margin-top:30px;letter-spacing:-.02em}
+.b-steps__grid h3{font-size:46px;font-weight:800;letter-spacing:-.05em;line-height:1.25;margin-top:6px}
+.b-steps__grid p{font-size:26px;line-height:1.5;color:var(--sub);margin-top:10px}
 
-/* 6. 먹는 법 */
-.eat{background:var(--mist);padding:160px 0 150px}
-.eat-photo{height:640px;margin-top:84px}
-.eat-photo img{height:100%;object-fit:cover;object-position:40% 50%}
-.ways{display:grid;gap:22px;padding:0 var(--pad);margin-top:-80px;position:relative}
-.way{background:#fff;border-radius:28px;padding:44px 48px;display:grid;grid-template-columns:96px 1fr;gap:36px;align-items:center}
-.way .ic{width:96px;height:96px;border-radius:24px;background:var(--green-tint);display:grid;place-items:center}
-.way .ic svg{width:54px;height:54px}
-.way h3{font-size:34px;font-weight:800;letter-spacing:-.045em}
-.way p{font-size:26px;line-height:1.6;color:var(--muted);margin-top:8px}
-.ripen{margin:110px var(--pad) 0}
-.ripen h3{font-size:44px;font-weight:800;letter-spacing:-.045em;text-align:center;line-height:1.35}
-.ripen .lead{text-align:center;font-size:27px;margin-top:18px}
-.bar{display:grid;grid-template-columns:3fr 4fr 4fr;margin-top:56px;border-radius:20px;overflow:hidden;height:30px}
-.bar i:nth-child(1){background:#F3C9A9}
-.bar i:nth-child(2){background:#E2895A}
-.bar i:nth-child(3){background:var(--persimmon)}
-.stage{display:grid;grid-template-columns:3fr 4fr 4fr;margin-top:28px}
-.stage div{padding-right:18px}
-.stage .d{font-size:22px;font-weight:700;color:var(--muted)}
-.stage .t{font-size:34px;font-weight:800;margin-top:6px;letter-spacing:-.045em}
-.stage .s{font-size:23px;line-height:1.55;color:var(--muted);margin-top:8px}
+/* ──────────────── 09 비교(단계·전후·A vs B) ──────────────── */
+.b-compare{padding:var(--gap) var(--pad)}
+.b-compare__cols{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:16px;margin-top:88px}
+.b-compare__col{border-radius:26px;padding:48px 20px 44px;text-align:center;background:var(--paper);color:var(--ink);display:flex;flex-direction:column;align-items:center}
+.b-compare__col .k{font-size:24px;font-weight:700;color:var(--muted)}
+.b-compare__col .v{font-size:54px;font-weight:850;letter-spacing:-.055em;line-height:1.15;margin-top:18px}
+.b-compare__col .d{font-size:24px;line-height:1.5;color:var(--muted);margin-top:16px}
+.b-compare__col.lv2{background:var(--accent-soft)}
+.b-compare__col.lv3,.b-compare__col.is-ours{background:var(--accent);color:#fff}
+.b-compare__col.is-ours{background:var(--brand)}
+.b-compare__col.lv3 .k,.b-compare__col.lv3 .d,.b-compare__col.is-ours .k,.b-compare__col.is-ours .d{color:rgba(255,255,255,.82)}
+.b-compare__col.is-plain{background:transparent;border:2px solid var(--line)}
+.b-compare__bar{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:16px;margin-top:22px}
+.b-compare__bar i{height:12px;border-radius:6px;background:var(--accent);opacity:.25}
+.b-compare__bar i:nth-child(2){opacity:.6}
+.b-compare__bar i:nth-child(3){opacity:1}
+.b-compare__note{font-size:24px;color:var(--sub);text-align:center;margin-top:36px}
 
-/* 7. 배송 */
-.ship{padding:160px var(--pad) 140px}
-.cal{margin-top:72px;border:2px solid var(--line);border-radius:30px;padding:48px 44px 44px}
-.cal .row{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;text-align:center}
-.cal .d{font-size:24px;font-weight:700;color:var(--muted);padding-bottom:16px}
-.cal .c{height:96px;border-radius:18px;display:grid;place-items:center;font-size:23px;font-weight:700;line-height:1.25}
-.cal .on{background:var(--green);color:#fff}
-.cal .off{background:#EDEEEC;color:#8A9087}
-.cal .legend{display:flex;gap:30px;justify-content:center;margin-top:30px;font-size:22px;color:var(--muted)}
-.cal .legend span{display:inline-flex;align-items:center;gap:10px}
-.cal .legend i{width:18px;height:18px;border-radius:5px;display:inline-block}
-.ship-list{margin-top:56px;border-top:3px solid var(--ink)}
-.ship-list li{display:grid;grid-template-columns:200px 1fr;padding:28px 0;border-bottom:1px solid var(--line);font-size:26px;line-height:1.55}
-.ship-list b{color:var(--green);font-weight:700}
+/* ──────────────── 10 신뢰(배지·기준) ──────────────── */
+.b-trust{padding:var(--gap) var(--pad)}
+.b-trust__seals{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:92px;justify-items:center}
+.b-trust__seals li{width:300px;height:300px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border:3px solid var(--fg);box-shadow:inset 0 0 0 12px var(--bg),inset 0 0 0 14px var(--line)}
+.b-trust__seals .top{font-size:25px;font-weight:700;color:var(--kw);letter-spacing:-.01em}
+.b-trust__seals strong{font-size:60px;font-weight:850;letter-spacing:-.06em;line-height:1.1;margin-top:6px}
+.b-trust__seals .bot{font-size:23px;font-weight:600;color:var(--sub);margin-top:10px}
 
-/* 8. 교환·반품 */
-.policy{background:#F5F5F3;padding:130px var(--pad) 120px}
-.policy h2{font-size:46px;font-weight:800;letter-spacing:-.045em}
-.policy .std{display:inline-block;font-size:19px;font-weight:600;color:var(--muted);border:1.5px solid #C9CCC6;border-radius:8px;padding:6px 12px;margin-top:20px}
-.policy ol{margin-top:44px;display:grid;gap:22px;counter-reset:p}
-.policy li{font-size:24px;line-height:1.65;color:#3E433C;padding-left:44px;position:relative}
-.policy li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:4px;width:28px;height:28px;border-radius:50%;background:#DCDFD9;font-size:17px;font-weight:700;display:grid;place-items:center;color:#4b5049}
-.policy .contact{margin-top:48px;padding-top:36px;border-top:1px solid #DAD9D4;font-size:24px;color:#3E433C;line-height:1.7}
+/* ──────────────── 11 큰 숫자 ──────────────── */
+.b-number{padding:var(--gap) var(--pad)}
+.b-number__big{font-size:300px;font-weight:850;letter-spacing:-.07em;line-height:.9;margin-top:30px}
+.b-number__big small{font-size:96px;font-weight:800;letter-spacing:-.05em;margin-left:10px}
+.b-number .hl{margin-top:44px}
+.b-number__row{display:grid;grid-template-columns:repeat(var(--n,3),1fr);margin-top:96px;border-top:1px solid var(--line);padding-top:56px}
+.b-number__row li+li{border-left:1px solid var(--line)}
+.b-number__row .v{font-size:52px;font-weight:850;letter-spacing:-.05em;line-height:1.1}
+.b-number__row .k{font-size:24px;font-weight:600;color:var(--sub);margin-top:10px}
 
-/* 9. 끝 */
-.end{background:var(--green-2);color:#C8D6CA;padding:90px var(--pad) 96px;text-align:center}
-.end .brand{justify-content:center;color:#fff}
-.end p{font-size:22px;line-height:1.75;margin-top:16px}
-.end .flag{display:inline-block;margin-top:32px;font-size:22px;font-weight:700;color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:8px;padding:6px 14px;line-height:1.4}
-.end strong{color:#fff}
+/* ──────────────── 12 후기 자리(예시 표시 필수) ──────────────── */
+.b-review{padding:var(--gap) var(--pad)}
+.b-review__tag{display:inline-block;font-size:22px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 18px}
+.t-brand .b-review__tag,.t-deep .b-review__tag,.t-ink .b-review__tag{background:rgba(255,255,255,.14);color:#fff}
+.b-review__mark{font-size:200px;font-weight:850;line-height:.7;color:var(--kw);margin-top:72px;height:110px;font-family:Georgia,"Times New Roman",serif}
+.b-review blockquote{font-size:62px;line-height:1.38;font-weight:800;letter-spacing:-.05em;margin-top:24px}
+.b-review blockquote b{color:var(--kw);font-weight:inherit}
+.b-review__by{font-size:26px;font-weight:600;color:var(--sub);margin-top:44px}
+.b-review__photo{margin-top:88px;height:520px;border-radius:var(--r);overflow:hidden;position:relative}
+
+/* ──────────────── 13 구매 안내(CTA) ──────────────── */
+.b-cta{padding-bottom:110px}
+.b-cta__photo{position:relative;height:var(--h,760px)}
+.b-cta__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,var(--bg) 100%)}
+.b-cta__top{position:relative;z-index:2;margin-top:-150px;padding:0 var(--pad)}
+.b-cta__card{margin:64px var(--pad) 0;text-align:center}
+.b-cta__name{font-size:46px;font-weight:800;letter-spacing:-.045em}
+.b-cta__chips{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:24px}
+.b-cta__chips li{font-size:26px;font-weight:700;padding:14px 22px;border-radius:12px;border:1.5px solid var(--line)}
+.b-cta__buy{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;height:120px;border-radius:20px;background:var(--accent);font-size:38px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.b-cta__buy svg{width:40px;height:40px}
+.b-cta__fine{font-size:22px;color:var(--sub);margin-top:22px}
+
+/* ──────────────── 14 안내(배송·보관·교환·상품정보) ──────────────── */
+.b-notice{padding:130px var(--pad) 120px}
+.b-notice h2{font-size:48px;font-weight:800;letter-spacing:-.045em}
+.b-notice h2:not(:first-child){margin-top:110px}
+.b-notice__week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:44px;text-align:center}
+.b-notice__week div{border-radius:18px;padding:22px 0 20px;background:#EDEEEC;color:#868C83}
+.b-notice__week .on{background:var(--brand);color:#fff}
+.b-notice__week b{display:block;font-size:30px;font-weight:800}
+.b-notice__week span{display:block;font-size:21px;font-weight:600;margin-top:4px}
+.b-notice__rows{margin-top:44px;border-top:3px solid var(--fg)}
+.b-notice__rows div{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--line);font-size:26px;line-height:1.55}
+.b-notice__rows dt{font-weight:700;color:var(--brand)}
+.t-brand .b-notice__rows dt,.t-deep .b-notice__rows dt,.t-ink .b-notice__rows dt{color:var(--kw)}
+.b-notice__rows dd small{display:block;font-size:21px;color:var(--sub);margin-top:4px}
+.b-notice__list{margin-top:40px;display:grid;gap:18px;counter-reset:n}
+.b-notice__list li{font-size:24px;line-height:1.6;color:var(--sub);padding-left:42px;position:relative}
+.b-notice__list li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:3px;width:28px;height:28px;border-radius:50%;background:var(--line);font-size:16px;font-weight:700;display:grid;place-items:center;color:var(--fg)}
+.b-notice__std{display:inline-block;font-size:19px;font-weight:600;color:var(--sub);border:1.5px solid var(--line);border-radius:8px;padding:6px 12px;margin-top:18px}
+.b-notice__end{margin:120px calc(var(--pad) * -1) -120px;padding:84px var(--pad) 90px;background:var(--brand-deep);color:rgba(255,255,255,.78);text-align:center;font-size:22px;line-height:1.75}
+.b-notice__end strong{display:block;color:#fff;font-size:30px;font-weight:800;letter-spacing:-.04em;margin-bottom:14px}
+.b-notice__end .flag{display:inline-block;margin-bottom:22px;font-size:22px;font-weight:700;color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:8px;padding:6px 14px}
+/* @blocks:end */
+
+/* ── 이 상품만의 색 (블록 라이브러리 기본값과 같지만, 다른 상품은 여기만 바꾸면 된다) ── */
+:root{
+  --brand:#24482F;
+  --brand-deep:#15301E;
+  --accent:#C4502A;
+  --accent-light:#F4A47E;
+  --accent-soft:#F7E2D6;
+  --tint:#EDF1EA;
+}
 </style>
 </head>
 <body>
 <main class="page">
-
-  <!-- 1. 첫 화면 -->
-  <section class="sec" data-slice>
-    <div class="brandbar">
-      <div class="brand">
-        <svg width="44" height="44" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#24482F"/><path d="M8 16.5h18a9 9 0 0 1-18 0Z" fill="#F7E3D8"/></svg>
+  <!-- @block 01-hook -->
+  <section class="blk b-hook t-brand">
+    <div class="b-hook__bar">
+      <div class="b-hook__brand">
+        <svg width="44" height="44" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#F7E3D8"/><path d="M8 16.5h18a9 9 0 0 1-18 0Z" fill="currentColor" style="color:var(--brand)"/></svg>
         엄마손 반찬
       </div>
-      <span class="sample">포트폴리오 샘플 · 가상 상품</span>
+      <span class="b-hook__tag">포트폴리오 샘플 · 가상 상품</span>
     </div>
-    <div class="hook">
-      <p class="kicker">반찬가게에서 매일 아침 담그는 깍두기</p>
-      <h1><span class="crunch">아삭,</span> 소리부터<br>시원한 깍두기</h1>
-      <p class="sub">국내산 무를 큼직하게 썰어 그날 버무리고,<br>그날 오후에 냉장으로 보내 드려요.</p>
+    <div class="b-hook__copy center">
+      <p class="eyebrow">매일 아침 담그는</p>
+      <h1 class="hl xl"><b>아삭,</b> 소리부터<br>시원한 깍두기</h1>
+      <p class="sub">국내산 무 · 1kg · 냉장 택배</p>
     </div>
-    <div class="hero-photo">
-      <img src="assets/hero.jpg" alt="흰 그릇에 담긴 깍두기">
-      <span class="cap">사진은 분위기를 보여 드리는 이미지로, 실제 상품과 다를 수 있습니다</span>
-    </div>
-    <dl class="facts">
-      <div><dt>원재료</dt><dd>국내산 무</dd></div>
-      <div><dt>내용량</dt><dd>1kg</dd></div>
-      <div><dt>배송</dt><dd>냉장 택배</dd></div>
-    </dl>
-    <div class="prodname">
-      <p class="brandline">엄마손 반찬</p>
-      <p class="name">국내산 무 깍두기 1kg</p>
-      <p class="note">주문 다음 날 아침에 담가 당일 출고 · 월~목 출고</p>
-    </div>
+    <figure class="b-hook__arch">
+      <img class="cover" src="assets/hero.jpg" alt="흰 그릇에 담긴 깍두기" style="object-position:50% 60%">
+      <figcaption class="photo-note">사진은 분위기를 보여 드리는 이미지로, 실제 상품과 다를 수 있습니다</figcaption>
+    </figure>
   </section>
 
-  <!-- 2. 세 가지 -->
-  <section class="sec three" data-slice>
-    <p class="tag">엄마손 깍두기가 다른 점</p>
-    <h2 class="h2">재료, 맛, 보관.<br>이 세 가지를 챙겼어요</h2>
-    <ul>
-      <li>
-        <div class="ico"><svg viewBox="0 0 56 56" fill="none" stroke="#AE4520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M28 18c-8 0-13 6-13 15 0 9 6 16 13 16s13-7 13-16c0-9-5-15-13-15Z"/><path d="M28 18c0-5 2-9 6-11M28 18c-1-4-4-7-9-8"/></svg></div>
-        <p class="k">재료</p>
-        <p class="v">단단한<br>국내산 무</p>
-      </li>
-      <li>
-        <div class="ico"><svg viewBox="0 0 56 56" fill="none" stroke="#AE4520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30h28c0 9-6 15-14 15s-14-6-14-15Z"/><path d="M22 23c0-3 3-3 3-6M30 23c0-3 3-3 3-6"/></svg></div>
-        <p class="k">맛</p>
-        <p class="v">시원하고<br>깔끔한 양념</p>
-      </li>
-      <li>
-        <div class="ico"><svg viewBox="0 0 56 56" fill="none" stroke="#AE4520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="20" width="30" height="24" rx="4"/><path d="M11 20h34M22 14h12"/><path d="M28 27v10M23.5 29.5 32.5 34.5M32.5 29.5 23.5 34.5"/></svg></div>
-        <p class="k">보관</p>
-        <p class="v">담근 날<br>냉장 출고</p>
-      </li>
+  <!-- @block 02-ask -->
+  <section class="blk b-ask t-paper center">
+    <h2 class="hl"><span class="dim">사 온 깍두기,</span><br>언제 담갔는지<br><b>알고</b> 드세요?</h2>
+    <p class="sub">맛은 담근 날부터 달라지니까요</p>
+  </section>
+
+  <!-- @block 03-empathy -->
+  <section class="blk b-empathy t-ink">
+    <img class="b-empathy__bg" src="assets/table-soup.jpg" alt="" style="object-position:50% 60%">
+    <div class="center">
+      <h2 class="hl">국밥은 있는데<br><b>깍두기</b>가 없을 때</h2>
+    </div>
+    <ul class="b-empathy__list">
+      <li>직접 담그자니 손이 많이 가고</li>
+      <li>많이 사 두면 금방 시어지고</li>
     </ul>
   </section>
 
-  <!-- 3-1. 재료 -->
-  <section class="sec point" data-slice>
-    <div class="in">
-      <p class="tag">재료</p>
-      <h2 class="h2">속이 꽉 찬 무를<br><b>큼직하게</b> 썰었어요</h2>
-      <p class="lead">무는 <strong>국내산</strong>으로, 들었을 때 묵직하고 단단한 것을 골라 씁니다. 한 변 2cm 정도로 큼직하게 썰어 <strong>씹을수록 아삭</strong>해요.</p>
+  <!-- @block 02-ask -->
+  <section class="blk b-ask t-brand center has-arrow">
+    <h2 class="hl">그래서 저희는<br><mark>그날 담가</mark><br>그날 보내요</h2>
+    <p class="sub">주문받은 만큼만, 1kg씩</p>
+  </section>
+
+  <!-- @block 04-point -->
+  <section class="blk b-point t-tint">
+    <div class="in center">
+      <p class="lbl">재료</p>
+      <h2 class="hl">속이 꽉 찬 무를<br><b>큼직하게</b> 썰어요</h2>
     </div>
-    <div class="point-photo"><img src="assets/radish.jpg" alt="흙을 털어 낸 흰 무 여러 개" style="object-position:50% 40%"></div>
-    <div class="in">
-      <ul class="point-list" style="margin-top:0;border-top:0">
-        <li><b>무</b><span>국내산, 들어서 묵직한 것</span></li>
-        <li><b>크기</b><span>한 변 약 2cm 정사각 썰기</span></li>
-        <li style="border-bottom:0"><b>손질</b><span>껍질을 얇게 벗기고 매일 아침 썰어요</span></li>
+    <figure class="b-point__photo" style="--h:820px">
+      <img class="cover" src="assets/radish-grey.jpg" alt="회색 바탕 위에 놓인 흰 무 두 개" style="object-position:58% 50%">
+    </figure>
+    <ul class="b-point__facts">
+      <li><p class="v">국내산</p><p class="k">무</p></li>
+      <li><p class="v">2cm</p><p class="k">한 변 크기</p></li>
+      <li><p class="v">매일 아침</p><p class="k">손질</p></li>
+    </ul>
+  </section>
+
+  <!-- @block 07-circles -->
+  <section class="blk b-circles t-deep">
+    <div class="center">
+      <p class="lbl">양념</p>
+      <h2 class="hl">고춧가루로 색을<br><mark>새우젓</mark>으로 간을</h2>
+    </div>
+    <ul class="b-circles__grid">
+      <li><img src="assets/gochugaru.jpg" alt="고춧가루" style="object-position:50% 50%"><p class="n">고춧가루</p><p class="d">국내산 · 고운 색</p></li>
+      <li><img src="assets/garlic.jpg" alt="마늘" style="object-position:62% 40%"><p class="n">마늘</p><p class="d">국내산 · 알싸한 향</p></li>
+      <li><img src="assets/scallion.jpg" alt="송송 썬 쪽파" style="object-position:50% 55%"><p class="n">쪽파</p><p class="d">국내산 · 향긋하게</p></li>
+      <li><img src="assets/ginger.jpg" alt="생강" style="object-position:78% 50%"><p class="n">생강</p><p class="d">국내산 · 깔끔한 뒷맛</p></li>
+    </ul>
+  </section>
+
+  <!-- @block 11-number -->
+  <section class="blk b-number t-accent center">
+    <p class="lbl">썰어서 보내기까지</p>
+    <p class="b-number__big">8<small>시간</small></p>
+    <h2 class="hl md">아침 6시에 썰어<br>오후 2시 출고</h2>
+  </section>
+
+  <!-- @block 08-steps -->
+  <section class="blk b-steps t-paper">
+    <div class="center">
+      <p class="lbl">하루 순서</p>
+      <h2 class="hl">쌓아 두지 않고<br><b>그날</b> 담가요</h2>
+    </div>
+    <ol class="b-steps__grid">
+      <li><figure><img class="cover" src="assets/radish.jpg" alt="흙을 털어 낸 흰 무" style="object-position:50% 40%"></figure><span class="when">06:00</span><h3>무 손질</h3><p>씻고 깎아 2cm로</p></li>
+      <li><figure><img class="cover" src="assets/salt.jpg" alt="나무 숟가락에 담긴 굵은소금" style="object-position:60% 40%"></figure><span class="when">07:00</span><h3>소금 절이기</h3><p>1시간 절여 물기 빼기</p></li>
+      <li><figure><img class="cover" src="assets/bowl-table.jpg" alt="양념에 버무린 깍두기" style="object-position:50% 45%"></figure><span class="when">09:00</span><h3>양념 버무리기</h3><p>고춧가루부터 고루</p></li>
+      <li><figure><img class="cover" src="assets/parcel.jpg" alt="문 앞 계단에 놓인 택배 상자" style="object-position:50% 62%"></figure><span class="when">14:00</span><h3>냉장 출고</h3><p>아이스박스에 담아 발송</p></li>
+    </ol>
+  </section>
+
+  <!-- @block 06-inset -->
+  <section class="blk b-inset t-soft has-dot">
+    <div class="in center">
+      <p class="lbl">보관</p>
+      <h2 class="hl">받은 날부터<br><b>천천히</b> 익어요</h2>
+    </div>
+    <div class="b-inset__media" style="--h:720px">
+      <img class="b-inset__main" src="assets/bowl-wood.jpg" alt="나무 식탁 위 그릇에 담긴 깍두기" style="object-position:50% 50%">
+      <img class="b-inset__dot" src="assets/kk-bowl-light.jpg" alt="밝은 그릇에 담긴 깍두기" style="object-position:50% 50%">
+      <div class="b-inset__badge"><p class="v">0~10<small>℃</small></p><p class="k">받으면 바로 냉장</p></div>
+    </div>
+  </section>
+
+  <!-- @block 09-compare -->
+  <section class="blk b-compare t-paper">
+    <div class="center">
+      <p class="lbl">날짜별 맛</p>
+      <h2 class="hl">입맛대로<br><b>골라</b> 드세요</h2>
+    </div>
+    <div class="b-compare__cols">
+      <div class="b-compare__col"><p class="k">받은 날 ~ 3일</p><p class="v">아삭<br>시원</p><p class="d">겉절이처럼</p></div>
+      <div class="b-compare__col lv2"><p class="k">4일 ~ 10일</p><p class="v">새콤<br>달콤</p><p class="d">국물이 우러나요</p></div>
+      <div class="b-compare__col lv3"><p class="k">11일부터</p><p class="v">푹<br>익은 맛</p><p class="d">볶음밥·찌개에</p></div>
+    </div>
+    <div class="b-compare__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="b-compare__note">냉장 보관 기준 · 냉장고 온도에 따라 달라요</p>
+  </section>
+
+  <!-- @block 05-over -->
+  <section class="blk b-over is-bottom" style="--h:1160px">
+    <img class="b-over__bg" src="assets/gukbap.jpg" alt="뚝배기 해장국 옆에 놓인 깍두기" style="object-position:40% 50%">
+    <div class="b-over__copy center">
+      <p class="lbl">맛있게 먹는 법</p>
+      <h2 class="hl">뜨끈한 국물 옆에<br>한 접시</h2>
+      <ul class="b-over__tags">
+        <li>국밥·설렁탕</li>
+        <li>깍두기 볶음밥</li>
+        <li>남은 국물은 찌개에</li>
       </ul>
     </div>
   </section>
 
-  <!-- 3-2. 맛 -->
-  <section class="sec point dark" data-slice>
-    <div class="in">
-      <p class="tag">맛</p>
-      <h2 class="h2">고춧가루로 먼저<br>색을 입히고, <b>새우젓으로</b><br>간을 맞춥니다</h2>
-      <p class="lead">절인 무에 고춧가루부터 버무려 고운 색을 내고, 마늘·생강·새우젓으로 맛을 더해요. 설탕은 조금만 넣어 <strong>무에서 나오는 단맛</strong>을 살렸습니다.</p>
+  <!-- @block 10-trust -->
+  <section class="blk b-trust t-brand has-arrow">
+    <div class="center">
+      <p class="lbl">엄마손 반찬의 기준</p>
+      <h2 class="hl">이 네 가지는<br><mark>바꾸지 않아요</mark></h2>
     </div>
-    <div class="point-photo"><img src="assets/gochugaru.jpg" alt="흰 그릇에 소복이 담긴 고춧가루와 마른 고추" style="object-position:50% 50%"></div>
-    <ul class="seasoning">
-      <li><div class="dot" style="background:#C2381F"></div><p class="n">고춧가루</p><p class="d">국내산<br>고운 색</p></li>
-      <li><div class="dot" style="background:#EDE3C8"></div><p class="n">마늘</p><p class="d">국내산<br>알싸한 향</p></li>
-      <li><div class="dot" style="background:#F2C9B4"></div><p class="n">새우젓</p><p class="d">국내산<br>깊은 감칠맛</p></li>
-      <li><div class="dot" style="background:#D9B26A"></div><p class="n">생강</p><p class="d">국내산<br>깔끔한 뒷맛</p></li>
+    <ul class="b-trust__seals">
+      <li><span class="top">원재료</span><strong>국내산 무</strong><span class="bot">고춧가루·마늘도</span></li>
+      <li><span class="top">주문 후</span><strong>당일 담금</strong><span class="bot">미리 쌓아 두지 않음</span></li>
+      <li><span class="top">포장</span><strong>냉장 출고</strong><span class="bot">아이스박스 + 아이스팩</span></li>
+      <li><span class="top">출고일</span><strong>월~목</strong><span class="bot">주말 택배 정체 없이</span></li>
     </ul>
   </section>
 
-  <!-- 3-3. 보관 -->
-  <section class="sec point store" data-slice>
-    <div class="in">
-      <p class="tag">보관</p>
-      <h2 class="h2">담근 날 바로 보내니까,<br>받은 날부터 <b>천천히 익어요</b></h2>
-      <p class="lead">미리 만들어 쌓아 두지 않습니다. 주문을 받은 다음 날 아침에 담가 <strong>그날 오후 냉장 포장으로 출고</strong>해요. 받으신 뒤에는 냉장고에만 넣어 주세요.</p>
+  <!-- @block 12-review -->
+  <section class="blk b-review t-tint center">
+    <span class="b-review__tag">예시 후기 · 실제 구매 후기로 바꿔 넣는 자리</span>
+    <p class="b-review__mark" aria-hidden="true">“</p>
+    <blockquote>국밥 끓인 날<br><b>아삭한 소리</b>부터<br>달랐어요</blockquote>
+    <p class="b-review__by">구매자 김○○ 님 (예시)</p>
+  </section>
+
+  <!-- @block 13-cta -->
+  <section class="blk b-cta t-ink">
+    <figure class="b-cta__photo" style="--h:800px"><img class="cover" src="assets/kk-saucer.jpg" alt="흰 접시에 담긴 깍두기" style="object-position:40% 50%"></figure>
+    <div class="b-cta__top center">
+      <p class="lbl">주문 안내</p>
+      <h2 class="hl">오후 2시 전 주문,<br><b>다음 날</b> 담가요</h2>
     </div>
-    <div class="store-wrap">
-      <div class="point-photo"><img src="assets/bowl-wood.jpg" alt="나무 식탁 위 그릇에 담긴 깍두기" style="object-position:50% 50%"></div>
-      <div class="temp">
-        <div class="temp-head">
-          <p class="big">0~10<small>℃</small></p>
-          <p class="big-k">받으신 날부터<br>냉장 보관해 주세요</p>
-        </div>
-        <ul>
-          <li>받으시면 바로 냉장고에 넣어 주세요</li>
-          <li>뚜껑을 꼭 닫아 다른 음식에 냄새가 배지 않게</li>
-          <li>덜어 드실 땐 물기 없는 젓가락으로</li>
-        </ul>
-      </div>
+    <div class="b-cta__card">
+      <p class="b-cta__name">엄마손 반찬 국내산 무 깍두기 1kg</p>
+      <ul class="b-cta__chips"><li>1kg 밀폐 용기</li><li>냉장 택배</li><li>월~목 출고</li></ul>
+      <p class="b-cta__buy">옵션에서 수량을 고른 뒤 구매하기
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 8v24M10 22l10 10 10-10"/></svg></p>
+      <p class="b-cta__fine">3만 원 이상 무료배송 · 제주·도서산간 추가 배송비</p>
     </div>
   </section>
 
-  <!-- 4. 만드는 과정 -->
-  <section class="sec process" data-slice>
-    <p class="tag">만드는 과정</p>
-    <h2 class="h2">아침 6시에 썰어<br><b>오후 2시</b>에 보내요</h2>
-    <p class="lead">전날 오후 2시까지 받은 주문을 다음 날 아침에 담가요.</p>
-    <div class="timeline">
-      <div class="step">
-        <p class="time"><span>오전</span>6:00</p>
-        <div>
-          <h3>무 손질</h3>
-          <p>무를 깨끗이 씻어 껍질을 얇게 벗기고, 한 변 2cm 정도로 썰어요.</p>
-        </div>
-      </div>
-      <div class="step">
-        <p class="time"><span>오전</span>7:00</p>
-        <div>
-          <h3>소금에 절이기</h3>
-          <p>굵은소금을 뿌려 1시간쯤 절인 뒤 한 번 헹구고 체에 밭쳐 물기를 빼요.</p>
-        </div>
-      </div>
-      <div class="step">
-        <p class="time"><span>오전</span>9:00</p>
-        <div>
-          <h3>양념에 버무리기</h3>
-          <p>고춧가루로 먼저 색을 입히고, 마늘·생강·새우젓·쪽파를 넣어 고루 버무려요.</p>
-          <figure><img src="assets/bowl-table.jpg" alt="양념에 버무린 깍두기" style="object-position:50% 45%"></figure>
-        </div>
-      </div>
-      <div class="step">
-        <p class="time"><span>오후</span>2:00</p>
-        <div>
-          <h3>담아서 냉장 출고</h3>
-          <p>1kg 용기에 꾹꾹 눌러 담고, 아이스팩과 함께 아이스박스에 넣어 보내요.</p>
-        </div>
-      </div>
+  <!-- @block 14-notice -->
+  <section class="blk b-notice t-paper">
+    <h2>배송 안내</h2>
+    <div class="b-notice__week">
+      <div class="on"><b>월</b><span>출고</span></div><div class="on"><b>화</b><span>출고</span></div><div class="on"><b>수</b><span>출고</span></div><div class="on"><b>목</b><span>출고</span></div><div><b>금</b><span>쉼</span></div><div><b>토</b><span>쉼</span></div><div><b>일</b><span>쉼</span></div>
     </div>
-  </section>
+    <dl class="b-notice__rows">
+      <div><dt>주문 마감</dt><dd>출고 전날 오후 2시<small>목요일 오후 2시 이후 주문은 다음 주 월요일 출고</small></dd></div>
+      <div><dt>받는 날</dt><dd>출고 다음 날 (지역에 따라 1~2일)</dd></div>
+      <div><dt>배송비</dt><dd>3,500원 · 30,000원 이상 무료배송<small>제주·도서산간 추가 배송비, 공휴일 출고 없음</small></dd></div>
+    </dl>
 
-  <!-- 5. 상품 정보 -->
-  <section class="sec info" data-slice>
-    <p class="tag">구성과 상품 정보</p>
-    <h2 class="h2">받으시는 구성</h2>
-    <ul class="box">
-      <li>
-        <svg viewBox="0 0 92 92" fill="none" stroke="#24482F" stroke-width="3" stroke-linejoin="round"><rect x="18" y="30" width="56" height="44" rx="8"/><path d="M14 30h64v-6a4 4 0 0 0-4-4H18a4 4 0 0 0-4 4v6Z"/><rect x="26" y="46" width="12" height="12" rx="2" fill="#F7E3D8" stroke="#AE4520"/><rect x="42" y="50" width="12" height="12" rx="2" fill="#F7E3D8" stroke="#AE4520"/><rect x="56" y="44" width="10" height="10" rx="2" fill="#F7E3D8" stroke="#AE4520"/></svg>
-        <p class="n">깍두기 1kg</p><p class="d">밀폐 용기 1개</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 92 92" fill="none" stroke="#24482F" stroke-width="3" stroke-linejoin="round"><rect x="24" y="22" width="44" height="52" rx="10"/><path d="M34 38h24M34 48h24M34 58h16" stroke="#7FA38A"/></svg>
-        <p class="n">아이스팩</p><p class="d">계절에 따라 1~2개</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 92 92" fill="none" stroke="#24482F" stroke-width="3" stroke-linejoin="round"><path d="M14 34 46 20l32 14v32L46 80 14 66V34Z"/><path d="M14 34l32 14 32-14M46 48v32"/></svg>
-        <p class="n">아이스박스</p><p class="d">스티로폼 냉장 포장</p>
-      </li>
-    </ul>
+    <h2 data-cut>상품 정보</h2>
+    <dl class="b-notice__rows">
+      <div><dt>제품명</dt><dd>엄마손 반찬 국내산 무 깍두기</dd></div>
+      <div><dt>식품 유형</dt><dd>김치류 (깍두기)</dd></div>
+      <div><dt>내용량</dt><dd>1kg</dd></div>
+      <div><dt>원재료명</dt><dd>무(국산) 86%, 고춧가루(국산), 마늘(국산), 새우젓[새우(국산), 정제소금], 쪽파(국산), 생강(국산), 설탕, 정제소금<small>새우 함유</small></dd></div>
+      <div><dt>보관 방법</dt><dd>냉장 보관 (0~10℃)<small>개봉 후 뚜껑을 닫아 냉장 보관하고 되도록 빨리 드세요</small></dd></div>
+      <div><dt>소비기한</dt><dd>제조일로부터 30일 (냉장 기준)</dd></div>
+      <div><dt>포장 재질</dt><dd>용기 PP, 뚜껑 PE</dd></div>
+      <div><dt>제조원</dt><dd>엄마손 반찬 · ○○시 ○○구 (가상 업체)<small>품목보고번호 0000000000-000 (예시)</small></dd></div>
+    </dl>
 
-    <table class="spec">
-      <tr><th>제품명</th><td>엄마손 반찬 국내산 무 깍두기</td></tr>
-      <tr><th>식품 유형</th><td>김치류 (깍두기)</td></tr>
-      <tr><th>내용량</th><td class="hl">1kg</td></tr>
-      <tr><th>원재료명</th><td>무(국산) 86%, 고춧가루(국산), 마늘(국산), 새우젓[새우(국산), 정제소금], 쪽파(국산), 생강(국산), 설탕, 정제소금<small>새우 함유</small></td></tr>
-      <tr><th>보관 방법</th><td>냉장 보관 (0~10℃)<small>개봉 후에는 뚜껑을 닫아 냉장 보관하고 되도록 빨리 드세요</small></td></tr>
-      <tr><th>소비기한</th><td class="hl">제조일로부터 30일 <span style="color:#333830;font-weight:400">(냉장 기준)</span></td></tr>
-      <tr><th>포장 재질</th><td>용기 PP, 뚜껑 PE</td></tr>
-      <tr><th>제조원</th><td>엄마손 반찬 · ○○시 ○○구 (가상 업체)<small>품목보고번호 0000000000-000 (예시)</small></td></tr>
-    </table>
-  </section>
-
-  <!-- 6. 맛있게 먹는 법 -->
-  <section class="sec eat" data-slice>
-    <div class="in">
-      <p class="tag">맛있게 먹는 법</p>
-      <h2 class="h2">뜨끈한 국물 옆에<br>한 접시 놓아 보세요</h2>
-    </div>
-    <div class="eat-photo"><img src="assets/gukbap.jpg" alt="뚝배기에 담긴 해장국 옆에 놓인 깍두기"></div>
-    <div class="ways">
-      <div class="way">
-        <div class="ic"><svg viewBox="0 0 54 54" fill="none" stroke="#24482F" stroke-width="3" stroke-linecap="round"><path d="M9 26h36c0 10-8 17-18 17S9 36 9 26Z"/><path d="M20 19c0-3 3-3 3-6M30 19c0-3 3-3 3-6"/></svg></div>
-        <div><h3>국밥·설렁탕 곁에</h3><p>뽀얀 국물에 아삭한 깍두기 한 조각이면 밥 한 그릇이 금방이에요.</p></div>
-      </div>
-      <div class="way">
-        <div class="ic"><svg viewBox="0 0 54 54" fill="none" stroke="#24482F" stroke-width="3" stroke-linecap="round"><path d="M8 30h30l6-6"/><path d="M10 30c0 8 6 13 14 13s14-5 14-13"/><circle cx="18" cy="24" r="2"/><circle cx="26" cy="21" r="2"/><circle cx="32" cy="25" r="2"/></svg></div>
-        <div><h3>잘 익으면 볶음밥으로</h3><p>새콤하게 익은 깍두기를 잘게 다져 밥과 볶으면 따로 간이 필요 없어요.</p></div>
-      </div>
-      <div class="way">
-        <div class="ic"><svg viewBox="0 0 54 54" fill="none" stroke="#24482F" stroke-width="3" stroke-linecap="round"><path d="M14 22h26v16a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8V22Z"/><path d="M10 22h34M40 28h5"/></svg></div>
-        <div><h3>국물은 찌개에</h3><p>통에 남은 깍두기 국물을 김치찌개에 한 국자 넣으면 맛이 한층 깊어져요.</p></div>
-      </div>
-    </div>
-
-    <div class="ripen" data-cut>
-      <h3>날짜에 따라 달라지는 맛</h3>
-      <p class="lead">냉장 보관 기준이에요. 냉장고 온도에 따라 조금씩 달라요.</p>
-      <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="stage">
-        <div><p class="d">받은 날 ~ 3일</p><p class="t">아삭·시원</p><p class="s">겉절이처럼<br>생생한 맛</p></div>
-        <div><p class="d">4일 ~ 10일</p><p class="t">새콤하게</p><p class="s">국물이 우러나<br>새콤달콤한 맛</p></div>
-        <div><p class="d">11일부터</p><p class="t">푹 익은 맛</p><p class="s">볶음밥·찌개에<br>넣기 좋아요</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. 배송 안내 -->
-  <section class="sec ship" data-slice>
-    <p class="tag">배송 안내</p>
-    <h2 class="h2">택배가 주말에 머물지 않게<br><b>월~목</b>에만 보내요</h2>
-    <div class="cal">
-      <div class="row">
-        <div class="d">월</div><div class="d">화</div><div class="d">수</div><div class="d">목</div><div class="d">금</div><div class="d">토</div><div class="d">일</div>
-      </div>
-      <div class="row">
-        <div class="c on">출고</div><div class="c on">출고</div><div class="c on">출고</div><div class="c on">출고</div><div class="c off">쉼</div><div class="c off">쉼</div><div class="c off">쉼</div>
-      </div>
-      <div class="legend"><span><i style="background:var(--green)"></i>담가서 당일 출고</span><span><i style="background:#EDEEEC"></i>출고하지 않는 날</span></div>
-    </div>
-    <ul class="ship-list">
-      <li><b>주문 마감</b><span>출고 전날 오후 2시<br>(목요일 오후 2시 이후 주문은 다음 주 월요일 출고)</span></li>
-      <li><b>받는 날</b><span>출고 다음 날 (지역에 따라 1~2일)</span></li>
-      <li><b>배송비</b><span>3,500원 · 30,000원 이상 무료배송</span></li>
-      <li><b>포장</b><span>아이스박스 + 아이스팩 냉장 포장</span></li>
-      <li><b>참고</b><span>제주·도서산간은 추가 배송비가 있어요.<br>공휴일에는 출고하지 않아요.</span></li>
-    </ul>
-  </section>
-
-  <!-- 8. 교환·반품 안내 -->
-  <section class="sec policy" data-slice>
-    <h2>교환·반품 안내</h2>
-    <span class="std">식품 표준 안내 문구 · 판매자 정책에 맞게 바꿔 넣는 자리</span>
-    <ol>
-      <li>김치는 신선식품이라, 받으신 뒤 단순 변심으로 인한 교환·반품은 어렵습니다.</li>
-      <li>상품이 파손·변질되었거나 다른 상품이 왔다면 받으신 날로부터 ○일 안에 사진과 함께 문의해 주세요. 확인 후 교환 또는 환불해 드립니다.</li>
-      <li>익는 정도에 따라 신맛이 강해지거나 탄산감이 생기는 것은 김치 발효의 특성으로, 상품 하자에 해당하지 않습니다.</li>
-      <li>주소를 잘못 적으셨거나 오래 부재하셔서 상품이 늦게 전달된 경우에는 교환·반품이 어렵습니다.</li>
+    <h2 data-cut>교환·반품 안내</h2>
+    <span class="b-notice__std">식품 표준 안내 문구 · 판매자 정책에 맞게 바꿔 넣는 자리</span>
+    <ol class="b-notice__list">
+      <li>신선식품이라 받으신 뒤 단순 변심으로 인한 교환·반품은 어렵습니다.</li>
+      <li>파손·변질·오배송은 받으신 날로부터 ○일 안에 사진과 함께 문의해 주세요. 확인 후 교환 또는 환불해 드립니다.</li>
+      <li>익으면서 신맛이 강해지거나 탄산감이 생기는 것은 김치 발효의 특성으로, 상품 하자가 아닙니다.</li>
+      <li>주소 오기재·장기 부재로 늦게 전달된 경우 교환·반품이 어렵습니다.</li>
       <li>반품 배송비는 상품 하자일 때 판매자가, 그 밖의 경우 구매자가 부담합니다.</li>
     </ol>
-    <p class="contact">문의 · 스마트스토어 톡톡 또는 010-0000-0000<br>평일 오전 10시 ~ 오후 5시 (점심 12~1시, 주말·공휴일 휴무)</p>
-  </section>
+    <dl class="b-notice__rows" style="margin-top:44px">
+      <div><dt>문의</dt><dd>스마트스토어 톡톡 · 010-0000-0000<small>평일 오전 10시 ~ 오후 5시 (점심 12~1시, 주말·공휴일 휴무)</small></dd></div>
+    </dl>
 
-  <!-- 9. 끝 -->
-  <section class="sec end" data-slice>
-    <div class="brand">
-      <svg width="40" height="40" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="10" fill="#F7E3D8"/><path d="M8 16.5h18a9 9 0 0 1-18 0Z" fill="#24482F"/></svg>
-      엄마손 반찬
+    <div class="b-notice__end">
+      <p class="flag">샘플(가상 상품)</p>
+      <strong>엄마손 반찬</strong>
+      이 상세페이지는 하루랜딩의 포트폴리오 샘플입니다.<br>
+      ‘엄마손 반찬 국내산 무 깍두기’는 판매되지 않는 가상 상품이며,<br>배송·원재료·소비기한 등 모든 정보는 예시입니다.<br>
+      사진은 분위기를 보여 드리는 이미지(Pexels)로, 실제 상품과 다를 수 있습니다.
     </div>
-    <p class="flag">샘플(가상 상품)</p>
-    <p>이 상세페이지는 하루랜딩의 포트폴리오 샘플입니다.<br>
-    ‘엄마손 반찬 국내산 무 깍두기’는 판매되지 않는 가상 상품이며,<br>배송·원재료·소비기한 등 모든 정보는 예시입니다.<br>
-    사진은 분위기를 보여 드리는 이미지(Pexels)로, 실제 상품과 다를 수 있습니다.</p>
   </section>
 
 </main>

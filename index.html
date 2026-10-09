@@ -19,385 +19,270 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" crossorigin onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" crossorigin></noscript>
-<link rel="preload" as="image" href="assets/hero-phone.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/phone-pilates.webp" fetchpriority="high">
 <style>
 :root{
-  --ink:#111316; --ink-2:#1B1E23; --ink-3:#2A2E35; --ink-line:#30343B;
-  --slate:#59606B; --mute:#8B919A; --on-ink-2:#B7BCC4;
+  --ink:#111316; --ink-2:#1B1E23; --ink-3:#2A2E35;
+  --slate:#59606B; --mute:#8B919A;
   --line:#E3E5E9; --panel:#F3F4F6; --white:#fff;
   --accent:#FF5B1F; --accent-ink:#C93D08; --accent-soft:#FFEDE4;
-  --r:16px; --wrap:1120px; --pad:20px; --hdr:60px;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --wrap:1200px; --pad:clamp(20px,4vw,40px); --sec:clamp(88px,11vw,160px);
+  --r-lg:28px; --r-md:18px; --ease:cubic-bezier(.2,.7,.2,1);
+  --h1:clamp(2.4rem,7.4vw,6.8rem);
+  --h2:clamp(2.05rem,5.4vw,5.1rem);
+  --h3:clamp(1.3rem,2vw,1.7rem);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr) + 8px)}
-body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  color:var(--ink);background:var(--white);font-size:17px;line-height:1.65;letter-spacing:-.015em;
-  word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--white);font-size:17px;line-height:1.65;letter-spacing:-.015em;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-ul,ol{list-style:none}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.center{text-align:center}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
 
-/* ── buttons ── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 24px;border-radius:12px;
-  font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap;transition:transform .15s,background-color .15s,box-shadow .15s}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 26px;border-radius:12px;font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap;transition:transform .15s,background-color .15s,box-shadow .15s}
 .btn svg{width:18px;height:18px;flex:none;transition:transform .15s}
 .btn:hover svg{transform:translateX(3px)}
 .btn:active{transform:scale(.98)}
-.btn-pri{background:var(--accent);color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 8px 24px -10px rgba(255,91,31,.7)}
+.btn-pri{background:var(--accent);color:var(--ink);box-shadow:0 8px 24px -10px rgba(255,91,31,.7)}
 .btn-pri:hover{background:#FF6D36}
-.btn-sec{background:transparent;color:#fff;box-shadow:0 0 0 1.5px #464B54 inset}
-.btn-sec:hover{box-shadow:0 0 0 1.5px #8B919A inset}
-.btn-line{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--line) inset}
-.btn-line:hover{box-shadow:0 0 0 1.5px var(--ink) inset}
+.btn-sec{background:transparent;color:#fff;box-shadow:0 0 0 1.5px #4A4F58 inset}
+.btn-sec:hover{box-shadow:0 0 0 1.5px #9AA0A8 inset}
 .btn-ink{background:var(--ink);color:#fff}
 .btn-ink:hover{background:var(--ink-3)}
-.plat{font-size:12px;font-weight:700;line-height:1;padding:4px 6px;border-radius:5px;background:rgba(17,19,22,.12)}
-.btn-sec .plat{background:rgba(255,255,255,.12)}
+.btn-line{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--line) inset}
+.btn-line:hover{box-shadow:0 0 0 1.5px var(--ink) inset}
+.btn-sm{height:42px;padding:0 16px;font-size:15px;border-radius:10px}
 
-/* ── header ── */
-.hdr{position:sticky;top:0;z-index:60;height:var(--hdr);background:rgba(17,19,22,.97);
-  backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
-.hdr.scrolled{border-bottom-color:var(--ink-line)}
-.hdr .wrap{height:100%;display:flex;align-items:center;gap:24px}
-.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:17px;letter-spacing:-.04em}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(17,19,22,.9);color:#fff;backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.hdr.scrolled{border-bottom-color:#2A2E35}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:-.03em}
 .logo svg{width:28px;height:28px;flex:none}
-.nav{display:none;margin-left:auto;gap:28px;font-size:15px;color:var(--on-ink-2);font-weight:500}
+.nav{display:flex;gap:28px;font-size:15px;color:#B7BCC4}
 .nav a:hover{color:#fff}
-.hdr-cta{margin-left:auto;height:40px;padding:0 14px;font-size:15px;border-radius:10px}
 
-/* ── hero ── */
-.hero{background:var(--ink);color:#fff;overflow:hidden;position:relative}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:linear-gradient(var(--ink-2) 1px,transparent 1px),linear-gradient(90deg,var(--ink-2) 1px,transparent 1px);
-  background-size:48px 48px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 75%);mask-image:linear-gradient(180deg,#000,transparent 75%)}
-.hero .wrap{position:relative;display:grid;gap:48px;padding-top:36px;padding-bottom:64px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--on-ink-2);
-  padding:6px 12px 6px 10px;border-radius:8px;background:var(--ink-2);box-shadow:0 0 0 1px var(--ink-line) inset}
-.eyebrow i{width:7px;height:7px;border-radius:2px;background:var(--accent);flex:none}
-.hero h1{margin-top:20px;font-size:clamp(34px,9.6vw,58px);line-height:1.2;font-weight:800;letter-spacing:-.05em}
-.hero h1 .hl{position:relative;color:var(--accent);white-space:nowrap}
-.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:-.04em;height:.07em;min-height:3px;border-radius:2px;background:var(--accent);
-  transform-origin:left;transform:scaleX(1)}
-.js .hero h1 .hl::after{transform:scaleX(0);animation:tick 3s linear .5s forwards}
-@keyframes tick{to{transform:scaleX(1)}}
-.hero .lead{margin-top:20px;font-size:17px;line-height:1.7;color:var(--on-ink-2);max-width:34em}
-.hero .lead b{color:#fff;font-weight:700}
-.cta-row{margin-top:28px;display:grid;gap:10px}
-.cta-row .btn{width:100%}
-.pay-note{margin-top:14px;display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--on-ink-2)}
-.pay-note svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--accent)}
-.facts{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink-line)}
-.facts li{padding:16px 0 0;font-size:13px;line-height:1.4;color:var(--on-ink-2)}
-.facts li+li{padding-left:14px;border-left:1px solid var(--ink-line);margin-top:16px;padding-top:0}
-.facts li:first-child{margin-top:16px;padding-top:0}
-.facts b{display:block;font-size:20px;font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:2px}
-
-/* annotated phone */
-.shot{position:relative;width:100%;max-width:440px;margin:0 auto;container-type:inline-size}
-.phone{position:relative;width:56%;background:#050607;border-radius:30px;padding:7px;
-  box-shadow:0 0 0 1px #3A3F47 inset,0 40px 80px -30px rgba(0,0,0,.9),0 0 0 6px rgba(255,255,255,.03)}
-.phone img{width:100%;aspect-ratio:375/812;object-fit:cover;object-position:top;border-radius:23px;background:#fff}
-.callouts{position:absolute;inset:0}
-.co{position:absolute;left:61cqw;right:0;transform:translateY(-50%)}
-.co::before{content:"";position:absolute;left:-12cqw;top:50%;width:10.5cqw;height:1.5px;background:var(--accent)}
-.co::after{content:"";position:absolute;left:calc(-12cqw - 5px);top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,91,31,.22)}
-.co small{display:block;font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.01em}
-.co span{display:block;font-size:clamp(14px,4.2cqw,16px);font-weight:700;line-height:1.35;color:#fff}
-.co:nth-child(1){top:31%}.co:nth-child(2){top:46%}.co:nth-child(3){top:62.5%}
-.shot figcaption{margin-top:20px;font-size:13px;line-height:1.5;color:#9BA1AA}
-
-/* ── sections ── */
-.sec{padding:80px 0}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:700;color:var(--accent-ink)}
-.kicker::before{content:"";width:20px;height:3px;border-radius:2px;background:var(--accent)}
-.dark .kicker{color:var(--accent)}
-.h2{margin-top:14px;font-size:clamp(28px,7.4vw,46px);line-height:1.25;font-weight:800;letter-spacing:-.045em}
-.h2 em{font-style:normal;color:var(--accent-ink)}
-.dark .h2 em{color:var(--accent)}
-.sub{margin-top:16px;font-size:17px;color:var(--slate);max-width:38em}
+/* type */
+.eyebrow{display:block;font-size:clamp(13px,1.2vw,15px);font-weight:700;letter-spacing:.3em;color:var(--accent-ink)}
+.center .eyebrow{padding-left:.3em}
+.h1,.h2{font-weight:800;letter-spacing:-.055em;line-height:1.14}
+.h1{font-size:var(--h1)}
+.h2{font-size:var(--h2)}
+.h1 b,.h2 b{color:var(--accent-ink);font-weight:inherit}
+.h1 mark,.h2 mark{background:var(--ink);color:#fff;padding:0 .2em 0 .14em;margin-right:.06em;border-radius:.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.dim{color:#B6BAC1}
+.sub{font-size:clamp(17px,1.6vw,22px);font-weight:600;color:var(--slate);line-height:1.6}
+.eyebrow+.h1,.eyebrow+.h2{margin-top:clamp(18px,2vw,28px)}
+.h1+.sub,.h2+.sub{margin-top:clamp(18px,2.2vw,30px)}
+.sec{padding:var(--sec) 0}
+.sec-head{margin-bottom:clamp(44px,6vw,80px)}
 .dark{background:var(--ink);color:#fff}
-.dark .sub{color:var(--on-ink-2)}
-.gray{background:var(--panel)}
+.dark .eyebrow{color:var(--accent)}
+.dark .h1 b,.dark .h2 b{color:var(--accent)}
+.dark .h1 mark,.dark .h2 mark{background:var(--accent);color:var(--ink)}
+.dark .sub{color:#B7BCC4}
+.dark .dim{color:#5C626B}
 
-/* problem → fix */
-.pf{margin-top:40px;display:grid;gap:16px}
-.pf li{border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line) inset;overflow:hidden;display:flex;flex-direction:column}
-.pf .bad{padding:22px 22px 20px;background:var(--panel);color:var(--slate);font-size:16px;line-height:1.6;display:flex;gap:12px}
-.pf .bad svg,.pf .good svg{flex:none;width:22px;height:22px;margin-top:1px}
-.pf .good{padding:22px;display:flex;gap:12px;flex:1}
-.pf .tag{display:inline-block;font-size:13px;font-weight:800;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:3px 8px;margin-bottom:8px}
-.pf h3{font-size:19px;line-height:1.45;font-weight:700;letter-spacing:-.03em}
-.pf p{margin-top:6px;font-size:16px;color:var(--slate);line-height:1.6}
+/* HERO — 검정 블록 + 샘플 휴대폰 화면이 아래에서 올라옴 */
+.hero{background:var(--ink);color:#fff;padding-top:clamp(56px,8vw,104px);overflow:hidden}
+.hero .eyebrow{color:var(--accent)}
+.hero .h1 mark{background:var(--accent);color:var(--ink)}
+.hero .sub{color:#C3C7CE}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,44px)}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:15px;color:#B7BCC4}
+.facts b{color:#fff;font-weight:800;margin-right:6px}
+.phones{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,2vw,28px);margin-top:clamp(56px,7vw,96px);height:clamp(300px,34vw,470px)}
+.ph{flex:none;width:clamp(170px,17vw,240px);aspect-ratio:375/812;border-radius:clamp(26px,2.6vw,38px);background:#2A2E35;padding:clamp(6px,.6vw,9px);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px #3A3F47 inset}
+.ph .scr{height:100%;border-radius:clamp(20px,2vw,30px);overflow:hidden;background:#fff}
+.ph img{width:100%;height:auto}
+.ph.up{margin-top:0}
+.ph.down{margin-top:clamp(40px,4.4vw,64px)}
 
-/* question flow */
-.qflow{margin-top:40px;position:relative;display:grid;gap:0}
-.q{position:relative;display:grid;grid-template-columns:28px 1fr;column-gap:16px;padding-bottom:22px}
-.q::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:var(--line)}
-.q:last-child{padding-bottom:0}.q:last-child::before{display:none}
-.q .dot{width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--line) inset;display:grid;place-items:center;
-  font-size:13px;font-weight:800;color:var(--slate);position:relative;z-index:1}
-.q .ask{display:inline-block;font-size:17px;font-weight:700;background:#fff;border-radius:14px 14px 14px 4px;padding:8px 14px;box-shadow:0 1px 0 var(--line),0 0 0 1px var(--line) inset}
-.q .ans{margin-top:8px;font-size:16px;color:var(--slate);line-height:1.55}
-.q .ans b{color:var(--ink);font-weight:700}
-.q.goal .dot{background:var(--accent);box-shadow:none;color:var(--ink)}
-.q.goal .ask{background:var(--ink);color:#fff;box-shadow:none}
-.meta-note{margin-top:32px;display:flex;gap:12px;align-items:flex-start;padding:18px 20px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;font-size:16px;color:var(--slate)}
-.meta-note b{color:var(--ink)}
-.meta-note svg{flex:none;width:22px;height:22px;color:var(--accent-ink);margin-top:2px}
+/* ASK */
+.ask{padding:clamp(96px,12vw,180px) 0}
+.ask .h2{font-size:clamp(2.3rem,6.4vw,6rem)}
 
-.split{display:grid}
-.split .qflow{margin-top:40px}
-.split .meta-note{order:3}
-@media (max-width:1023px){.split-l{display:contents}.split-l > div{order:0}.split .qflow{order:2}}
-@media (min-width:1024px){
-  .split{grid-template-columns:5fr 6fr;gap:80px;align-items:start}
-  .split-l{position:sticky;top:calc(var(--hdr) + 40px)}
-  .split .qflow{margin-top:0;grid-template-columns:1fr}
-  .split .sub{margin-top:20px}
-}
-/* portfolio */
-.works-h{margin-top:40px;font-size:14px;font-weight:700;color:var(--slate);display:flex;align-items:center;gap:10px}
-.works-h::after{content:"";flex:1;height:1px;background:var(--line);order:1}
-.works-h .swipe{order:2;font-weight:600;font-size:13px}
-.works{margin:14px calc(var(--pad) * -1) 0;padding:4px var(--pad) 10px;display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;
-  overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none}
-.works::-webkit-scrollbar{display:none}
-.work{scroll-snap-align:start;min-width:0;display:flex;flex-direction:column;background:var(--panel);border-radius:20px;padding:22px 20px 20px}
-.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--slate);background:#fff;border-radius:6px;padding:4px 8px}
-.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mute)}
-.work h3{margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-.04em;line-height:1.3}
-.work .kind{display:block;margin-top:2px;font-size:15px;font-weight:500;color:var(--slate);letter-spacing:-.02em}
-.work .goal-act{margin-top:10px;font-size:15px;color:var(--slate)}
-.work .goal-act b{color:var(--ink);font-weight:700}
-.work-phone{display:block;width:min(200px,66%);margin:22px auto 0;background:#050607;border-radius:26px;padding:6px;
-  box-shadow:0 0 0 1px #3A3F47 inset,0 34px 50px -30px rgba(17,19,22,.7);transition:transform .2s}
-.work-phone:hover{transform:translateY(-3px)}
-.work-phone img{width:100%;aspect-ratio:560/2426;border-radius:20px;background:#fff}
-.work .why{margin-top:22px;font-size:16px;color:var(--slate);line-height:1.65;flex:1}
-.work-cta{margin-top:18px;display:grid;gap:14px}
-.btn-open{width:100%;height:60px;padding:0 18px;font-size:17px;white-space:normal;text-align:center;line-height:1.3}
-.qr{display:none}
-.work .svc{margin-top:10px;font-size:14px;color:var(--slate);line-height:1.5}
-.works-note{margin-top:24px;font-size:14px;color:var(--slate)}
-@media (min-width:600px){.works{grid-auto-columns:46%}.works-h .swipe{display:none}}
-@media (min-width:768px){
-  .qr{display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.45;color:var(--slate)}
-  .qr img{width:76px;height:76px;flex:none;border-radius:8px;box-shadow:0 0 0 1px var(--line)}
-}
-@media (min-width:1024px){
-  .works-h{display:none}
-  .works{margin:48px 0 0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible}
-  .work{padding:26px 24px 24px}
-  .work-phone{width:min(232px,78%)}
-  /* 상세페이지 샘플: 랜딩 3종 아래 한 줄을 다 쓰는 가로 카드 */
-  .work-wide{grid-column:1/-1;display:grid;grid-template-columns:232px minmax(0,1fr);grid-template-rows:1fr repeat(6,auto) 1fr;column-gap:64px;padding:32px 40px 32px 32px}
-  .work-wide > *{grid-column:2}
-  .work-wide .badge{grid-row:2;justify-self:start}
-  .work-wide h3{grid-row:3}
-  .work-wide .goal-act{grid-row:4}
-  .work-wide .why{grid-row:5;max-width:34em}
-  .work-wide .svc{grid-row:6}
-  .work-wide .work-cta{grid-row:7;margin-top:28px;grid-template-columns:auto auto;justify-content:start;align-items:center;gap:28px}
-  .work-wide .qr span{max-width:15em}
-  .work-wide .work-phone{grid-column:1;grid-row:1/-1;width:auto;margin:0}
-  .work-wide .work-phone img{aspect-ratio:560/1150;object-fit:cover;object-position:top}
-  .work-wide .btn-open{width:auto;padding:0 28px}
-}
+/* 3초 — 실제 샘플 첫 화면 + 세 질문 */
+.three{background:var(--panel)}
+.three .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(48px,8vw,128px);align-items:center;justify-content:center}
+.shot{position:relative;width:clamp(260px,26vw,340px);margin-right:clamp(0px,9vw,150px)}
+.shot .ph{width:100%}
+.co{position:absolute;left:calc(100% - 6px);display:flex;align-items:center;gap:10px;white-space:nowrap;transform:translateY(-50%)}
+.co::before{content:"";width:clamp(28px,4vw,60px);height:2px;background:var(--accent)}
+.co span{background:var(--ink);color:#fff;border-radius:10px;padding:8px 12px;font-size:15px;font-weight:700}
+.co small{color:var(--accent);font-weight:800;margin-right:6px}
+.co1{top:30%}.co2{top:39%}.co3{top:48%}
+.qs{display:grid;gap:clamp(18px,2vw,28px);margin-top:clamp(28px,3vw,44px)}
+.qs li{display:grid;grid-template-columns:clamp(64px,6vw,88px) 1fr;align-items:baseline;gap:12px;font-size:clamp(20px,2.2vw,28px);font-weight:800;letter-spacing:-.04em;line-height:1.3;padding-top:clamp(18px,2vw,28px);border-top:1px solid #D9DCE1}
+.qs li span{font-size:.75em;color:var(--accent-ink)}
 
-/* process */
-.steps{margin-top:40px;display:grid;gap:12px;counter-reset:s}
-.step{position:relative;background:var(--ink-2);border-radius:var(--r);padding:22px 22px 24px;box-shadow:0 0 0 1px var(--ink-line) inset}
-.step .time{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:var(--accent)}
-.step .time svg{width:16px;height:16px}
-.step h3{margin-top:10px;font-size:20px;font-weight:700;letter-spacing:-.03em;line-height:1.4}
-.step p{margin-top:6px;font-size:16px;color:var(--on-ink-2);line-height:1.6}
+/* SAMPLES — 휴대폰 화면 중심 */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}
+.work{display:flex;flex-direction:column}
+.stage{position:relative;border-radius:var(--r-lg);padding:clamp(24px,2.4vw,34px) clamp(22px,2.4vw,34px) 0;overflow:hidden;background:var(--c);display:flex;justify-content:center;height:clamp(420px,38vw,520px)}
+.stage .ph{width:100%;max-width:230px;aspect-ratio:auto;height:calc(100% + 40px);border-radius:32px 32px 0 0;padding:8px 8px 0;background:#15171A;box-shadow:0 30px 60px -24px rgba(0,0,0,.55)}
+.stage .ph .scr{border-radius:25px 25px 0 0;container-type:size}
+.stage .ph img{transition:transform 4.5s cubic-bezier(.45,0,.3,1)}
+.work:hover .stage .ph img,.work:focus-within .stage .ph img{transform:translateY(calc(-100% + 100cqh))}
+.badge{position:absolute;top:14px;left:14px;z-index:2;font-size:12.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:4px 9px;border-radius:7px}
+.work h3{font-size:var(--h3);font-weight:800;letter-spacing:-.045em;line-height:1.3;margin-top:22px}
+.work .kind{display:block;font-size:15px;color:var(--slate);font-weight:600;letter-spacing:-.02em;margin-top:2px}
+.work .goal{font-size:15px;color:var(--slate);margin-top:10px}
+.work .goal b{color:var(--ink)}
+.work .svc{font-size:14px;color:var(--accent-ink);font-weight:600;margin-top:4px}
+.work .open{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px}
+.work .open .btn{flex:1}
+.work .qr{width:58px;height:58px;flex:none;border-radius:8px;border:1px solid var(--line);padding:3px;background:#fff}
+.works-note{margin-top:28px;font-size:14px;color:var(--slate);text-align:center}
+.swipe{display:none}
 
-/* plans */
-.plans{margin-top:40px;display:grid;gap:16px}
-.plan{border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;padding:26px 22px 22px;display:flex;flex-direction:column}
-.plan .p-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.plan .p-name{font-size:15px;font-weight:800;letter-spacing:.04em}
-.plan .rec{font-size:13px;font-weight:700;color:var(--ink);background:var(--accent);border-radius:6px;padding:3px 8px}
-.plan .p-price{margin-top:14px;font-size:38px;font-weight:800;letter-spacing:-.045em;line-height:1.1}
-.plan .p-price small{font-size:18px;font-weight:700;margin-left:2px}
-.plan .p-for{margin-top:8px;font-size:16px;color:var(--slate);padding-bottom:18px;border-bottom:1px solid var(--line)}
-.plan .p-row{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
-.plan .p-row dt{color:var(--slate)}
-.plan .p-row dd{font-weight:600}
-.plan .p-row dd.none{color:var(--mute);font-weight:500}
-.plan .p-cta{margin-top:20px;width:100%;height:auto;min-height:56px;padding:12px 16px;white-space:normal;text-align:center;line-height:1.35}
-.plan.feat{background:var(--ink);color:#fff;box-shadow:0 30px 60px -30px rgba(17,19,22,.55)}
-.plan.feat .p-for,.plan.feat .p-row dt{color:var(--on-ink-2)}
-.plan.feat .p-for,.plan.feat .p-row{border-color:var(--ink-line)}
-.addons{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;color:var(--slate);padding:16px 18px;border-radius:12px;background:var(--panel)}
-.addons b{color:var(--ink);font-weight:700}
-.addons .lbl{width:100%;font-weight:700;color:var(--ink)}
-.plan-note{margin-top:14px;font-size:14px;color:var(--slate)}
+/* FREE DRAFT — 주황 블록 */
+.free{background:var(--accent);color:var(--ink);padding:clamp(88px,10vw,140px) 0}
+.free .eyebrow{color:var(--ink)}
+.free .h2 mark{background:var(--ink);color:#fff}
+.free .sub{color:rgba(17,19,22,.78)}
+.free .sub b{color:var(--ink)}
+.free .cta-row{margin-top:clamp(28px,3vw,40px)}
+.free .fine{margin-top:18px;font-size:15px;color:rgba(17,19,22,.86);font-weight:600}
 
-/* free draft offer */
-.trial{margin-top:40px;display:grid;gap:20px;padding:26px 22px;border-radius:20px;background:var(--accent-soft);box-shadow:0 0 0 1.5px rgba(255,91,31,.3) inset}
-.trial-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink)}
-.trial-tag i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,91,31,.2)}
-.trial h3{margin-top:10px;font-size:clamp(24px,5.6vw,32px);font-weight:800;letter-spacing:-.045em;line-height:1.25}
-.trial p{margin-top:8px;font-size:17px;color:#3B3F46;line-height:1.6}
-.trial p b{color:var(--ink)}
-.trial .btn{width:100%}
-.trial .plat-note{margin-top:0;font-size:14px;color:var(--slate)}
-.incl{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--panel)}
-.incl-h{font-size:15px;font-weight:800}
-.incl ul{margin-top:12px;display:grid;gap:10px}
-.incl li{display:flex;gap:10px;align-items:flex-start;font-size:16px;font-weight:600;line-height:1.5}
-.incl li svg{width:20px;height:20px;flex:none;margin-top:2px}
-.incl li span{display:block;font-size:14px;font-weight:500;color:var(--slate)}
-@media (min-width:768px){
-  .trial{grid-template-columns:1fr auto;align-items:center;column-gap:40px;padding:32px 36px}
-  .trial .btn{width:auto}
-  .trial .plat-note{grid-column:1/-1}
-  .incl ul{grid-template-columns:repeat(2,1fr);column-gap:24px}
-}
-@media (min-width:1024px){.incl ul{grid-template-columns:repeat(4,1fr)}}
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}
+.step{border-top:2px solid var(--accent);padding-top:22px}
+.step .v{font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:800;letter-spacing:-.05em;line-height:1.05;color:#fff}
+.step h3{font-size:clamp(18px,1.6vw,21px);font-weight:800;letter-spacing:-.035em;margin-top:14px}
+.step p{font-size:15.5px;color:#9AA0A8;margin-top:6px}
 
-/* quality */
-.qa{margin-top:40px;display:grid;gap:12px}
-.qa-card{background:#fff;border-radius:var(--r);padding:24px 22px;box-shadow:0 0 0 1px var(--line) inset;display:flex;flex-direction:column}
-.qa-card h3{font-size:20px;font-weight:800;letter-spacing:-.035em;line-height:1.4}
-.qa-card p{margin-top:8px;font-size:16px;color:var(--slate);line-height:1.6}
-.qa-card p b{color:var(--ink)}
-.qa-vis{margin-top:22px}
-/* 검수 폭: 기기 그림 대신 실제로 찍어 보는 화면 폭을 숫자로 */
-.widths{display:flex;gap:0}
-.widths div{padding:0 16px;border-left:1px solid var(--line);min-width:0}
-.widths div:first-child{padding-left:0;border-left:0}
-.widths b{display:block;font-size:clamp(24px,7vw,32px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.widths b small{font-size:15px;font-weight:700;margin-left:2px;color:var(--slate);letter-spacing:-.02em}
-.widths span{display:block;margin-top:8px;font-size:13px;font-weight:600;color:var(--slate)}
-.gauges{display:flex;gap:18px}
-.gauge{position:relative;width:84px;text-align:center;font-size:13px;font-weight:600;color:var(--slate)}
-.gauge svg{width:84px;height:84px;display:block;transform:rotate(-90deg)}
-.gauge .v{position:absolute;top:0;left:0;width:84px;height:84px;display:grid;place-items:center;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.04em}
-.qa-card .big30{font-size:88px;line-height:.9;font-weight:900;letter-spacing:-.06em;color:var(--accent)}
-.qa-card .big30 small{font-size:30px;color:var(--ink);letter-spacing:-.03em;margin-left:4px;font-weight:800}
-.tree{background:var(--ink);border-radius:12px;padding:16px 18px;font-size:15px;line-height:1.9;color:var(--on-ink-2)}
-.tree .f{color:#fff;font-weight:700}
-.tree .d{padding-left:18px;display:flex;justify-content:space-between;gap:12px}
-.tree .d small{font-size:13px;color:#8A919B}
-.ai{margin-top:12px;border-radius:var(--r);padding:22px;background:#fff;box-shadow:0 0 0 1px var(--line) inset;display:grid;gap:10px}
-.ai h3{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800}
-.ai h3 span{font-size:12px;font-weight:800;color:#fff;background:var(--ink);border-radius:5px;padding:3px 6px}
-.ai p{font-size:16px;color:var(--slate);line-height:1.7}
-.ai p.fine{font-size:14px;padding-top:12px;border-top:1px solid var(--line)}
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px);align-items:stretch}
+.plan{position:relative;border-radius:var(--r-lg);padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:18px;background:var(--panel)}
+.plan.feat{background:var(--ink);color:#fff}
+.plan .name{font-size:15px;font-weight:800;letter-spacing:.12em}
+.plan .rec{position:absolute;top:24px;right:24px;font-size:13px;font-weight:700;padding:5px 10px;border-radius:7px;background:var(--accent);color:var(--ink)}
+.plan .price{font-size:clamp(40px,4vw,54px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.plan .price small{font-size:18px;font-weight:700;margin-left:3px;letter-spacing:-.02em}
+.plan .for{font-size:16px;color:var(--slate);font-weight:600;margin-top:-6px}
+.plan.feat .for{color:#B7BCC4}
+.plan ul{display:grid;gap:10px;font-size:15.5px;padding-top:20px;border-top:1px solid #DADDE2;flex:1}
+.plan.feat ul{border-top-color:#2E333A}
+.plan li{display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.plan li svg{flex:none;width:16px;height:16px;margin-top:4px;color:var(--accent-ink)}
+.plan.feat li svg{color:var(--accent)}
+.plan li.off{color:var(--mute)}
+.plan .btn{width:100%}
+.incl{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:clamp(28px,3vw,40px)}
+.incl li{font-size:15px;font-weight:700;padding:10px 16px;border-radius:10px;background:var(--accent-soft);color:#7A2A08}
+.addons{margin-top:18px;text-align:center;font-size:15px;color:var(--slate);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 22px}
+.addons b{color:var(--ink)}
+.addons a{text-decoration:underline;text-underline-offset:3px;color:var(--ink);font-weight:600}
 
-/* faq */
-.faq-list{margin-top:36px;border-top:1px solid var(--line)}
-.faq-list details{border-bottom:1px solid var(--line)}
-.faq-list summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 0;font-size:17px;font-weight:700;line-height:1.5;letter-spacing:-.025em}
-.faq-list summary::-webkit-details-marker{display:none}
-.pm{position:relative;flex:none;width:28px;height:28px;border-radius:8px;background:var(--panel);margin-top:-1px}
-.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:1px;background:var(--ink);transition:transform .2s}
-.pm::after{transform:rotate(90deg)}
-details[open] .pm::after{transform:rotate(0)}
-.faq-list .a{padding:0 44px 22px 0;font-size:16px;color:var(--slate);line-height:1.7}
+/* QUALITY — 숫자 */
+.quality{background:var(--panel);padding:clamp(80px,9vw,128px) 0}
+.qa-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.qa-grid li+li{border-left:1px solid #D9DCE1}
+.qa-grid li{padding:0 12px}
+.qa-grid .v{font-size:clamp(2.3rem,5vw,4.4rem);font-weight:800;letter-spacing:-.06em;line-height:1}
+.qa-grid .v small{font-size:.42em;font-weight:700;letter-spacing:-.02em;margin-left:3px;color:var(--accent-ink)}
+.qa-grid .k{font-size:clamp(14px,1.3vw,17px);font-weight:700;margin-top:14px}
+.qa-grid .k span{display:block;font-weight:500;color:var(--slate);font-size:.92em}
+.ai{max-width:820px;margin:clamp(48px,5vw,72px) auto 0;text-align:center;font-size:15px;color:var(--slate);line-height:1.7}
+.ai b{color:var(--ink)}
 
-/* final */
-.final{text-align:left}
-.final .cta-row{max-width:520px}
-.final .safe{margin-top:18px;display:flex;align-items:flex-start;gap:8px;line-height:1.5;font-size:14px;color:var(--on-ink-2)}
+/* FAQ */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,120px);align-items:start}
+.faq .sec-head{margin-bottom:0}
+.faq .h2{font-size:clamp(2.05rem,4.4vw,4rem)}
+.faq-list{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-size:clamp(17px,1.5vw,19px);font-weight:700;letter-spacing:-.025em}
+.faq summary::-webkit-details-marker{display:none}
+.pm{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .25s,border-color .25s}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .3s var(--ease)}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] .pm{background:var(--ink);border-color:var(--ink)}
+.faq details[open] .pm::before,.faq details[open] .pm::after{background:#fff}
+.faq details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq .a{padding:0 56px 26px 0;color:var(--slate)}
+
+/* FINAL */
+.final{overflow:hidden}
+.final .safe{margin-top:20px;font-size:15px;color:#9AA0A8;display:flex;justify-content:center;align-items:center;gap:8px}
 .final .safe svg{width:18px;height:18px;color:var(--accent);flex:none}
 
 /* footer */
-.ftr{background:var(--ink);color:var(--on-ink-2);border-top:1px solid var(--ink-line);padding:36px 0 40px;font-size:14px;line-height:1.7}
-.ftr .wrap{display:grid;gap:16px}
-.ftr .logo{font-size:16px}
-.ftr .links{display:flex;gap:16px}
-.ftr .links a{text-decoration:underline;text-underline-offset:3px;color:#fff}
-.ftr .safe-line{color:#fff;font-weight:600}
+.ftr{background:var(--ink);color:#8B919A;border-top:1px solid #23272D;padding:40px 0 calc(40px + env(safe-area-inset-bottom));font-size:14px;line-height:1.7}
+.ftr .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ftr .logo{color:#fff;font-size:16px}
+.ftr .links{display:flex;gap:16px;color:#fff;font-weight:600}
 
-/* mobile sticky CTA */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;gap:12px;
-  padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(17,19,22,.96);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--ink-line);
-  transform:translateY(110%);transition:transform .25s ease}
-.mbar.show{transform:none}
-.mbar .t{flex:1;min-width:0;font-size:13px;line-height:1.35;color:var(--on-ink-2)}
-.mbar .t b{display:block;font-size:16px;color:#fff;font-weight:800;letter-spacing:-.03em}
-.mbar .btn{height:50px;padding:0 18px;font-size:16px}
+.mbar{display:none}
 
-/* reveal */
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
+.js .rv[data-d="1"]{transition-delay:.08s}
+.js .rv[data-d="2"]{transition-delay:.16s}
+.js .rv[data-d="3"]{transition-delay:.24s}
 
-/* ── ≥ 600 ── */
-@media (min-width:600px){
-  :root{--pad:32px}
-  .cta-row{grid-template-columns:auto auto;justify-content:start}
-  .cta-row .btn{width:auto}
-  .pf,.qa{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .flow{margin:14px 0 0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible}
-  .shot figcaption{text-align:center}
+@media (max-width:1080px){
+  .nav{display:none}
+  .works{grid-template-columns:1fr 1fr;row-gap:48px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  .three .wrap{grid-template-columns:1fr;justify-items:center}
+  .three .copy{text-align:center;max-width:560px}
+  .shot{margin-right:0}
+  .co{display:none}
 }
-/* ── ≥ 768 ── */
-@media (min-width:768px){
-  .mbar{display:none}
-  .sec{padding:112px 0}
-  .nav{display:flex}
-  .hdr-cta{margin-left:8px}
-  .pf{grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;row-gap:0}
-  .pf li{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:0}
-  .case-top{grid-template-columns:5fr 7fr;gap:48px;align-items:center}
-  .case:nth-child(even) .case-top{grid-template-columns:7fr 5fr}
-  .case:nth-child(even) .case-info{order:2}
-  .plans{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(12,auto);gap:0 16px}
-  .plan{display:grid;grid-row:span 12;grid-template-rows:subgrid;row-gap:0;padding:28px 22px 22px}
-  .plan .p-row{grid-template-columns:76px 1fr}
-  .qa{grid-template-columns:repeat(6,1fr)}
-  .qa-card:nth-child(1){grid-column:span 4}
-  .qa-card:nth-child(2){grid-column:span 2}
-  .qa-card:nth-child(3){grid-column:span 2}
-  .qa-card:nth-child(4){grid-column:span 4}
-  .ai{grid-template-columns:200px 1fr;column-gap:32px;padding:28px 32px}
-  .ai p.fine{grid-column:2}
-  .faq-wrap{display:grid;grid-template-columns:4fr 7fr;gap:64px;align-items:start}
-  .faq-list{margin-top:0}
-  .ftr .wrap{grid-template-columns:1fr auto;align-items:end}
+@media (max-width:900px){
+  .plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .faq .wrap{grid-template-columns:1fr}
+  .qa-grid{grid-template-columns:1fr 1fr;row-gap:40px}
+  .qa-grid li:nth-child(3){border-left:0}
 }
 @media (max-width:767px){
-  body.has-mbar{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
-}
-/* ── ≥ 1024 ── */
-@media (min-width:1024px){
-  .hero .wrap{grid-template-columns:1fr 420px;gap:56px;align-items:center;padding-top:56px;padding-bottom:88px}
-  .hero h1{margin-top:24px}
-  .hero .lead{font-size:19px}
-  .facts{max-width:520px}
-  .shot figcaption{text-align:left;padding-left:2px}
-  .steps{grid-template-columns:repeat(4,1fr)}
-  .steps .step:not(:last-child)::after{content:"";position:absolute;top:34px;right:-12px;width:12px;height:2px;background:var(--accent)}
-  .qa-card:nth-child(4),.qa-card:nth-child(1){flex-direction:row;gap:32px;align-items:center}
-  .qa-card:nth-child(4) .qa-vis{margin-top:0;flex:none;width:260px}
-  .qa-card:nth-child(1) .qa-vis{margin-top:0;flex:none}
-  .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
-  .sec-head .sub{margin-top:0}
+  body{font-size:16.5px}
+  .hdr .wrap{height:60px}
+  .hdr .btn{height:40px;padding:0 14px;font-size:14px}
+  .logo .full{display:none}
+  .cta-row .btn{flex:1 1 100%}
+  .phones{height:clamp(300px,90vw,380px);gap:12px}
+  .ph{width:min(46vw,190px)}
+  .ph.p4{display:none}
+  .ph.p1,.ph.p3{width:min(38vw,160px)}
+  .three .copy{text-align:left}
+  .qs li{grid-template-columns:56px 1fr}
+  .works{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 8px;scrollbar-width:none}
+  .works::-webkit-scrollbar{display:none}
+  .work{flex:0 0 80%;scroll-snap-align:center}
+  .stage{height:420px}
+  .work .qr,.pc-only{display:none}
+  .swipe{display:block;text-align:center;margin-top:16px;font-size:14px;font-weight:600;color:var(--slate)}
+  .steps{grid-template-columns:1fr}
+  .faq .a{padding-right:0}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(17,19,22,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid #2A2E35;color:#fff;transform:translateY(110%);transition:transform .3s var(--ease)}
+  .mbar.show{transform:none}
+  .mbar .t{font-size:13px;color:#B7BCC4;line-height:1.35}
+  .mbar .t b{display:block;color:#fff;font-size:16px}
+  .mbar .btn{height:48px;padding:0 18px;font-size:15.5px;flex:none}
+  .ftr{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
 }
 @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition:none!important}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
   .js .rv{opacity:1;transform:none}
-  .js .hero h1 .hl::after{transform:scaleX(1)}
 }
 </style>
-<script>document.documentElement.className+=' js'</script>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M4 10h11m-4.5-5L15 10l-4.5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#E3E5E9"/><path d="M8.5 8.5l7 7m0-7l-7 7" stroke="#59606B" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FF5B1F"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="#111316" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 4.8V8l2.2 1.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
   <symbol id="i-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#FF5B1F"/><path d="M8 21a8 8 0 0 1 16 0z" fill="#111316"/><rect x="6" y="23" width="20" height="2.4" rx="1.2" fill="#111316"/></symbol>
 </svg>
 
@@ -405,332 +290,273 @@ details[open] .pm::after{transform:rotate(0)}
   <div class="wrap">
     <a class="logo" href="#top" aria-label="하루랜딩스튜디오 처음으로"><svg aria-hidden="true"><use href="#i-logo"/></svg><span>하루랜딩<span class="full">스튜디오</span></span></a>
     <nav class="nav" aria-label="주요 메뉴">
-      <a href="#problem">문의가 안 오는 이유</a>
       <a href="#work">샘플</a>
+      <a href="#free">무료 시안</a>
       <a href="#process">진행 과정</a>
       <a href="#pricing">가격</a>
       <a href="#faq">자주 묻는 질문</a>
     </nav>
-    <a class="btn btn-pri hdr-cta" href="https://soomgo.com/profile/users/19304470">무료 시안 요청</a>
+    <a class="btn btn-pri btn-sm" href="https://soomgo.com/profile/users/19304470">무료 시안 요청</a>
   </div>
 </header>
 
 <main id="top">
-<!-- ── HERO ── -->
-<section class="hero" aria-labelledby="hero-h">
+<!-- HERO -->
+<section class="hero center" aria-labelledby="hero-h">
   <div class="wrap">
-    <div class="hero-copy">
-      <span class="eyebrow"><i></i>소상공인·1인 창업자 랜딩페이지 제작</span>
-      <h1 id="hero-h">광고비 쓰는데<br>문의가 안 온다면,<br><span class="hl">첫 화면 3초</span>가<br>문제입니다.</h1>
-      <p class="lead">고객이 궁금해하는 순서대로 섹션을 짜고, 마지막에 망설임 없이 신청 버튼을 누르게 만드는 페이지. <b>첫 시안은 질문지 회신 후 24시간 안에</b> 보여드립니다.</p>
-      <div class="cta-row" id="hero-cta">
-        <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-sec" href="https://kmong.com/@하루랜딩스튜디오">크몽에서 보기</a>
-      </div>
-      <p class="pay-note"><svg aria-hidden="true"><use href="#i-shield"/></svg>결제는 숨고 안전결제(숨고페이)로만 받고, 상담·시안·결제 기록이 모두 숨고에 남습니다.</p>
-      <ul class="facts">
-        <li><b>24시간</b>첫 시안 (질문지 회신 후)</li>
-        <li><b>15만 원~</b>휴대폰·PC 모두</li>
-        <li><b>30일</b>납품 후 무상 수정</li>
-      </ul>
-    </div>
-    <figure class="shot">
-      <div class="phone"><img src="assets/hero-phone.webp" width="750" height="1624" alt="샘플 랜딩페이지 '모아장부'의 휴대폰 첫 화면. 헤드라인, 설명 문구, 사전예약 버튼이 차례로 보인다." fetchpriority="high"></div>
-      <ol class="callouts" aria-label="첫 화면 3초 안에 답하는 세 가지">
-        <li class="co"><small>1초</small><span>무엇이 좋은지</span></li>
-        <li class="co"><small>2초</small><span>나한테 맞는지</span></li>
-        <li class="co"><small>3초</small><span>무엇을 누르면 되는지</span></li>
-      </ol>
-      <figcaption>샘플(가상 업체) ‘모아장부’의 휴대폰 첫 화면. 스크롤 전에 세 가지 질문에 답합니다.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ── PROBLEM → FIX ── -->
-<section class="sec" id="problem" aria-labelledby="pb-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">문의가 안 오는 이유</span>
-        <h2 class="h2" id="pb-h">예쁜데 조용한 페이지에는<br>공통점이 있습니다</h2>
-      </div>
-      <p class="sub">디자인이 부족해서가 아닌 경우가 많습니다. 고객이 3초 안에 답을 못 찾고, 어디를 눌러야 할지 몰라서 나갑니다.</p>
-    </div>
-    <ul class="pf">
-      <li class="rv">
-        <div class="bad"><svg aria-hidden="true"><use href="#i-x"/></svg><span>첫 화면에 회사 소개와 분위기 사진만 있다</span></div>
-        <div class="good"><svg aria-hidden="true"><use href="#i-ok"/></svg><div><span class="tag">3초 원칙</span><h3>첫 화면에서 “그래서 나한테 뭐가 좋은데?”에 답합니다</h3><p>한 줄 약속, 믿을 근거, 누를 버튼을 스크롤 없이 보이게 놓습니다.</p></div></div>
-      </li>
-      <li class="rv">
-        <div class="bad"><svg aria-hidden="true"><use href="#i-x"/></svg><span>사장님이 하고 싶은 말 순서로 섹션이 놓여 있다</span></div>
-        <div class="good"><svg aria-hidden="true"><use href="#i-ok"/></svg><div><span class="tag">의문 순서</span><h3>고객이 스크롤하며 갖는 의문 순서대로 섹션을 짭니다</h3><p>“얼마야?”가 궁금할 때 가격이, “믿어도 돼?”가 궁금할 때 근거가 나옵니다.</p></div></div>
-      </li>
-      <li class="rv">
-        <div class="bad"><svg aria-hidden="true"><use href="#i-x"/></svg><span>전화, 카톡, 인스타, 블로그… 누를 곳이 너무 많다</span></div>
-        <div class="good"><svg aria-hidden="true"><use href="#i-ok"/></svg><div><span class="tag">하나의 목표 행동</span><h3>원하는 행동 하나를 정하고, 모든 버튼을 그곳으로 보냅니다</h3><p>휴대폰에서는 하단에 고정 버튼을 두어 언제든 누를 수 있게 합니다.</p></div></div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ── METHOD: QUESTION ORDER ── -->
-<section class="sec gray" id="method" aria-labelledby="md-h">
-  <div class="wrap">
-    <div class="split">
-      <div class="split-l">
-      <div>
-        <span class="kicker">구성하는 방법</span>
-        <h2 class="h2" id="md-h">고객의 질문 순서가<br>곧 섹션 순서입니다</h2>
-      </div>
-      <p class="sub">고객은 위에서 아래로 내리며 속으로 질문합니다. 질문 하나에 섹션 하나씩, 답이 끝나는 자리에 신청 버튼을 둡니다.</p>
-      <p class="meta-note rv"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>지금 보고 계신 <b>이 페이지도 같은 순서</b>로 만들었습니다. 목표 행동은 “무료 시안 요청” 하나입니다.</span></p>
-      </div>
-      <ol class="qflow">
-      <li class="q rv"><span class="dot" aria-hidden="true">1</span><div><span class="ask">뭐가 좋은데?</span><p class="ans"><b>첫 화면</b> — 한 줄 약속과 신청 버튼</p></div></li>
-      <li class="q rv"><span class="dot" aria-hidden="true">2</span><div><span class="ask">나한테 맞는 얘기야?</span><p class="ans"><b>고민 공감</b> — 이런 분께 맞습니다</p></div></li>
-      <li class="q rv"><span class="dot" aria-hidden="true">3</span><div><span class="ask">다른 데랑 뭐가 달라?</span><p class="ans"><b>차별점</b> — 이유 3~4가지</p></div></li>
-      <li class="q rv"><span class="dot" aria-hidden="true">4</span><div><span class="ask">믿어도 돼?</span><p class="ans"><b>근거</b> — 진행 과정, 사례, 보증</p></div></li>
-      <li class="q rv"><span class="dot" aria-hidden="true">5</span><div><span class="ask">그래서 얼마야?</span><p class="ans"><b>가격</b> — 숨기지 않고 비교하기 쉽게</p></div></li>
-      <li class="q goal rv"><span class="dot" aria-hidden="true">6</span><div><span class="ask">어떻게 신청해?</span><p class="ans"><b>목표 행동 하나</b> — 신청 폼 + 하단 고정 버튼</p></div></li>
-    </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ── PORTFOLIO ── -->
-<section class="sec" id="work" aria-labelledby="wk-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">샘플</span>
-        <h2 class="h2" id="wk-h">업종도 목표 행동도 다른<br>샘플 네 가지</h2>
-      </div>
-      <p class="sub">실력을 직접 보여드리려고 만든 <b>가상 업체 샘플</b>입니다. 업체명·후기·수치는 실제가 아닙니다.</p>
-    </div>
-
-    <p class="works-h">휴대폰 화면 그대로<span class="swipe" aria-hidden="true">옆으로 넘겨 보기</span></p>
-    <div class="works rv">
-      <article class="work" aria-labelledby="c1">
-        <span class="badge">샘플 · 가상 업체</span>
-        <h3 id="c1">결 필라테스<span class="kind">동네 필라테스 스튜디오</span></h3>
-        <p class="goal-act">목표 행동 <b>체험 레슨 신청</b></p>
-        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener" aria-label="결 필라테스 샘플 새 창에서 열기"><img src="assets/phone-pilates.webp" width="560" height="2426" loading="lazy" decoding="async" alt="결 필라테스 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
-        <p class="why">차분한 톤 안에 ‘정원 4명, 강사가 모든 동작을 직접 봐 드림’이라는 이유를 첫 화면에 세우고, 체험 가격을 숨기지 않았습니다.</p>
-        <div class="work-cta">
-          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <p class="qr"><img src="assets/qr-pilates.svg" width="76" height="76" loading="lazy" alt="결 필라테스 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
-        </div>
-      </article>
-      <article class="work" aria-labelledby="c2">
-        <span class="badge">샘플 · 가상 업체</span>
-        <h3 id="c2">모아장부<span class="kind">출시 전 앱 사전예약</span></h3>
-        <p class="goal-act">목표 행동 <b>연락처 남기고 사전예약</b></p>
-        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener" aria-label="모아장부 샘플 새 창에서 열기"><img src="assets/phone-app-launch.webp" width="560" height="2426" loading="lazy" decoding="async" alt="모아장부 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
-        <p class="why">입력칸을 첫 화면 버튼 바로 위에 붙여, 읽다가 마음이 든 순간 바로 남길 수 있게 했습니다.</p>
-        <div class="work-cta">
-          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <p class="qr"><img src="assets/qr-app-launch.svg" width="76" height="76" loading="lazy" alt="모아장부 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
-        </div>
-      </article>
-      <article class="work" aria-labelledby="c3">
-        <span class="badge">샘플 · 가상 업체</span>
-        <h3 id="c3">바른집 인테리어<span class="kind">구축 아파트 리모델링</span></h3>
-        <p class="goal-act">목표 행동 <b>무료 실측·견적 신청</b></p>
-        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener" aria-label="바른집 인테리어 샘플 새 창에서 열기"><img src="assets/phone-interior.webp" width="560" height="2426" loading="lazy" decoding="async" alt="바른집 인테리어 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
-        <p class="why">인테리어 고객의 가장 큰 걱정인 ‘추가금’을 헤드라인으로 올리고, 시공 전후를 직접 밀어 비교하게 했습니다.</p>
-        <div class="work-cta">
-          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <p class="qr"><img src="assets/qr-interior.svg" width="76" height="76" loading="lazy" alt="바른집 인테리어 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
-        </div>
-      </article>
-      <article class="work work-wide" aria-labelledby="c4">
-        <span class="badge">샘플 · 가상 업체</span>
-        <h3 id="c4">엄마손 반찬 깍두기<span class="kind">스마트스토어 상세페이지</span></h3>
-        <p class="goal-act">목표 행동 <b>구매하기</b></p>
-        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/detail-food/" target="_blank" rel="noopener" aria-label="엄마손 반찬 깍두기 상세페이지 샘플 새 창에서 열기"><img src="assets/phone-detail-food.webp" width="560" height="2426" loading="lazy" decoding="async" alt="엄마손 반찬 깍두기 상세페이지를 휴대폰 화면 폭으로 줄여 본 첫 부분"></a>
-        <p class="why">‘주문 다음 날 아침에 담가 그날 냉장 출고’를 첫 장에 세우고, 만드는 시간표와 날짜별로 익는 맛까지 보여 줘 신선함을 믿고 살 수 있게 했습니다.</p>
-        <p class="svc">상세페이지는 랜딩페이지 요금제와 따로 받는 작업입니다.</p>
-        <div class="work-cta">
-          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/detail-food/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <p class="qr"><img src="assets/qr-detail-food.svg" width="76" height="76" loading="lazy" alt="엄마손 반찬 깍두기 상세페이지 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
-        </div>
-      </article>
-    </div>
-    <p class="works-note">샘플 사진은 상업적 이용이 허가된 Unsplash·Pexels 무료 이미지이고, 출처는 각 샘플의 LICENSES.txt에 기록했습니다.</p>
-  </div>
-</section>
-
-<!-- ── PROCESS ── -->
-<section class="sec dark" id="process" aria-labelledby="pr-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">진행 과정</span>
-        <h2 class="h2" id="pr-h">질문지 10분이면<br>내일 시안을 받습니다</h2>
-      </div>
-      <p class="sub">문구가 없어도, 사진이 없어도 시작할 수 있습니다. 상담부터 납품까지 숨고·크몽 메시지로 진행합니다.</p>
-    </div>
-    <ol class="steps">
-      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>10분</span><h3>질문지 작성</h3><p>업종, 고객, 강점, 원하는 행동만 알려주세요. 문구가 없어도 됩니다.</p></li>
-      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>24시간 안</span><h3>첫 시안 확인</h3><p>질문지 회신 후 24시간 안에, 휴대폰·PC 화면 그대로 확인할 수 있는 링크로 드립니다.</p></li>
-      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>2~5회</span><h3>편하게 수정 요청</h3><p>말로 요청하시면 됩니다. “좀 더 고급스럽게”도 반영합니다.</p></li>
-      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>2~4일 차</span><h3>납품·공개</h3><p>페이지 파일과 수정 가이드를 드리고, 사장님 계정의 무료 호스팅에 올려 바로 공개합니다. 월 이용료가 없습니다.</p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- ── PRICING ── -->
-<section class="sec" id="pricing" aria-labelledby="pc-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">가격</span>
-        <h2 class="h2" id="pc-h">필요한 만큼만<br>고르세요</h2>
-      </div>
-      <p class="sub">세 패키지 모두 휴대폰·태블릿·PC 화면에 맞춰 만들고, 첫 시안 24시간(질문지 회신 기준)·납품 후 30일 무상 수정이 기본입니다.</p>
-    </div>
-    <div class="trial rv">
-      <div>
-        <span class="trial-tag"><i aria-hidden="true"></i>숨고 상담 중 · 무료</span>
-        <h3>시안 먼저 보고 결정하세요</h3>
-        <p>업종·손님·강점 세 가지만 알려 주시면 <b>2시간 안에 첫 화면 시안을 결제 전 무료로</b> 보여드려요(밤 11시~오전 9시에 주시면 오전 11시까지). 마음에 드실 때만 진행하시면 됩니다.</p>
-      </div>
-      <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <p class="plat-note">무료 시안은 숨고 상담으로 요청해 주세요. 진행을 결정하시면 그때 숨고 안전결제로 결제합니다.</p>
-    </div>
-    <div class="plans">
-      <div class="plan rv">
-        <div class="p-head"><h3 class="p-name">STANDARD</h3></div>
-        <p class="p-price">150,000<small>원</small></p>
-        <p class="p-for">문구·사진이 준비된 분</p>
-        <dl class="p-row"><dt>섹션 수</dt><dd>5개</dd></dl>
-        <dl class="p-row"><dt>카피라이팅</dt><dd>다듬기</dd></dl>
-        <dl class="p-row"><dt>사진</dt><dd>보내주신 사진 보정</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>이메일로 바로 도착</dd></dl>
-        <dl class="p-row"><dt>애니메이션</dt><dd class="none">없음</dd></dl>
-        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 (사장님 계정)</dd></dl>
-        <dl class="p-row"><dt>수정</dt><dd>2회</dd></dl>
-        <dl class="p-row"><dt>작업일</dt><dd>2일</dd></dl>
-        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
-      </div>
-      <div class="plan feat rv">
-        <div class="p-head"><h3 class="p-name">DELUXE</h3><span class="rec">처음이라면 추천</span></div>
-        <p class="p-price">290,000<small>원</small></p>
-        <p class="p-for">기획·카피까지 맡기실 분</p>
-        <dl class="p-row"><dt>섹션 수</dt><dd>8개</dd></dl>
-        <dl class="p-row"><dt>카피라이팅</dt><dd>새로 작성</dd></dl>
-        <dl class="p-row"><dt>사진</dt><dd>무료 스톡 사진 선별 3장</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>구글 시트 자동 저장 + 이메일 알림</dd></dl>
-        <dl class="p-row"><dt>애니메이션</dt><dd>스크롤 등장 효과</dd></dl>
-        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 (사장님 계정)</dd></dl>
-        <dl class="p-row"><dt>수정</dt><dd>3회</dd></dl>
-        <dl class="p-row"><dt>작업일</dt><dd>3일</dd></dl>
-        <a class="btn btn-pri p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
-      </div>
-      <div class="plan rv">
-        <div class="p-head"><h3 class="p-name">PREMIUM</h3></div>
-        <p class="p-price">490,000<small>원</small></p>
-        <p class="p-for">바로 광고 돌릴 분</p>
-        <dl class="p-row"><dt>섹션 수</dt><dd>10개 이상</dd></dl>
-        <dl class="p-row"><dt>카피라이팅</dt><dd>새로 작성 + 헤드라인 2안</dd></dl>
-        <dl class="p-row"><dt>사진</dt><dd>무료 스톡 사진 선별 6장</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>구글 시트 자동 저장 + 이메일 알림</dd></dl>
-        <dl class="p-row"><dt>애니메이션</dt><dd>섹션별 모션 + 숫자 카운트</dd></dl>
-        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 + 도메인 연결 + 광고 성과 측정 설정까지 대신 해드려요</dd></dl>
-        <dl class="p-row"><dt>수정</dt><dd>5회</dd></dl>
-        <dl class="p-row"><dt>작업일</dt><dd>4일</dd></dl>
-        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
-      </div>
-    </div>
-    <div class="incl rv">
-      <p class="incl-h">세 패키지 모두 포함</p>
-      <ul>
-        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>무료 호스팅 배포<span>사장님 계정에 올려 월 이용료 없음</span></div></li>
-        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>전화·문자 바로걸기 버튼<span>휴대폰에서 한 번에 연결</span></div></li>
-        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>실제로 도착하는 문의 폼<span>샘플처럼 멈춰 있지 않아요</span></div></li>
-        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>개인정보 처리방침·동의 문구 포함<span>문의 받기 전에 꼭 필요한 부분까지</span></div></li>
-      </ul>
-    </div>
-    <div class="addons rv">
-      <span class="lbl">추가 옵션</span>
-      <span>빠른 작업 <b>+50,000원</b> (작업일 1일 단축)</span>
-      <span>섹션 추가 <b>+30,000원</b>/개</span>
-      <span>영문 버전 <b>+100,000원</b></span>
-    </div>
-    <p class="plan-note">같은 패키지를 <a href="https://kmong.com/@하루랜딩스튜디오" style="text-decoration:underline;text-underline-offset:3px;color:var(--ink);font-weight:600">크몽</a>에서도 주문하실 수 있습니다.</p>
-  </div>
-</section>
-
-<!-- ── QUALITY ── -->
-<section class="sec gray" id="quality" aria-labelledby="qa-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="kicker">품질 약속</span>
-        <h2 class="h2" id="qa-h">납품 전에 직접 확인하고<br>숫자로 보여드립니다</h2>
-      </div>
-      <p class="sub">“잘 만들었어요”라는 말 대신, 누구나 다시 확인할 수 있는 기준으로 검수합니다.</p>
-    </div>
-    <div class="qa">
-      <div class="qa-card rv">
-        <div><h3>휴대폰·PC 어디서 봐도 깨지지 않게</h3><p>휴대폰·태블릿·PC 화면을 하나하나 찍어 보고, <b>글자가 겹치거나 옆으로 밀리는 곳이 없는지</b> 확인한 뒤 납품합니다.</p></div>
-        <div class="qa-vis widths" aria-hidden="true"><div><b>375<small>px</small></b><span>휴대폰</span></div><div><b>768<small>px</small></b><span>태블릿</span></div><div><b>1440<small>px</small></b><span>PC</span></div></div>
-      </div>
-      <div class="qa-card rv">
-        <h3>느린 페이지 때문에 손님이 나가지 않게</h3><p>구글 점검 도구로 <b>열리는 속도와 읽기 편한 정도</b>를 확인합니다. 목표는 둘 다 90점 이상.</p>
-        <div class="qa-vis gauges" aria-hidden="true">
-          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>속도</div>
-          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>읽기 편함</div>
-        </div>
-      </div>
-      <div class="qa-card rv">
-        <h3>납품 후 30일 무상 수정</h3><p>납품 후 30일 안에 생긴 <b>오류는 비용 없이</b> 고칩니다.</p>
-        <p class="qa-vis big30" aria-hidden="true">30<small>일</small></p>
-      </div>
-      <div class="qa-card rv">
-        <div><h3>다른 업체에 맡겨도 바로 고칠 수 있는 파일</h3><p>월 이용료가 붙는 빌더가 아니라, <b>사장님이 그대로 가지는 파일</b>로 드립니다. 바꾸기 쉬운 곳을 표시한 수정 가이드도 함께 드려요.</p></div>
-        <div class="qa-vis tree" aria-hidden="true"><div class="f">우리가게-페이지/</div><div class="d"><span>index.html</span><small>페이지</small></div><div class="d"><span>assets/</span><small>사진·아이콘</small></div><div class="d"><span>수정가이드.pdf</span><small>고칠 곳 표시</small></div></div>
-      </div>
-    </div>
-    <div class="ai rv" id="ai">
-      <h3><span>안내</span>AI 활용</h3>
-      <p>기획·카피 초안·코딩에 AI 도구를 활용합니다. 덕분에 빠르고 합리적인 가격이 가능하고, 모든 결과물은 화면별 검수를 거쳐 납품합니다. 사진은 사장님 사진이나 상업적 이용이 허가된 무료 스톡 사진만 쓰고, 출처를 기록해 드립니다.</p>
-      <p class="fine">이 페이지의 샘플 업체명·후기·수치는 제작 실력을 보여드리기 위한 가상 샘플입니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── FAQ ── -->
-<section class="sec" id="faq" aria-labelledby="fq-h">
-  <div class="wrap faq-wrap">
-    <div>
-      <span class="kicker">자주 묻는 질문</span>
-      <h2 class="h2" id="fq-h">맡기기 전에<br>궁금하신 것들</h2>
-    </div>
-    <div class="faq-list">
-      <details><summary>왜 숨고·크몽에서만 거래하나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">결제와 대화 기록이 플랫폼에 남는 안전결제로 진행해야, 처음 맡기시는 분도 안심하고 맡기실 수 있기 때문입니다. 상담·견적·시안 확인 모두 플랫폼 메시지로 진행합니다.</p></details>
-      <details><summary>문구나 사진이 하나도 없어도 되나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">됩니다. 업종과 원하는 고객 행동(전화·폼·카톡·예약)만 있으면 시작할 수 있습니다. DELUXE부터는 카피를 새로 쓰고 이미지도 제작해 드립니다. 로고·매장 사진·참고 사이트가 있으면 더 좋습니다.</p></details>
-      <details><summary>도메인·호스팅비가 따로 드나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">호스팅은 무료 서비스(Cloudflare Pages 등)에 고객님 계정으로 올려드려 월 비용이 없습니다. 도메인은 원하시면 연 1~2만 원대로 직접 구입하시고, 연결은 PREMIUM에 포함됩니다.</p></details>
-      <details><summary>나중에 문구를 직접 바꿀 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">바꾸기 쉬운 위치를 표시한 수정 가이드를 함께 드립니다. 간단한 문구 변경은 메모장으로도 가능합니다.</p></details>
-      <details><summary>시안이 마음에 안 들면요?<span class="pm" aria-hidden="true"></span></summary><p class="a">첫 시안 단계에서 방향이 전혀 맞지 않으면 다른 콘셉트로 한 번 더 잡아드립니다. 수정 횟수는 차감하지 않습니다.</p></details>
-      <details><summary>기술적으로는 어떻게 만들어지나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">빌드 도구 없는 HTML 한 파일과 이미지 폴더(assets/)로 만듭니다. 375px·768px·1440px 폭에서 화면 캡처로 가로 스크롤·겹침을 검수하고, Lighthouse 성능·접근성 90점 이상을 목표로 합니다(고객 사진 용량에 따라 달라질 수 있음). 문의 폼은 Web3Forms(STANDARD) 또는 Google Apps Script + 구글 시트(DELUXE 이상)로 연결하고, PREMIUM은 GA4·메타 픽셀 설치와 도메인 DNS 연결까지 합니다. 호스팅은 Netlify·Cloudflare Pages 같은 무료 서비스의 고객님 계정을 씁니다.</p></details>
-      <details><summary>아임웹·카페24에 넣을 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">코드 삽입 기능이 있는 플랜이면 가능하지만, 빌더 내부 작업은 하지 않습니다. 독립 페이지를 권장합니다.</p></details>
-      <details><summary>맡길 수 없는 작업도 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">쇼핑몰·결제 기능, 회원가입·로그인, 관리자 페이지, 워드프레스·아임웹 등 빌더 내부 작업, 다른 브랜드 디자인 복제, 의료·금융 과장 광고 문구는 하지 않습니다.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- ── FINAL CTA ── -->
-<section class="sec dark final" id="final" aria-labelledby="fn-h">
-  <div class="wrap">
-    <span class="kicker">시작하기</span>
-    <h2 class="h2" id="fn-h">광고 켜기 전에,<br><em>보낼 페이지</em>부터 만드세요</h2>
-    <p class="sub">첫 화면 시안은 결제 전에 무료로, 세 가지 답변 후 2시간 안에 보여드려요. 진행하시면 질문지 회신 후 24시간 안에 첫 시안을 휴대폰으로 확인하실 수 있습니다.</p>
-    <div class="cta-row" id="final-cta">
+    <span class="eyebrow rv">소상공인·1인 창업자 랜딩페이지</span>
+    <h1 class="h1 rv" id="hero-h" data-d="1">광고비 쓰는데<br>문의가 <mark>안 온다면</mark></h1>
+    <p class="sub rv" data-d="2">첫 화면 3초부터 다시 짭니다</p>
+    <div class="cta-row rv" id="hero-cta" data-d="3">
       <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-sec" href="https://kmong.com/@하루랜딩스튜디오">크몽에서 보기</a>
     </div>
-    <p class="safe"><svg aria-hidden="true"><use href="#i-shield"/></svg>결제는 숨고 안전결제(숨고페이)로만 받고, 상담·시안·결제 기록이 모두 숨고에 남습니다.</p>
+    <p class="facts rv" data-d="3"><span><b>24시간</b>첫 시안</span><span><b>15만 원~</b>휴대폰·PC</span><span><b>30일</b>무상 수정</span></p>
+  </div>
+  <div class="phones" aria-label="샘플 네 가지의 휴대폰 첫 화면">
+    <div class="ph p1 down"><div class="scr"><img src="assets/phone-app-launch.webp" width="560" height="2426" alt="샘플 ‘모아장부’ 사전예약 페이지의 휴대폰 첫 화면" fetchpriority="high"></div></div>
+    <div class="ph p2 up"><div class="scr"><img src="assets/phone-pilates.webp" width="560" height="2426" alt="샘플 ‘결 필라테스’ 체험 신청 페이지의 휴대폰 첫 화면" fetchpriority="high"></div></div>
+    <div class="ph p3 down"><div class="scr"><img src="assets/phone-interior.webp" width="560" height="2426" alt="샘플 ‘바른집 인테리어’ 견적 신청 페이지의 휴대폰 첫 화면"></div></div>
+    <div class="ph p4 up"><div class="scr"><img src="assets/phone-detail-food.webp" width="560" height="2426" alt="샘플 ‘엄마손 반찬 깍두기’ 상세페이지의 휴대폰 첫 화면"></div></div>
+  </div>
+</section>
+
+<!-- ASK -->
+<section class="ask center" id="problem" aria-labelledby="ask-h">
+  <div class="wrap">
+    <h2 class="h2 rv" id="ask-h"><span class="dim">예쁜데</span><br>왜 <b>조용</b>할까요?</h2>
+    <p class="sub rv" data-d="1">고객이 3초 안에 답을 못 찾으면 나가요</p>
+  </div>
+</section>
+
+<!-- 3 SECONDS -->
+<section class="sec three" aria-labelledby="three-h">
+  <div class="wrap">
+    <figure class="shot rv">
+      <div class="ph"><div class="scr"><img src="assets/hero-phone.webp" width="750" height="1624" loading="lazy" alt="샘플 ‘결 필라테스’의 휴대폰 첫 화면. 헤드라인, 한 줄 설명, 신청 버튼이 차례로 보인다."></div></div>
+      <ol class="co-list" aria-hidden="true">
+        <li class="co co1"><span><small>1초</small>무엇이 좋은지</span></li>
+        <li class="co co2"><span><small>2초</small>나한테 맞는지</span></li>
+        <li class="co co3"><span><small>3초</small>무엇을 누를지</span></li>
+      </ol>
+    </figure>
+    <div class="copy">
+      <span class="eyebrow rv">그래서 첫 화면에</span>
+      <h2 class="h2 rv" id="three-h" data-d="1">스크롤 전에<br><b>세 가지</b>를<br>답해요</h2>
+      <ol class="qs rv" data-d="2">
+        <li><span>1초</span>뭐가 좋은데?</li>
+        <li><span>2초</span>나한테 맞는 얘기야?</li>
+        <li><span>3초</span>어디를 누르면 돼?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section class="sec" id="work" aria-labelledby="wk-h">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow rv">샘플</span>
+      <h2 class="h2 rv" id="wk-h" data-d="1">업종도 목표도 다른<br><b>샘플 네 가지</b></h2>
+      <p class="sub rv" data-d="2">가상 업체 샘플이에요 · 업체명·후기·수치는 실제가 아닙니다</p>
+    </div>
+    <div class="works rv">
+      <article class="work" aria-labelledby="c1">
+        <a class="stage" style="--c:#3F4632" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener" aria-label="결 필라테스 샘플 새 창에서 열기">
+          <span class="badge">샘플 · 가상 업체</span>
+          <div class="ph"><div class="scr"><img src="assets/phone-pilates.webp" width="560" height="2426" loading="lazy" decoding="async" alt="결 필라테스 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></div></div>
+        </a>
+        <h3 id="c1">결 필라테스<span class="kind">동네 필라테스 스튜디오</span></h3>
+        <p class="goal">목표 행동 <b>체험 레슨 신청</b></p>
+        <div class="open">
+          <a class="btn btn-ink btn-sm" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener">직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <img class="qr" src="assets/qr-pilates.svg" width="58" height="58" loading="lazy" alt="결 필라테스 샘플 주소 QR 코드">
+        </div>
+      </article>
+      <article class="work" aria-labelledby="c2">
+        <a class="stage" style="--c:#0A7D4F" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener" aria-label="모아장부 샘플 새 창에서 열기">
+          <span class="badge">샘플 · 가상 서비스</span>
+          <div class="ph"><div class="scr"><img src="assets/phone-app-launch.webp" width="560" height="2426" loading="lazy" decoding="async" alt="모아장부 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></div></div>
+        </a>
+        <h3 id="c2">모아장부<span class="kind">출시 전 앱 사전예약</span></h3>
+        <p class="goal">목표 행동 <b>연락처 남기고 사전예약</b></p>
+        <div class="open">
+          <a class="btn btn-ink btn-sm" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener">직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <img class="qr" src="assets/qr-app-launch.svg" width="58" height="58" loading="lazy" alt="모아장부 샘플 주소 QR 코드">
+        </div>
+      </article>
+      <article class="work" aria-labelledby="c3">
+        <a class="stage" style="--c:#2A2C2F" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener" aria-label="바른집 인테리어 샘플 새 창에서 열기">
+          <span class="badge">샘플 · 가상 업체</span>
+          <div class="ph"><div class="scr"><img src="assets/phone-interior.webp" width="560" height="2426" loading="lazy" decoding="async" alt="바른집 인테리어 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></div></div>
+        </a>
+        <h3 id="c3">바른집 인테리어<span class="kind">구축 아파트 리모델링</span></h3>
+        <p class="goal">목표 행동 <b>무료 실측·견적 신청</b></p>
+        <div class="open">
+          <a class="btn btn-ink btn-sm" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener">직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <img class="qr" src="assets/qr-interior.svg" width="58" height="58" loading="lazy" alt="바른집 인테리어 샘플 주소 QR 코드">
+        </div>
+      </article>
+      <article class="work" aria-labelledby="c4">
+        <a class="stage" style="--c:#8E2F1F" href="https://0804sally.github.io/haru-landing/samples/detail-food/" target="_blank" rel="noopener" aria-label="엄마손 반찬 깍두기 상세페이지 샘플 새 창에서 열기">
+          <span class="badge">샘플 · 가상 상품</span>
+          <div class="ph"><div class="scr"><img src="assets/phone-detail-food.webp" width="560" height="2426" loading="lazy" decoding="async" alt="엄마손 반찬 깍두기 상세페이지를 휴대폰 화면 폭으로 줄여 본 첫 부분"></div></div>
+        </a>
+        <h3 id="c4">엄마손 반찬 깍두기<span class="kind">스마트스토어 상세페이지</span></h3>
+        <p class="goal">목표 행동 <b>구매하기</b></p>
+        <p class="svc">상세페이지는 랜딩페이지 요금제와 따로 받아요</p>
+        <div class="open">
+          <a class="btn btn-ink btn-sm" href="https://0804sally.github.io/haru-landing/samples/detail-food/" target="_blank" rel="noopener">직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <img class="qr" src="assets/qr-detail-food.svg" width="58" height="58" loading="lazy" alt="엄마손 반찬 깍두기 상세페이지 샘플 주소 QR 코드">
+        </div>
+      </article>
+    </div>
+    <p class="swipe" aria-hidden="true">← 옆으로 넘겨 보세요 →</p>
+    <p class="works-note"><span class="pc-only">PC에서는 화면에 마우스를 올리면 아래로 넘어가요 · QR을 휴대폰 카메라로 찍으면 바로 열려요<br></span>샘플 사진은 상업적 이용이 허가된 Unsplash·Pexels 무료 이미지이고, 출처는 각 샘플의 LICENSES.txt에 기록했습니다.</p>
+  </div>
+</section>
+
+<!-- FREE DRAFT -->
+<section class="free center" id="free" aria-labelledby="free-h">
+  <div class="wrap">
+    <span class="eyebrow rv">숨고 상담 중 · 무료</span>
+    <h2 class="h2 rv" id="free-h" data-d="1">결제 전에<br><mark>첫 화면 시안</mark>부터<br>보세요</h2>
+    <p class="sub rv" data-d="2">업종·손님·강점 세 가지만 알려 주시면 <b>2시간 안에</b><br>밤 11시~오전 9시에 주시면 오전 11시까지</p>
+    <div class="cta-row rv" data-d="3">
+      <a class="btn btn-ink" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="fine rv" data-d="3">마음에 드실 때만 진행하세요 · 진행을 결정하시면 그때 숨고 안전결제로 결제합니다</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec dark" id="process" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow rv">진행 과정</span>
+      <h2 class="h2 rv" id="pr-h" data-d="1">질문지 10분이면<br><b>내일</b> 시안을 받아요</h2>
+      <p class="sub rv" data-d="2">문구·사진이 없어도 시작할 수 있어요</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><p class="v">10분</p><h3>질문지 작성</h3><p>업종·고객·강점·원하는 행동만</p></li>
+      <li class="step rv" data-d="1"><p class="v">24시간</p><h3>첫 시안 확인</h3><p>질문지 회신 후 24시간 안, 휴대폰·PC 링크로</p></li>
+      <li class="step rv" data-d="2"><p class="v">2~5회</p><h3>편하게 수정 요청</h3><p>“좀 더 고급스럽게”도 말로 하시면 돼요</p></li>
+      <li class="step rv" data-d="3"><p class="v">2~4일 차</p><h3>납품 · 공개</h3><p>사장님 계정 무료 호스팅에 올려 월 이용료 없음</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing" aria-labelledby="pc-h">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow rv">가격</span>
+      <h2 class="h2 rv" id="pc-h" data-d="1">필요한 만큼만<br><b>고르세요</b></h2>
+      <p class="sub rv" data-d="2">휴대폰·태블릿·PC 모두 · 첫 시안 24시간(질문지 회신 기준) · 납품 후 30일 무상 수정</p>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <p class="name">STANDARD</p>
+        <p class="price num">150,000<small>원</small></p>
+        <p class="for">문구·사진이 준비된 분</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>섹션 5개 · 카피 다듬기</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>보내 주신 사진 보정</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>문의 폼 → 이메일로 바로 도착</li>
+          <li class="off"><svg aria-hidden="true"><use href="#i-check"/></svg>애니메이션 없음</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>무료 호스팅 배포 (사장님 계정)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>수정 2회 · 작업 2일</li>
+        </ul>
+        <a class="btn btn-line" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
+      </article>
+      <article class="plan feat rv" data-d="1">
+        <span class="rec">처음이라면 추천</span>
+        <p class="name">DELUXE</p>
+        <p class="price num">290,000<small>원</small></p>
+        <p class="for">기획·카피까지 맡기실 분</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>섹션 8개 · 카피 새로 작성</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>무료 스톡 사진 선별 3장</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>문의 폼 → 구글 시트 저장 + 이메일 알림</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>스크롤 등장 효과</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>무료 호스팅 배포 (사장님 계정)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>수정 3회 · 작업 3일</li>
+        </ul>
+        <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
+      </article>
+      <article class="plan rv" data-d="2">
+        <p class="name">PREMIUM</p>
+        <p class="price num">490,000<small>원</small></p>
+        <p class="for">바로 광고 돌릴 분</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>섹션 10개 이상 · 카피 + 헤드라인 2안</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>무료 스톡 사진 선별 6장</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>문의 폼 → 구글 시트 저장 + 이메일 알림</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>섹션별 모션 + 숫자 카운트</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>호스팅 + 도메인 연결 + 광고 성과 측정 설정</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>수정 5회 · 작업 4일</li>
+        </ul>
+        <a class="btn btn-line" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
+      </article>
+    </div>
+    <ul class="incl rv" aria-label="세 패키지 모두 포함">
+      <li>월 이용료 없는 무료 호스팅</li>
+      <li>전화·문자 바로걸기 버튼</li>
+      <li>실제로 도착하는 문의 폼</li>
+      <li>개인정보 처리방침·동의 문구</li>
+    </ul>
+    <p class="addons rv"><span>빠른 작업 <b>+50,000원</b> (1일 단축)</span><span>섹션 추가 <b>+30,000원</b>/개</span><span>영문 버전 <b>+100,000원</b></span><span>같은 패키지를 <a href="https://kmong.com/@하루랜딩스튜디오">크몽</a>에서도 주문할 수 있어요</span></p>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="quality" id="quality" aria-labelledby="qa-h">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow rv">품질 약속</span>
+      <h2 class="h2 rv" id="qa-h" data-d="1">말 대신<br><b>숫자</b>로 검수해요</h2>
+    </div>
+    <ul class="qa-grid">
+      <li class="rv"><p class="v num">3<small>화면</small></p><p class="k">휴대폰·태블릿·PC<span>375·768·1440px 캡처 확인</span></p></li>
+      <li class="rv" data-d="1"><p class="v num">90<small>+</small></p><p class="k">속도·읽기 편함<span>구글 점검 도구 목표 점수</span></p></li>
+      <li class="rv" data-d="2"><p class="v num">30<small>일</small></p><p class="k">납품 후 무상 수정<span>그 사이 생긴 오류는 무료로</span></p></li>
+      <li class="rv" data-d="3"><p class="v num">0<small>원</small></p><p class="k">월 이용료<span>파일은 사장님 것, 수정 가이드 포함</span></p></li>
+    </ul>
+    <p class="ai rv" id="ai"><b>AI 활용 안내</b> · 기획·카피 초안·코딩에 AI 도구를 활용해 빠르고 합리적인 가격으로 만들고, 모든 결과물은 화면별 검수를 거쳐 납품합니다. 사진은 사장님 사진이나 상업적 이용이 허가된 무료 스톡 사진만 쓰고 출처를 기록해 드려요. 이 페이지의 샘플 업체명·후기·수치는 제작 실력을 보여 드리기 위한 가상 샘플입니다.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq" aria-labelledby="fq-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">자주 묻는 질문</span>
+      <h2 class="h2 rv" id="fq-h" data-d="1">맡기기 전에<br><b>궁금한 것</b></h2>
+    </div>
+    <div class="faq-list rv">
+      <details><summary>왜 숨고·크몽에서만 거래하나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">결제와 대화 기록이 플랫폼에 남는 안전결제로 진행해야 처음 맡기시는 분도 안심할 수 있어서예요. 상담·견적·시안 확인 모두 플랫폼 메시지로 진행합니다.</p></details>
+      <details><summary>문구나 사진이 하나도 없어도 되나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">됩니다. 업종과 원하는 고객 행동(전화·폼·카톡·예약)만 있으면 시작할 수 있어요. DELUXE부터는 카피를 새로 쓰고 사진도 골라 드립니다.</p></details>
+      <details><summary>도메인·호스팅비가 따로 드나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">호스팅은 무료 서비스(Cloudflare Pages 등)에 사장님 계정으로 올려 월 비용이 없어요. 도메인은 원하시면 연 1~2만 원대로 직접 사시고, 연결은 PREMIUM에 포함됩니다.</p></details>
+      <details><summary>나중에 문구를 직접 바꿀 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">바꾸기 쉬운 위치를 표시한 수정 가이드를 함께 드려요. 간단한 문구는 메모장으로도 고칠 수 있습니다.</p></details>
+      <details><summary>시안이 마음에 안 들면요?<span class="pm" aria-hidden="true"></span></summary><p class="a">첫 시안 방향이 전혀 맞지 않으면 다른 콘셉트로 한 번 더 잡아 드려요. 수정 횟수는 차감하지 않습니다.</p></details>
+      <details><summary>기술적으로는 어떻게 만들어지나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">빌드 도구 없는 HTML 한 파일과 이미지 폴더(assets/)예요. 375·768·1440px 캡처로 가로 스크롤·겹침을 검수하고, Lighthouse 성능·접근성 90점 이상을 목표로 합니다(사진 용량에 따라 달라질 수 있음). 폼은 Web3Forms(STANDARD) 또는 Apps Script + 구글 시트(DELUXE 이상), PREMIUM은 GA4·메타 픽셀과 도메인 연결까지 합니다.</p></details>
+      <details><summary>아임웹·카페24에 넣을 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">코드 삽입이 되는 플랜이면 가능하지만, 빌더 내부 작업은 하지 않아요. 독립 페이지를 권해 드립니다.</p></details>
+      <details><summary>맡길 수 없는 작업도 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">쇼핑몰·결제 기능, 회원가입·로그인, 관리자 페이지, 빌더 내부 작업, 다른 브랜드 디자인 복제, 의료·금융 과장 광고 문구는 하지 않습니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="sec dark final center" id="final" aria-labelledby="fn-h">
+  <div class="wrap">
+    <span class="eyebrow rv">시작하기</span>
+    <h2 class="h2 rv" id="fn-h" data-d="1">광고 켜기 전에,<br><b>보낼 페이지</b>부터</h2>
+    <p class="sub rv" data-d="2">첫 화면 시안은 결제 전 무료 · 세 가지 답변 후 2시간 안</p>
+    <div class="cta-row rv" id="final-cta" data-d="3">
+      <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-sec" href="https://kmong.com/@하루랜딩스튜디오">크몽에서 보기</a>
+    </div>
+    <p class="safe rv" data-d="3"><svg aria-hidden="true"><use href="#i-shield"/></svg>결제는 숨고 안전결제(숨고페이)로만 받고, 상담·시안·결제 기록이 모두 숨고에 남습니다.</p>
   </div>
 </section>
 </main>
@@ -739,7 +565,7 @@ details[open] .pm::after{transform:rotate(0)}
   <div class="wrap">
     <div>
       <a class="logo" href="#top"><svg aria-hidden="true"><use href="#i-logo"/></svg>하루랜딩스튜디오</a>
-      <p class="safe-line" style="margin-top:12px">모든 거래는 숨고·크몽 안전결제로 진행합니다.</p>
+      <p style="margin-top:10px">모든 거래는 숨고·크몽 안전결제로 진행합니다.</p>
       <p>샘플의 업체명·후기·수치는 가상입니다. 제작에 AI 도구를 활용합니다.</p>
     </div>
     <div>
@@ -758,22 +584,23 @@ details[open] .pm::after{transform:rotate(0)}
 (function(){
   var d=document, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // reveal
-  var rv=d.querySelectorAll('.rv');
-  if(reduce||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
-  else{
+  if(!reduce&&'IntersectionObserver' in window){
+    d.documentElement.classList.add('js');
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
-    rv.forEach(function(e){io.observe(e)});
+    d.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
   }
-  // in-page anchors: smooth scroll (CSS smooth 는 스크린샷 측정과 충돌해서 JS 로)
+  // in-page anchors: smooth scroll via JS (CSS smooth 는 스크린샷 측정과 충돌)
   d.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var t=d.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:reduce?'auto':'smooth'});history.replaceState(null,'',a.getAttribute('href'))});
   // header border
   var hdr=d.getElementById('hdr');
   var onScroll=function(){hdr.classList.toggle('scrolled',window.scrollY>8)};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // FAQ: one open at a time
+  var dets=d.querySelectorAll('.faq details');
+  dets.forEach(function(x){x.addEventListener('toggle',function(){if(x.open)dets.forEach(function(o){if(o!==x)o.open=false})})});
   // mobile sticky CTA: hero CTA 가 화면 밖 + 마지막 CTA 미노출일 때만
   var bar=d.getElementById('mbar'), heroOut=false, finalIn=false;
   if('IntersectionObserver' in window){
-    d.body.classList.add('has-mbar');
     var set=function(){var s=heroOut&&!finalIn;bar.classList.toggle('show',s);bar.setAttribute('aria-hidden',s?'false':'true');bar.querySelector('a').tabIndex=s?0:-1};
     new IntersectionObserver(function(es){heroOut=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;set()}).observe(d.getElementById('hero-cta'));
     new IntersectionObserver(function(es){finalIn=es[0].isIntersecting;set()}).observe(d.getElementById('final-cta'));

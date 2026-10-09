@@ -17,7 +17,7 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
 1. 이미지
 ---------
 파일: assets/hero.jpg
-  쓰인 곳: 첫 화면 큰 사진 — 흰 그릇에 담긴 깍두기
+  쓰인 곳: 첫 화면 아치 사진 — 흰 그릇에 담긴 깍두기
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/close-up-shot-of-side-dish-in-a-white-plate-8954382/
   작가: makafood (https://www.pexels.com/@makafood-82669418/)
@@ -26,7 +26,7 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
   수정: 크기 조정, 화면에서 자르기(object-fit)
 
 파일: assets/radish.jpg
-  쓰인 곳: "재료" — 무 (사진은 무 품종이 실제 상품과 다를 수 있음)
+  쓰인 곳: "하루 순서" 06:00 무 손질 (사진은 무 품종이 실제 상품과 다를 수 있음)
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/fresh-harvest-of-organic-daikon-radishes-35625125/
   작가: L. Lum (https://www.pexels.com/@l-lum-2158594693/)
@@ -35,7 +35,7 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
   수정: 크기 조정, 화면에서 자르기
 
 파일: assets/gochugaru.jpg
-  쓰인 곳: "맛" — 고춧가루와 마른 고추
+  쓰인 곳: "양념" 원형 사진 — 고춧가루
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/rich-red-chili-powder-in-white-bowl-33440710/
   작가: Bonaventure Fernandez (https://www.pexels.com/@bonaventure-fernandez-744363/)
@@ -44,7 +44,7 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
   수정: 크기 조정, 화면에서 자르기
 
 파일: assets/bowl-wood.jpg
-  쓰인 곳: "보관" — 나무 식탁 위 깍두기
+  쓰인 곳: "보관" 블록 큰 사진 — 나무 식탁 위 깍두기
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/sliced-radish-kimchi-on-white-ceramic-saucer-8866494/
   작가: makafood (https://www.pexels.com/@makafood-82669418/)
@@ -53,7 +53,7 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
   수정: 크기 조정, 화면에서 자르기
 
 파일: assets/bowl-table.jpg
-  쓰인 곳: "만드는 과정" 양념 버무리기 단계
+  쓰인 곳: "하루 순서" 09:00 양념 버무리기
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/bowl-of-soup-with-potatoes-8886576/
   작가: makafood (https://www.pexels.com/@makafood-82669418/)
@@ -62,13 +62,96 @@ Pexels License: 상업적·비상업적 이용 가능, 출처 표기 의무 없�
   수정: 크기 조정, 화면에서 자르기
 
 파일: assets/gukbap.jpg
-  쓰인 곳: "맛있게 먹는 법" — 뚝배기 해장국 옆 깍두기
+  쓰인 곳: "맛있게 먹는 법" 블록 바탕 — 뚝배기 해장국 옆 깍두기
   출처: Pexels
   원본 주소: https://www.pexels.com/photo/soup-with-onion-leaks-in-a-black-bowl-8953853/
   작가: makafood (https://www.pexels.com/@makafood-82669418/)
   라이선스: Pexels License
   받은 날짜: 2026-10-09
   수정: 크기 조정, 화면에서 자르기
+
+(2026-10-09 사진 중심 개편 때 추가)
+
+파일: assets/kk-saucer.jpg
+  쓰인 곳: "주문 안내" 블록 사진 — 흰 접시의 깍두기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/fermented-radish-on-a-white-saucer-8956830/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/radish-grey.jpg
+  쓰인 곳: "재료" 블록 큰 사진 — 회색 바탕의 흰 무 (품종은 실제 상품과 다를 수 있음)
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/a-close-up-shot-of-white-radishes-7214603/
+  작가: Hanna Pad (https://www.pexels.com/@anna-nekrashevich/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/garlic.jpg
+  쓰인 곳: "양념" 원형 사진 — 마늘
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/bulb-of-garlic-and-scattered-cloves-of-garlic-in-peel-on-gray-table-4022182/
+  작가: Karolina Grabowska (Kaboompics) (https://www.pexels.com/@karola-g/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/ginger.jpg
+  쓰인 곳: "양념" 원형 사진 — 생강
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/close-up-shot-of-a-ginger-on-the-plate-5202108/
+  작가: Karolina Grabowska (Kaboompics) (https://www.pexels.com/@karola-g/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/scallion.jpg
+  쓰인 곳: "양념" 원형 사진 — 쪽파
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/fresh-green-onion-chopped-on-table-4198282/
+  작가: Karolina Grabowska (Kaboompics) (https://www.pexels.com/@karola-g/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/salt.jpg
+  쓰인 곳: "하루 순서" 07:00 소금 절이기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/close-up-shot-of-a-wooden-spoon-and-salt-9974511/
+  작가: Marek Kupiec (https://www.pexels.com/@marek-kupiec-1696944/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/parcel.jpg
+  쓰인 곳: "하루 순서" 14:00 냉장 출고 — 문 앞 택배 상자
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/person-holding-pizza-boxes-9461801/
+  작가: Mike Jones (https://www.pexels.com/@mike-jones/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/table-soup.jpg
+  쓰인 곳: "공감" 블록 바탕 — 국밥 상차림
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/a-korean-beef-soup-on-a-table-with-other-dishes-15876419/
+  작가: 세훈 예 (https://www.pexels.com/@yesehoon/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
+
+파일: assets/kk-bowl-light.jpg
+  쓰인 곳: "보관" 블록 원형 사진 — 밝은 그릇의 깍두기
+  출처: Pexels
+  원본 주소: https://www.pexels.com/photo/pickled-radish-in-a-bowl-8897510/
+  작가: makafood (https://www.pexels.com/@makafood-82669418/)
+  라이선스: Pexels License (페이지 구조화 데이터 license = https://www.pexels.com/license/ 확인)
+  받은 날짜: 2026-10-09
+  수정: 크기 조정(긴 변 1600px), 화면에서 자르기(object-fit)
 
 참고
 - Pexels License:   https://www.pexels.com/license/
@@ -91,4 +174,5 @@ Pretendard (jsDelivr CDN 에서 불러옴, 렌더링한 PNG 에 글자 모양으
 
 3. 아이콘·그래픽
 ----------------
-로고 마크, 아이콘, 요일표, 숙성 막대 등은 하루랜딩이 HTML/CSS/SVG 로 직접 그렸습니다 (별도 라이선스 없음).
+로고 마크, 요일표, 숙성 막대, 기준 배지 테두리, 화살표 등은 하루랜딩이 HTML/CSS/SVG 로 직접 만들었습니다 (별도 라이선스 없음).
+블록 스타일: kit/blocks/detail/blocks.css (하루랜딩 자체 제작).
