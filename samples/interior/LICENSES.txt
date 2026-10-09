@@ -32,5 +32,11 @@ assets/bath.jpg, assets/bath-800.jpg
   작가: Lotus Design N Print (https://unsplash.com/@lotusdnp)
   라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
 
+assets/livingroom.jpg, assets/livingroom-800.jpg
+  쓰인 곳: 시공 사례 — 29평 거실 확장
+  원본 페이지: https://unsplash.com/photos/white-and-brown-living-room-set-QGxBeUDkeWk
+  작가: Huy Nguyen (https://unsplash.com/@huynguyen_pch)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
 폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
-아이콘·도형·앱 화면 목업 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.
+아이콘·견적서·체크리스트 등 그 밖의 화면 요소는 HTML/CSS/SVG 로 직접 제작했습니다.
