@@ -1,0 +1,24 @@
+이미지·폰트 출처와 라이선스 — 모아장부 (포트폴리오 샘플 · 가상의 업체)
+확인일: 2026-10-09
+
+사진은 모두 Unsplash 에서 받은 무료 이미지이며, Unsplash License 에 따라 상업적 이용이 가능합니다.
+Unsplash License: https://unsplash.com/license
+ - 상업적·비상업적 이용 가능, 출처 표기 의무 없음(아래에 기록으로 남김)
+ - 사진을 변경 없이 그대로 판매하는 것, 유사 경쟁 서비스 구축은 금지
+각 사진은 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
+사진 속 장소·인물은 이 가상 업체와 관계가 없습니다.
+
+assets/cafe.jpg, assets/cafe-800.jpg
+  쓰인 곳: 사용 방법 — 카페 카운터
+  원본 페이지: https://unsplash.com/photos/a-restaurant-with-wooden-tables-and-wooden-chairs-3oSfmHbZtCM
+  작가: rawkkim (https://unsplash.com/@rawkkim)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/receipts.jpg, assets/receipts-800.jpg
+  쓰인 곳: 고민 섹션 — 쌓인 영수증
+  원본 페이지: https://unsplash.com/photos/a-close-up-of-a-stack-of-papers-3CLPBgNuX40
+  작가: Camilo Rueda Lopez (https://unsplash.com/@kozumel)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
+아이콘·도형·앱 화면 목업 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.

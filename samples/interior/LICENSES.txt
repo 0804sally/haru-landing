@@ -1,0 +1,36 @@
+이미지·폰트 출처와 라이선스 — 바른집 인테리어 (포트폴리오 샘플 · 가상의 업체)
+확인일: 2026-10-09
+
+사진은 모두 Unsplash 에서 받은 무료 이미지이며, Unsplash License 에 따라 상업적 이용이 가능합니다.
+Unsplash License: https://unsplash.com/license
+ - 상업적·비상업적 이용 가능, 출처 표기 의무 없음(아래에 기록으로 남김)
+ - 사진을 변경 없이 그대로 판매하는 것, 유사 경쟁 서비스 구축은 금지
+각 사진은 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
+사진 속 장소·인물은 이 가상 업체와 관계가 없습니다.
+
+assets/before.jpg, assets/before-800.jpg
+  쓰인 곳: 전후 비교 — 시공 전 예시(다른 공간)
+  원본 페이지: https://unsplash.com/photos/peeling-wallpaper-in-an-empty-room-with-a-window-n5fgtBuF4w4
+  작가: Lutz Stallknecht (https://unsplash.com/@nikodemus777)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/after.jpg, assets/after-800.jpg
+  쓰인 곳: 전후 비교 — 시공 후 예시(다른 공간) · 시공 사례
+  원본 페이지: https://unsplash.com/photos/living-room-with-grey-velvet-sofas-mw_mj-noYHM
+  작가: Zac Gudakov (https://unsplash.com/@zacgudakov)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/kitchen.jpg, assets/kitchen-800.jpg
+  쓰인 곳: 시공 사례 — 주방
+  원본 페이지: https://unsplash.com/photos/modern-kitchen-with-island-and-large-window-VgyN_CWXQVM
+  작가: Cat Han (https://unsplash.com/@figmentprints)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/bath.jpg, assets/bath-800.jpg
+  쓰인 곳: 시공 사례 — 욕실
+  원본 페이지: https://unsplash.com/photos/modern-bathroom-with-shower-and-vanity-g51F6-WYzyU
+  작가: Lotus Design N Print (https://unsplash.com/@lotusdnp)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
+아이콘·도형·앱 화면 목업 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.

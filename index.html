@@ -87,7 +87,9 @@ ul,ol{list-style:none}
 .hero .lead b{color:#fff;font-weight:700}
 .cta-row{margin-top:28px;display:grid;gap:10px}
 .cta-row .btn{width:100%}
-.facts{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink-line)}
+.pay-note{margin-top:14px;display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--on-ink-2)}
+.pay-note svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--accent)}
+.facts{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink-line)}
 .facts li{padding:16px 0 0;font-size:13px;line-height:1.4;color:var(--on-ink-2)}
 .facts li+li{padding-left:14px;border-left:1px solid var(--ink-line);margin-top:16px;padding-top:0}
 .facts li:first-child{margin-top:16px;padding-top:0}
@@ -157,35 +159,39 @@ ul,ol{list-style:none}
   .split .sub{margin-top:20px}
 }
 /* portfolio */
-.cases{margin-top:44px;display:grid;gap:64px}
-.case-top{display:grid;gap:24px}
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--slate);background:var(--panel);border-radius:6px;padding:4px 8px}
+.works-h{margin-top:40px;font-size:14px;font-weight:700;color:var(--slate);display:flex;align-items:center;gap:10px}
+.works-h::after{content:"";flex:1;height:1px;background:var(--line);order:1}
+.works-h .swipe{order:2;font-weight:600;font-size:13px}
+.works{margin:14px calc(var(--pad) * -1) 0;padding:4px var(--pad) 10px;display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none}
+.works::-webkit-scrollbar{display:none}
+.work{scroll-snap-align:start;min-width:0;display:flex;flex-direction:column;background:var(--panel);border-radius:20px;padding:22px 20px 20px}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--slate);background:#fff;border-radius:6px;padding:4px 8px}
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mute)}
-.case h3{margin-top:12px;font-size:26px;font-weight:800;letter-spacing:-.04em;line-height:1.3}
-.case .kind{font-size:16px;font-weight:500;color:var(--slate);margin-left:6px;letter-spacing:-.02em}
-.case .goal-act{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 10px;font-size:15px;color:var(--slate)}
-.case .goal-act b{color:var(--ink);font-weight:700}
-.case p.why{margin-top:12px;font-size:16px;color:var(--slate);line-height:1.65}
-.stage{position:relative;padding:0 14% 9% 0}
-.browser{border-radius:12px;background:#E9EBEE;box-shadow:0 0 0 1px var(--line),0 24px 48px -28px rgba(17,19,22,.45);overflow:hidden}
-.browser .bar{height:26px;display:flex;align-items:center;gap:6px;padding:0 12px}
-.browser .bar i{width:8px;height:8px;border-radius:50%;background:#C9CDD3}
-.browser img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#fff}
-.stage .mini{position:absolute;right:0;bottom:0;width:27%;background:#0E0F11;border-radius:18px;padding:4px;box-shadow:0 20px 40px -18px rgba(17,19,22,.6)}
-.stage .mini img{width:100%;aspect-ratio:375/812;object-fit:cover;object-position:top;border-radius:14px;background:#fff}
-.flow{margin:28px calc(var(--pad) * -1) 0;padding:0 var(--pad) 6px;display:grid;grid-auto-flow:column;grid-auto-columns:62%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none}
-.flow::-webkit-scrollbar{display:none}
-.flow figure{scroll-snap-align:start}
-.flow figure{min-width:0}
-.flow img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:8px;box-shadow:0 0 0 1px var(--line)}
-.flow figcaption{margin-top:10px;font-size:14px;line-height:1.45;color:var(--slate)}
-.flow figcaption b{display:block;font-size:15px;color:var(--ink);font-weight:700}
-.flow-h{margin-top:28px;font-size:14px;font-weight:700;color:var(--slate);display:flex;align-items:center;gap:10px}
-.flow-h::after{content:"";flex:1;height:1px;background:var(--line);order:1}
-.flow-h .swipe{order:2;font-weight:600;font-size:13px}
-@media (min-width:600px){.flow-h .swipe{display:none}}
-.flow-h + .flow{margin-top:14px}
-.honest{margin-top:48px;font-size:14px;color:var(--slate);padding:14px 16px;border-radius:10px;background:var(--panel)}
+.work h3{margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-.04em;line-height:1.3}
+.work .kind{display:block;margin-top:2px;font-size:15px;font-weight:500;color:var(--slate);letter-spacing:-.02em}
+.work .goal-act{margin-top:10px;font-size:15px;color:var(--slate)}
+.work .goal-act b{color:var(--ink);font-weight:700}
+.work-phone{display:block;width:min(200px,66%);margin:22px auto 0;background:#050607;border-radius:26px;padding:6px;
+  box-shadow:0 0 0 1px #3A3F47 inset,0 34px 50px -30px rgba(17,19,22,.7);transition:transform .2s}
+.work-phone:hover{transform:translateY(-3px)}
+.work-phone img{width:100%;aspect-ratio:560/2426;border-radius:20px;background:#fff}
+.work .why{margin-top:22px;font-size:16px;color:var(--slate);line-height:1.65;flex:1}
+.work-cta{margin-top:18px;display:grid;gap:14px}
+.btn-open{width:100%;height:60px;padding:0 18px;font-size:17px;white-space:normal;text-align:center;line-height:1.3}
+.qr{display:none}
+.works-note{margin-top:24px;font-size:14px;color:var(--slate)}
+@media (min-width:600px){.works{grid-auto-columns:46%}.works-h .swipe{display:none}}
+@media (min-width:768px){
+  .qr{display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.45;color:var(--slate)}
+  .qr img{width:76px;height:76px;flex:none;border-radius:8px;box-shadow:0 0 0 1px var(--line)}
+}
+@media (min-width:1024px){
+  .works-h{display:none}
+  .works{margin:48px 0 0;padding:0;grid-auto-flow:row;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible}
+  .work{padding:26px 24px 24px}
+  .work-phone{width:min(232px,78%)}
+}
 
 /* process */
 .steps{margin-top:40px;display:grid;gap:12px;counter-reset:s}
@@ -208,7 +214,7 @@ ul,ol{list-style:none}
 .plan .p-row dt{color:var(--slate)}
 .plan .p-row dd{font-weight:600}
 .plan .p-row dd.none{color:var(--mute);font-weight:500}
-.plan .p-cta{margin-top:20px;width:100%}
+.plan .p-cta{margin-top:20px;width:100%;height:auto;min-height:56px;padding:12px 16px;white-space:normal;text-align:center;line-height:1.35}
 .plan.feat{background:var(--ink);color:#fff;box-shadow:0 30px 60px -30px rgba(17,19,22,.55)}
 .plan.feat .p-for,.plan.feat .p-row dt{color:var(--on-ink-2)}
 .plan.feat .p-for,.plan.feat .p-row{border-color:var(--ink-line)}
@@ -216,6 +222,29 @@ ul,ol{list-style:none}
 .addons b{color:var(--ink);font-weight:700}
 .addons .lbl{width:100%;font-weight:700;color:var(--ink)}
 .plan-note{margin-top:14px;font-size:14px;color:var(--slate)}
+
+/* free draft offer */
+.trial{margin-top:40px;display:grid;gap:20px;padding:26px 22px;border-radius:20px;background:var(--accent-soft);box-shadow:0 0 0 1.5px rgba(255,91,31,.3) inset}
+.trial-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--ink)}
+.trial-tag i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,91,31,.2)}
+.trial h3{margin-top:10px;font-size:clamp(24px,5.6vw,32px);font-weight:800;letter-spacing:-.045em;line-height:1.25}
+.trial p{margin-top:8px;font-size:17px;color:#3B3F46;line-height:1.6}
+.trial p b{color:var(--ink)}
+.trial .btn{width:100%}
+.trial .plat-note{margin-top:0;font-size:14px;color:var(--slate)}
+.incl{margin-top:20px;padding:20px 22px;border-radius:16px;background:var(--panel)}
+.incl-h{font-size:15px;font-weight:800}
+.incl ul{margin-top:12px;display:grid;gap:10px}
+.incl li{display:flex;gap:10px;align-items:flex-start;font-size:16px;font-weight:600;line-height:1.5}
+.incl li svg{width:20px;height:20px;flex:none;margin-top:2px}
+.incl li span{display:block;font-size:14px;font-weight:500;color:var(--slate)}
+@media (min-width:768px){
+  .trial{grid-template-columns:1fr auto;align-items:center;column-gap:40px;padding:32px 36px}
+  .trial .btn{width:auto}
+  .trial .plat-note{grid-column:1/-1}
+  .incl ul{grid-template-columns:repeat(2,1fr);column-gap:24px}
+}
+@media (min-width:1024px){.incl ul{grid-template-columns:repeat(4,1fr)}}
 
 /* quality */
 .qa{margin-top:40px;display:grid;gap:12px}
@@ -258,7 +287,7 @@ details[open] .pm::after{transform:rotate(0)}
 /* final */
 .final{text-align:left}
 .final .cta-row{max-width:520px}
-.final .safe{margin-top:18px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--on-ink-2)}
+.final .safe{margin-top:18px;display:flex;align-items:flex-start;gap:8px;line-height:1.5;font-size:14px;color:var(--on-ink-2)}
 .final .safe svg{width:18px;height:18px;color:var(--accent);flex:none}
 
 /* footer */
@@ -365,7 +394,7 @@ details[open] .pm::after{transform:rotate(0)}
       <a href="#pricing">가격</a>
       <a href="#faq">자주 묻는 질문</a>
     </nav>
-    <a class="btn btn-pri hdr-cta" href="https://soomgo.com/profile/users/19304470">견적 받기</a>
+    <a class="btn btn-pri hdr-cta" href="https://soomgo.com/profile/users/19304470">무료 시안 요청</a>
   </div>
 </header>
 
@@ -378,12 +407,13 @@ details[open] .pm::after{transform:rotate(0)}
       <h1 id="hero-h">광고비 쓰는데<br>문의가 안 온다면,<br><span class="hl">첫 화면 3초</span>가<br>문제입니다.</h1>
       <p class="lead">고객이 궁금해하는 순서대로 섹션을 짜고, 마지막에 망설임 없이 신청 버튼을 누르게 만드는 페이지. <b>첫 시안은 24시간 안에</b> 보여드립니다.</p>
       <div class="cta-row" id="hero-cta">
-        <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 견적 받기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-sec" href="https://kmong.com/@하루랜딩스튜디오">크몽에서 보기</a>
       </div>
+      <p class="pay-note"><svg aria-hidden="true"><use href="#i-shield"/></svg>결제는 숨고 안전결제(숨고페이)로만 받고, 상담·시안·결제 기록이 모두 숨고에 남습니다.</p>
       <ul class="facts">
         <li><b>24시간</b>첫 시안</li>
-        <li><b>15만 원~</b>반응형 제작</li>
+        <li><b>15만 원~</b>휴대폰·PC 모두</li>
         <li><b>30일</b>납품 후 무상 수정</li>
       </ul>
     </div>
@@ -436,7 +466,7 @@ details[open] .pm::after{transform:rotate(0)}
         <h2 class="h2" id="md-h">고객의 질문 순서가<br>곧 섹션 순서입니다</h2>
       </div>
       <p class="sub">고객은 위에서 아래로 내리며 속으로 질문합니다. 질문 하나에 섹션 하나씩, 답이 끝나는 자리에 신청 버튼을 둡니다.</p>
-      <p class="meta-note rv"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>지금 보고 계신 <b>이 페이지도 같은 순서</b>로 만들었습니다. 목표 행동은 “견적 받기” 하나입니다.</span></p>
+      <p class="meta-note rv"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>지금 보고 계신 <b>이 페이지도 같은 순서</b>로 만들었습니다. 목표 행동은 “무료 시안 요청” 하나입니다.</span></p>
       </div>
       <ol class="qflow">
       <li class="q rv"><span class="dot" aria-hidden="true">1</span><div><span class="ask">뭐가 좋은데?</span><p class="ans"><b>첫 화면</b> — 한 줄 약속과 신청 버튼</p></div></li>
@@ -461,73 +491,43 @@ details[open] .pm::after{transform:rotate(0)}
       <p class="sub">실력을 직접 보여드리려고 만든 <b>가상 업체 샘플</b>입니다. 업체명·후기·수치는 실제가 아닙니다.</p>
     </div>
 
-    <div class="cases">
-      <article class="case rv" aria-labelledby="c1">
-        <div class="case-top">
-          <div class="case-info">
-            <span class="badge">샘플 · 가상 업체</span>
-            <h3 id="c1">결 필라테스<span class="kind">동네 필라테스 스튜디오</span></h3>
-            <p class="goal-act">목표 행동 <b>체험 레슨 신청</b></p>
-            <p class="why">차분한 톤 안에 ‘정원 4명, 강사가 직접 교정’이라는 이유를 첫 화면에 세우고, 체험 가격을 숨기지 않았습니다.</p>
-          </div>
-          <div class="stage">
-            <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="assets/pilates-main.webp" width="1200" height="750" loading="lazy" decoding="async" alt="결 필라테스 샘플의 PC 첫 화면"></div>
-            <div class="mini"><img src="assets/pilates-m.webp" width="375" height="812" loading="lazy" decoding="async" alt="결 필라테스 샘플의 휴대폰 첫 화면"></div>
-          </div>
-        </div>
-        <p class="flow-h">고객 질문 순서대로 짠 섹션<span class="swipe" aria-hidden="true">옆으로 넘겨 보기</span></p>
-        <div class="flow">
-          <figure><img src="assets/pilates-1.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“나한테 맞아?”</b>첫 화면</figcaption></figure>
-          <figure><img src="assets/pilates-2.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“왜 여기야?”</b>소수 정원의 이유</figcaption></figure>
-          <figure><img src="assets/pilates-3.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“얼마야?”</b>가격</figcaption></figure>
-          <figure><img src="assets/pilates-4.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“어떻게 해?”</b>체험 신청</figcaption></figure>
+    <p class="works-h">휴대폰 화면 그대로<span class="swipe" aria-hidden="true">옆으로 넘겨 보기</span></p>
+    <div class="works rv">
+      <article class="work" aria-labelledby="c1">
+        <span class="badge">샘플 · 가상 업체</span>
+        <h3 id="c1">결 필라테스<span class="kind">동네 필라테스 스튜디오</span></h3>
+        <p class="goal-act">목표 행동 <b>체험 레슨 신청</b></p>
+        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener" aria-label="결 필라테스 샘플 새 창에서 열기"><img src="assets/phone-pilates.webp" width="560" height="2426" loading="lazy" decoding="async" alt="결 필라테스 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
+        <p class="why">차분한 톤 안에 ‘정원 4명, 강사가 모든 동작을 직접 봐 드림’이라는 이유를 첫 화면에 세우고, 체험 가격을 숨기지 않았습니다.</p>
+        <div class="work-cta">
+          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/pilates/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="qr"><img src="assets/qr-pilates.svg" width="76" height="76" loading="lazy" alt="결 필라테스 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
         </div>
       </article>
-
-      <article class="case rv" aria-labelledby="c2">
-        <div class="case-top">
-          <div class="case-info">
-            <span class="badge">샘플 · 가상 업체</span>
-            <h3 id="c2">모아장부<span class="kind">출시 전 앱 사전예약</span></h3>
-            <p class="goal-act">목표 행동 <b>연락처 남기고 사전예약</b></p>
-            <p class="why">입력칸을 첫 화면 버튼 바로 위에 붙여, 읽다가 마음이 든 순간 바로 남길 수 있게 했습니다.</p>
-          </div>
-          <div class="stage">
-            <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="assets/app-launch-main.webp" width="1200" height="750" loading="lazy" decoding="async" alt="모아장부 샘플의 PC 첫 화면"></div>
-            <div class="mini"><img src="assets/app-launch-m.webp" width="375" height="812" loading="lazy" decoding="async" alt="모아장부 샘플의 휴대폰 첫 화면"></div>
-          </div>
-        </div>
-        <p class="flow-h">고객 질문 순서대로 짠 섹션<span class="swipe" aria-hidden="true">옆으로 넘겨 보기</span></p>
-        <div class="flow">
-          <figure><img src="assets/app-launch-1.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“뭐가 좋아?”</b>첫 화면</figcaption></figure>
-          <figure><img src="assets/app-launch-2.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“진짜 편해?”</b>주요 기능</figcaption></figure>
-          <figure><img src="assets/app-launch-3.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“얼마야?”</b>요금제</figcaption></figure>
-          <figure><img src="assets/app-launch-4.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“어떻게 받아?”</b>사전예약</figcaption></figure>
+      <article class="work" aria-labelledby="c2">
+        <span class="badge">샘플 · 가상 업체</span>
+        <h3 id="c2">모아장부<span class="kind">출시 전 앱 사전예약</span></h3>
+        <p class="goal-act">목표 행동 <b>연락처 남기고 사전예약</b></p>
+        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener" aria-label="모아장부 샘플 새 창에서 열기"><img src="assets/phone-app-launch.webp" width="560" height="2426" loading="lazy" decoding="async" alt="모아장부 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
+        <p class="why">입력칸을 첫 화면 버튼 바로 위에 붙여, 읽다가 마음이 든 순간 바로 남길 수 있게 했습니다.</p>
+        <div class="work-cta">
+          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/app-launch/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="qr"><img src="assets/qr-app-launch.svg" width="76" height="76" loading="lazy" alt="모아장부 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
         </div>
       </article>
-
-      <article class="case rv" aria-labelledby="c3">
-        <div class="case-top">
-          <div class="case-info">
-            <span class="badge">샘플 · 가상 업체</span>
-            <h3 id="c3">바른집 인테리어<span class="kind">구축 아파트 리모델링</span></h3>
-            <p class="goal-act">목표 행동 <b>무료 실측·견적 신청</b></p>
-            <p class="why">인테리어 고객의 가장 큰 걱정인 ‘추가금’을 헤드라인으로 올리고, 시공 전후를 직접 밀어 비교하게 했습니다.</p>
-          </div>
-          <div class="stage">
-            <div class="browser"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="assets/interior-main.webp" width="1200" height="750" loading="lazy" decoding="async" alt="바른집 인테리어 샘플의 PC 첫 화면"></div>
-            <div class="mini"><img src="assets/interior-m.webp" width="375" height="812" loading="lazy" decoding="async" alt="바른집 인테리어 샘플의 휴대폰 첫 화면"></div>
-          </div>
-        </div>
-        <p class="flow-h">고객 질문 순서대로 짠 섹션<span class="swipe" aria-hidden="true">옆으로 넘겨 보기</span></p>
-        <div class="flow">
-          <figure><img src="assets/interior-1.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“뭐가 달라?”</b>첫 화면</figcaption></figure>
-          <figure><img src="assets/interior-2.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“믿어도 돼?”</b>서류로 드리는 약속</figcaption></figure>
-          <figure><img src="assets/interior-3.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“잘해?”</b>시공 사례</figcaption></figure>
-          <figure><img src="assets/interior-4.webp" width="640" height="400" loading="lazy" decoding="async" alt=""><figcaption><b>“얼마 들어?”</b>예상 비용</figcaption></figure>
+      <article class="work" aria-labelledby="c3">
+        <span class="badge">샘플 · 가상 업체</span>
+        <h3 id="c3">바른집 인테리어<span class="kind">구축 아파트 리모델링</span></h3>
+        <p class="goal-act">목표 행동 <b>무료 실측·견적 신청</b></p>
+        <a class="work-phone" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener" aria-label="바른집 인테리어 샘플 새 창에서 열기"><img src="assets/phone-interior.webp" width="560" height="2426" loading="lazy" decoding="async" alt="바른집 인테리어 샘플을 휴대폰 폭(375px)으로 본 첫 두 화면"></a>
+        <p class="why">인테리어 고객의 가장 큰 걱정인 ‘추가금’을 헤드라인으로 올리고, 시공 전후를 직접 밀어 비교하게 했습니다.</p>
+        <div class="work-cta">
+          <a class="btn btn-ink btn-open" href="https://0804sally.github.io/haru-landing/samples/interior/" target="_blank" rel="noopener">휴대폰으로 직접 열어보기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="qr"><img src="assets/qr-interior.svg" width="76" height="76" loading="lazy" alt="바른집 인테리어 샘플 주소 QR 코드"><span>PC로 보고 계시면 휴대폰 카메라로 찍어 보세요. 바로 열립니다.</span></p>
         </div>
       </article>
     </div>
+    <p class="works-note">샘플 사진은 상업적 이용이 허가된 Unsplash 무료 이미지이고, 출처는 각 샘플의 LICENSES.txt에 기록했습니다.</p>
   </div>
 </section>
 
@@ -545,7 +545,7 @@ details[open] .pm::after{transform:rotate(0)}
       <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>10분</span><h3>질문지 작성</h3><p>업종, 고객, 강점, 원하는 행동만 알려주세요. 문구가 없어도 됩니다.</p></li>
       <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>24시간 안</span><h3>첫 시안 확인</h3><p>휴대폰·PC 화면 그대로 확인할 수 있는 링크로 드립니다.</p></li>
       <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>2~5회</span><h3>편하게 수정 요청</h3><p>말로 요청하시면 됩니다. “좀 더 고급스럽게”도 반영합니다.</p></li>
-      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>2~4일 차</span><h3>납품·배포</h3><p>소스 파일 전체를 드리고, DELUXE부터는 배포까지 합니다. 월 호스팅비 없이 운영할 수 있습니다.</p></li>
+      <li class="step rv"><span class="time"><svg aria-hidden="true"><use href="#i-clock"/></svg>2~4일 차</span><h3>납품·공개</h3><p>페이지 파일과 수정 가이드를 드리고, 사장님 계정의 무료 호스팅에 올려 바로 공개합니다. 월 이용료가 없습니다.</p></li>
     </ol>
   </div>
 </section>
@@ -558,7 +558,16 @@ details[open] .pm::after{transform:rotate(0)}
         <span class="kicker">가격</span>
         <h2 class="h2" id="pc-h">필요한 만큼만<br>고르세요</h2>
       </div>
-      <p class="sub">세 패키지 모두 반응형(휴대폰·태블릿·PC)이고, 첫 시안 24시간·납품 후 30일 무상 수정이 기본입니다.</p>
+      <p class="sub">세 패키지 모두 휴대폰·태블릿·PC 화면에 맞춰 만들고, 첫 시안 24시간·납품 후 30일 무상 수정이 기본입니다.</p>
+    </div>
+    <div class="trial rv">
+      <div>
+        <span class="trial-tag"><i aria-hidden="true"></i>숨고 상담 중 · 무료</span>
+        <h3>시안 먼저 보고 결정하세요</h3>
+        <p>첫 화면 시안을 <b>결제 전에 무료로</b> 보여드려요. 마음에 드실 때만 진행하시면 됩니다.</p>
+      </div>
+      <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="plat-note">무료 시안은 숨고 상담으로 요청해 주세요. 진행을 결정하시면 그때 숨고 안전결제로 결제합니다.</p>
     </div>
     <div class="plans">
       <div class="plan rv">
@@ -567,13 +576,13 @@ details[open] .pm::after{transform:rotate(0)}
         <p class="p-for">문구·사진이 준비된 분</p>
         <dl class="p-row"><dt>섹션 수</dt><dd>5개</dd></dl>
         <dl class="p-row"><dt>카피라이팅</dt><dd>다듬기</dd></dl>
-        <dl class="p-row"><dt>이미지</dt><dd>제공 이미지 편집</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>이메일 수신</dd></dl>
+        <dl class="p-row"><dt>사진</dt><dd>보내주신 사진 보정</dd></dl>
+        <dl class="p-row"><dt>문의 폼</dt><dd>이메일로 바로 도착</dd></dl>
         <dl class="p-row"><dt>애니메이션</dt><dd class="none">없음</dd></dl>
-        <dl class="p-row"><dt>배포</dt><dd>파일 전달</dd></dl>
+        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 (사장님 계정)</dd></dl>
         <dl class="p-row"><dt>수정</dt><dd>2회</dd></dl>
         <dl class="p-row"><dt>작업일</dt><dd>2일</dd></dl>
-        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 견적 받기</a>
+        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
       </div>
       <div class="plan feat rv">
         <div class="p-head"><h3 class="p-name">DELUXE</h3><span class="rec">처음이라면 추천</span></div>
@@ -581,13 +590,13 @@ details[open] .pm::after{transform:rotate(0)}
         <p class="p-for">기획·카피까지 맡기실 분</p>
         <dl class="p-row"><dt>섹션 수</dt><dd>8개</dd></dl>
         <dl class="p-row"><dt>카피라이팅</dt><dd>새로 작성</dd></dl>
-        <dl class="p-row"><dt>이미지</dt><dd>제작 이미지 3장</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>구글시트 자동 저장</dd></dl>
+        <dl class="p-row"><dt>사진</dt><dd>무료 스톡 사진 선별 3장</dd></dl>
+        <dl class="p-row"><dt>문의 폼</dt><dd>구글 시트 자동 저장 + 이메일 알림</dd></dl>
         <dl class="p-row"><dt>애니메이션</dt><dd>스크롤 등장 효과</dd></dl>
-        <dl class="p-row"><dt>배포</dt><dd>무료 호스팅 배포</dd></dl>
+        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 (사장님 계정)</dd></dl>
         <dl class="p-row"><dt>수정</dt><dd>3회</dd></dl>
         <dl class="p-row"><dt>작업일</dt><dd>3일</dd></dl>
-        <a class="btn btn-pri p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 견적 받기</a>
+        <a class="btn btn-pri p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
       </div>
       <div class="plan rv">
         <div class="p-head"><h3 class="p-name">PREMIUM</h3></div>
@@ -595,14 +604,23 @@ details[open] .pm::after{transform:rotate(0)}
         <p class="p-for">바로 광고 돌릴 분</p>
         <dl class="p-row"><dt>섹션 수</dt><dd>10개 이상</dd></dl>
         <dl class="p-row"><dt>카피라이팅</dt><dd>새로 작성 + 헤드라인 2안</dd></dl>
-        <dl class="p-row"><dt>이미지</dt><dd>제작 이미지 6장</dd></dl>
-        <dl class="p-row"><dt>문의 폼</dt><dd>구글시트 + 카카오/문자 알림 연동 안내</dd></dl>
+        <dl class="p-row"><dt>사진</dt><dd>무료 스톡 사진 선별 6장</dd></dl>
+        <dl class="p-row"><dt>문의 폼</dt><dd>구글 시트 자동 저장 + 이메일 알림</dd></dl>
         <dl class="p-row"><dt>애니메이션</dt><dd>섹션별 모션 + 숫자 카운트</dd></dl>
-        <dl class="p-row"><dt>배포</dt><dd>배포 + 도메인 연결 + GA4·메타 픽셀 설치</dd></dl>
+        <dl class="p-row"><dt>공개</dt><dd>무료 호스팅 배포 + 도메인 연결 + 광고 성과 측정 설정까지 대신 해드려요</dd></dl>
         <dl class="p-row"><dt>수정</dt><dd>5회</dd></dl>
         <dl class="p-row"><dt>작업일</dt><dd>4일</dd></dl>
-        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 견적 받기</a>
+        <a class="btn btn-line p-cta" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기</a>
       </div>
+    </div>
+    <div class="incl rv">
+      <p class="incl-h">세 패키지 모두 포함</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>무료 호스팅 배포<span>사장님 계정에 올려 월 이용료 없음</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>전화·문자 바로걸기 버튼<span>휴대폰에서 한 번에 연결</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>실제로 도착하는 문의 폼<span>샘플처럼 멈춰 있지 않아요</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-ok"/></svg><div>개인정보 처리방침·동의 문구 포함<span>문의 받기 전에 꼭 필요한 부분까지</span></div></li>
+      </ul>
     </div>
     <div class="addons rv">
       <span class="lbl">추가 옵션</span>
@@ -626,14 +644,14 @@ details[open] .pm::after{transform:rotate(0)}
     </div>
     <div class="qa">
       <div class="qa-card rv">
-        <div><h3>휴대폰·태블릿·PC 세 화면 검수</h3><p>375px · 768px · 1440px 폭에서 <b>가로 스크롤과 글자 겹침이 없는지</b> 화면을 찍어 확인한 뒤 납품합니다.</p></div>
+        <div><h3>휴대폰·PC 어디서 봐도 깨지지 않게</h3><p>휴대폰·태블릿·PC 화면을 하나하나 찍어 보고, <b>글자가 겹치거나 옆으로 밀리는 곳이 없는지</b> 확인한 뒤 납품합니다.</p></div>
         <div class="qa-vis devs" aria-hidden="true"><span class="dev d1">PC</span><span class="dev d2">태블릿</span><span class="dev d3">폰</span></div>
       </div>
       <div class="qa-card rv">
-        <h3>Lighthouse 90점 이상</h3><p>구글 측정 도구로 <b>성능·접근성</b> 점수를 확인합니다.</p>
+        <h3>느린 페이지 때문에 손님이 나가지 않게</h3><p>구글 점검 도구로 <b>열리는 속도와 읽기 편한 정도</b>를 확인합니다. 목표는 둘 다 90점 이상.</p>
         <div class="qa-vis gauges" aria-hidden="true">
-          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>성능</div>
-          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>접근성</div>
+          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>속도</div>
+          <div class="gauge"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#E3E5E9" stroke-width="7"/><circle cx="42" cy="42" r="36" fill="none" stroke="#111316" stroke-width="7" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="22.6"/></svg><span class="v">90+</span>읽기 편함</div>
         </div>
       </div>
       <div class="qa-card rv">
@@ -641,13 +659,13 @@ details[open] .pm::after{transform:rotate(0)}
         <p class="qa-vis big30" aria-hidden="true">30<small>일</small></p>
       </div>
       <div class="qa-card rv">
-        <div><h3>특정 빌더에 묶이지 않습니다</h3><p>HTML 한 파일 기반이라 <b>다른 업체에 맡겨도 바로 수정</b>할 수 있습니다. 월 이용료가 붙는 빌더가 아닙니다.</p></div>
-        <div class="qa-vis tree" aria-hidden="true"><div class="f">index.html</div><div class="d">assets/</div></div>
+        <div><h3>다른 업체에 맡겨도 바로 고칠 수 있는 파일</h3><p>월 이용료가 붙는 빌더가 아니라, <b>사장님이 그대로 가지는 파일</b>로 드립니다. 바꾸기 쉬운 곳을 표시한 수정 가이드도 함께 드려요.</p></div>
+        <div class="qa-vis tree" aria-hidden="true"><div class="f">우리 가게 페이지</div><div class="d">사진 폴더</div><div class="d">수정 가이드</div></div>
       </div>
     </div>
     <div class="ai rv" id="ai">
       <h3><span>안내</span>AI 활용</h3>
-      <p>기획·카피 초안·코딩·이미지 제작에 AI 도구를 활용합니다. 덕분에 빠르고 합리적인 가격이 가능하고, 모든 결과물은 화면별 검수를 거쳐 납품합니다. 제작 이미지는 상업적 사용이 가능하며 실존 인물·상표를 쓰지 않습니다.</p>
+      <p>기획·카피 초안·코딩에 AI 도구를 활용합니다. 덕분에 빠르고 합리적인 가격이 가능하고, 모든 결과물은 화면별 검수를 거쳐 납품합니다. 사진은 사장님 사진이나 상업적 이용이 허가된 무료 스톡 사진만 쓰고, 출처를 기록해 드립니다.</p>
       <p class="fine">이 페이지의 샘플 업체명·후기·수치는 제작 실력을 보여드리기 위한 가상 샘플입니다.</p>
     </div>
   </div>
@@ -666,6 +684,7 @@ details[open] .pm::after{transform:rotate(0)}
       <details><summary>도메인·호스팅비가 따로 드나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">호스팅은 무료 서비스(Cloudflare Pages 등)에 고객님 계정으로 올려드려 월 비용이 없습니다. 도메인은 원하시면 연 1~2만 원대로 직접 구입하시고, 연결은 PREMIUM에 포함됩니다.</p></details>
       <details><summary>나중에 문구를 직접 바꿀 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">바꾸기 쉬운 위치를 표시한 수정 가이드를 함께 드립니다. 간단한 문구 변경은 메모장으로도 가능합니다.</p></details>
       <details><summary>시안이 마음에 안 들면요?<span class="pm" aria-hidden="true"></span></summary><p class="a">첫 시안 단계에서 방향이 전혀 맞지 않으면 다른 콘셉트로 한 번 더 잡아드립니다. 수정 횟수는 차감하지 않습니다.</p></details>
+      <details><summary>기술적으로는 어떻게 만들어지나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">빌드 도구 없는 HTML 한 파일과 이미지 폴더(assets/)로 만듭니다. 375px·768px·1440px 폭에서 화면 캡처로 가로 스크롤·겹침을 검수하고, Lighthouse 성능·접근성 90점 이상을 목표로 합니다(고객 사진 용량에 따라 달라질 수 있음). 문의 폼은 Web3Forms(STANDARD) 또는 Google Apps Script + 구글 시트(DELUXE 이상)로 연결하고, PREMIUM은 GA4·메타 픽셀 설치와 도메인 DNS 연결까지 합니다. 호스팅은 Netlify·Cloudflare Pages 같은 무료 서비스의 고객님 계정을 씁니다.</p></details>
       <details><summary>아임웹·카페24에 넣을 수 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">코드 삽입 기능이 있는 플랜이면 가능하지만, 빌더 내부 작업은 하지 않습니다. 독립 페이지를 권장합니다.</p></details>
       <details><summary>맡길 수 없는 작업도 있나요?<span class="pm" aria-hidden="true"></span></summary><p class="a">쇼핑몰·결제 기능, 회원가입·로그인, 관리자 페이지, 워드프레스·아임웹 등 빌더 내부 작업, 다른 브랜드 디자인 복제, 의료·금융 과장 광고 문구는 하지 않습니다.</p></details>
     </div>
@@ -677,12 +696,12 @@ details[open] .pm::after{transform:rotate(0)}
   <div class="wrap">
     <span class="kicker">시작하기</span>
     <h2 class="h2" id="fn-h">광고 켜기 전에,<br><em>보낼 페이지</em>부터 만드세요</h2>
-    <p class="sub">질문지 10분이면 24시간 안에 첫 시안을 휴대폰으로 확인하실 수 있습니다.</p>
+    <p class="sub">질문지 10분이면 24시간 안에 첫 화면 시안을 휴대폰으로 확인하실 수 있습니다. 시안은 결제 전에 무료로 보여드려요.</p>
     <div class="cta-row" id="final-cta">
-      <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 견적 받기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470">숨고에서 무료 시안 요청하기<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-sec" href="https://kmong.com/@하루랜딩스튜디오">크몽에서 보기</a>
     </div>
-    <p class="safe"><svg aria-hidden="true"><use href="#i-shield"/></svg>모든 거래는 숨고·크몽 안전결제로 진행합니다</p>
+    <p class="safe"><svg aria-hidden="true"><use href="#i-shield"/></svg>결제는 숨고 안전결제(숨고페이)로만 받고, 상담·시안·결제 기록이 모두 숨고에 남습니다.</p>
   </div>
 </section>
 </main>
@@ -702,8 +721,8 @@ details[open] .pm::after{transform:rotate(0)}
 </footer>
 
 <div class="mbar" id="mbar" aria-hidden="true">
-  <p class="t">첫 시안 24시간<b>15만 원부터</b></p>
-  <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470" tabindex="-1">숨고에서 견적 받기</a>
+  <p class="t">시안은 결제 전 무료<b>15만 원부터</b></p>
+  <a class="btn btn-pri" href="https://soomgo.com/profile/users/19304470" tabindex="-1">숨고에서 무료 시안 요청</a>
 </div>
 
 <script>

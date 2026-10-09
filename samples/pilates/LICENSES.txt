@@ -1,0 +1,42 @@
+이미지·폰트 출처와 라이선스 — 결 필라테스 (포트폴리오 샘플 · 가상의 업체)
+확인일: 2026-10-09
+
+사진은 모두 Unsplash 에서 받은 무료 이미지이며, Unsplash License 에 따라 상업적 이용이 가능합니다.
+Unsplash License: https://unsplash.com/license
+ - 상업적·비상업적 이용 가능, 출처 표기 의무 없음(아래에 기록으로 남김)
+ - 사진을 변경 없이 그대로 판매하는 것, 유사 경쟁 서비스 구축은 금지
+각 사진은 1600px·800px 로 줄이고 JPEG 로 압축해 사용했습니다(-800 파일은 같은 사진의 작은 버전).
+사진 속 장소·인물은 이 가상 업체와 관계가 없습니다.
+
+assets/hero.jpg, assets/hero-800.jpg
+  쓰인 곳: 히어로 — 스튜디오 전경
+  원본 페이지: https://unsplash.com/photos/a-gym-with-a-row-of-machines-and-mirrors-a1IhqqW8JQE
+  작가: Ahmet Kurt (https://unsplash.com/@ahmetkurt)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/detail.jpg, assets/detail-800.jpg
+  쓰인 곳: 특징 섹션 — 소도구 벽면
+  원본 페이지: https://unsplash.com/photos/gym-equipment-neatly-organized-on-a-wooden-wall-m56-PAdMhM0
+  작가: Caroline Badran (https://unsplash.com/@___atmos)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/props.jpg, assets/props-800.jpg
+  쓰인 곳: 특징 섹션 원형 이미지 — 짐볼
+  원본 페이지: https://unsplash.com/photos/green-fitness-ball-on-parquet-floor-MaFmLXG_FwY
+  작가: Asier Gil (https://unsplash.com/@peruchena)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/instructor.jpg, assets/instructor-800.jpg
+  쓰인 곳: 강사 소개 — 리포머 시범
+  원본 페이지: https://unsplash.com/photos/a-woman-is-doing-exercises-on-a-pilates-xtR4JjZeogY
+  작가: Ahmet Kurt (https://unsplash.com/@ahmetkurt)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+assets/guide.jpg, assets/guide-800.jpg
+  쓰인 곳: 신청 섹션 — 동작을 잡아 주는 손
+  원본 페이지: https://unsplash.com/photos/a-close-up-of-a-persons-hands-shaking-O29FNlHuKk8
+  작가: Raspopova Marina (https://unsplash.com/@raspopovamarisha)
+  라이선스: Unsplash License (Unsplash+ 아님, 페이지에서 "Free to use under the Unsplash License" 확인)
+
+폰트: Pretendard (SIL Open Font License 1.1) — https://github.com/orioncactus/pretendard
+아이콘·도형·앱 화면 목업 등 그 밖의 그래픽은 HTML/CSS/SVG 로 직접 제작했습니다.
